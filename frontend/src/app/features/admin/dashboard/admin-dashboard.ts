@@ -61,7 +61,7 @@ export class AdminDashboardComponent implements OnInit {
   saveStock(itemId: number): void {
     if (this.editStockValue < 0) return;
     this.savingStock.set(true);
-    this.productService.update(itemId, { quantity: this.editStockValue } as any).subscribe({
+    this.productService.update(itemId, { quantity: this.editStockValue }).subscribe({
       next: () => {
         const s = this.stats();
         if (s) {

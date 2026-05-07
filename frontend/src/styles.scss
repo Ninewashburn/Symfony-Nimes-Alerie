@@ -13,6 +13,52 @@ body {
   overflow-x: hidden;
 }
 
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+}
+
+.hero-gradient-text {
+  color: #67e8f9;
+  text-shadow: 0 0 24px rgba(96, 165, 250, 0.22);
+}
+
+.icon-fallback .material-symbols-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-fallback-size, 1rem);
+  min-width: var(--icon-fallback-size, 1rem);
+  font-size: 0 !important;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.icon-fallback .material-symbols-outlined::before {
+  content: none;
+}
+
+.icon-fallback .material-symbols-outlined svg {
+  display: block;
+  width: var(--icon-fallback-size, 1rem);
+  height: var(--icon-fallback-size, 1rem);
+  flex: 0 0 auto;
+  stroke: currentColor;
+}
+
 /* --- Premium Design System: Glassmorphism & Depth --- */
 
 .glass-panel {
@@ -31,18 +77,34 @@ body {
 /* --- Galactic Animations --- */
 
 @keyframes nebula-pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
 }
 
 @keyframes scan-line {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
 }
 
 @keyframes float-orbital {
-  0%, 100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-10px) rotate(1deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
 }
 
 .animate-nebula {

@@ -1,24 +1,42 @@
 <div class="max-w-7xl mx-auto px-4 md:px-8 py-10">
   <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
     <div>
-      <a routerLink="/admin" class="group flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4 hover:translate-x-[-4px] transition-transform">
+      <a
+        routerLink="/admin"
+        class="group flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4 hover:translate-x-[-4px] transition-transform"
+      >
         <span class="material-symbols-outlined text-sm">arrow_back</span>
         Retour au Commandement
       </a>
-      <h1 class="text-4xl font-black tracking-tighter text-slate-900 dark:text-white uppercase font-headline">Gestion de l'Arsenal</h1>
-      <p class="text-[10px] font-bold text-slate-500 dark:text-blue-400/60 uppercase tracking-[0.2em] mt-2">Inventaire tactique et déploiement des ressources</p>
+      <h1
+        class="text-4xl font-black tracking-tighter text-slate-900 dark:text-white uppercase font-headline"
+      >
+        Gestion de l'Arsenal
+      </h1>
+      <p
+        class="text-[10px] font-bold text-slate-500 dark:text-blue-400/60 uppercase tracking-[0.2em] mt-2"
+      >
+        Inventaire tactique et déploiement des ressources
+      </p>
     </div>
     <div class="flex items-center gap-4">
-      <button (click)="openCreate()" class="bg-blue-600 text-white font-black px-8 py-4 rounded-full text-[10px] tracking-widest uppercase shadow-xl shadow-blue-500/20 hover:scale-105 transition-all flex items-center gap-3">
+      <button
+        (click)="openCreate()"
+        class="bg-blue-600 text-white font-black px-8 py-4 rounded-full text-[10px] tracking-widest uppercase shadow-xl shadow-blue-500/20 hover:scale-105 transition-all flex items-center gap-3"
+      >
         <span class="material-symbols-outlined text-sm">add</span>
         Nouvel Équipement
       </button>
     </div>
   </div>
 
-  <div class="glass-panel dark:bg-slate-900/40 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl overflow-hidden backdrop-blur-2xl">
+  <div
+    class="glass-panel dark:bg-slate-900/40 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl overflow-hidden backdrop-blur-2xl"
+  >
     <table class="w-full text-left">
-      <thead class="bg-slate-50/50 dark:bg-blue-900/10 text-[10px] uppercase tracking-[0.3em] font-black text-slate-400 dark:text-blue-400/40">
+      <thead
+        class="bg-slate-50/50 dark:bg-blue-900/10 text-[10px] uppercase tracking-[0.3em] font-black text-slate-400 dark:text-blue-400/40"
+      >
         <tr>
           <th class="px-8 py-5">Équipement / Désignation</th>
           <th class="px-8 py-5 text-right">Cotation Galactique</th>
@@ -28,54 +46,94 @@
       </thead>
       <tbody class="divide-y divide-blue-50 dark:divide-blue-900/20">
         @for (product of products(); track product.id) {
-          <tr class="hover:bg-blue-50/30 dark:hover:bg-blue-900/10 transition-colors group">
-            <td class="px-8 py-6">
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-slate-50 dark:bg-slate-800 overflow-hidden shrink-0 border border-slate-100 dark:border-blue-900/30">
-                  <img [src]="product.image || product.cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+        <tr class="hover:bg-blue-50/30 dark:hover:bg-blue-900/10 transition-colors group">
+          <td class="px-8 py-6">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-slate-50 dark:bg-slate-800 overflow-hidden shrink-0 border border-slate-100 dark:border-blue-900/30"
+              >
+                <img
+                  [src]="product.image || product.cover"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div>
+                <div
+                  class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight line-clamp-1"
+                >
+                  {{ product.title }}
                 </div>
-                <div>
-                  <div class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight line-clamp-1">{{ product.title }}</div>
-                  <div class="text-[9px] font-mono font-bold text-slate-400 uppercase">ITEM_CODE: #ARS-{{ product.id }}</div>
+                <div class="text-[9px] font-mono font-bold text-slate-400 uppercase">
+                  ITEM_CODE: #ARS-{{ product.id }}
                 </div>
               </div>
-            </td>
-            <td class="px-8 py-6 text-right">
-              <div class="text-xs font-black text-blue-600 dark:text-blue-400 tabular-nums">{{ +product.priceTTC | currency: 'EUR' }}</div>
-              <div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">HT {{ +product.priceHT | currency: 'EUR' }}</div>
-            </td>
-            <td class="px-8 py-6 text-right">
-              <div class="space-y-2 inline-block w-24">
-                <div class="flex justify-between items-center text-[10px] font-black">
-                  <span [class]="product.quantity < 10 ? 'text-purple-600' : 'text-slate-500'">{{ product.quantity }}</span>
-                  <span class="text-slate-400 text-[8px] uppercase">Stk</span>
-                </div>
-                <div class="h-1.5 w-full bg-slate-100 dark:bg-blue-900/20 rounded-full overflow-hidden">
-                  <div [class]="product.quantity < 10 ? 'bg-purple-600' : 'bg-blue-600'"
-                       class="h-full" [style.width.%]="(product.quantity / 50) * 100"></div>
-                </div>
+            </div>
+          </td>
+          <td class="px-8 py-6 text-right">
+            <div class="text-xs font-black text-blue-600 dark:text-blue-400 tabular-nums">
+              {{ +product.priceTTC | currency: 'EUR' }}
+            </div>
+            <div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
+              HT {{ +product.priceHT | currency: 'EUR' }}
+            </div>
+          </td>
+          <td class="px-8 py-6 text-right">
+            <div class="space-y-2 inline-block w-24">
+              <div class="flex justify-between items-center text-[10px] font-black">
+                <span [class]="product.quantity < 10 ? 'text-purple-600' : 'text-slate-500'"
+                  >{{ product.quantity }}</span
+                >
+                <span class="text-slate-400 text-[8px] uppercase">Stk</span>
               </div>
-            </td>
-            <td class="px-8 py-6 text-right">
-              <div class="flex justify-end gap-2 items-center">
-                <!-- Upload image -->
-                <label class="p-2 text-slate-400 hover:text-emerald-500 transition-colors cursor-pointer" title="Changer l'image">
-                  @if (uploadingImageId() === product.id) {
-                    <span class="material-symbols-outlined text-lg animate-spin text-emerald-500">sync</span>
-                  } @else {
-                    <span class="material-symbols-outlined text-lg">add_photo_alternate</span>
-                  }
-                  <input type="file" accept="image/jpeg,image/png,image/webp" class="hidden" (change)="onImageSelected(product, $event)" />
-                </label>
-                <button (click)="openEdit(product)" class="p-2 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" title="Modifier">
-                  <span class="material-symbols-outlined text-lg">edit</span>
-                </button>
-                <button (click)="deleteProduct(product.id)" class="p-2 text-slate-400 hover:text-red-500 transition-colors" title="Supprimer">
-                  <span class="material-symbols-outlined text-lg">delete</span>
-                </button>
+              <div
+                class="h-1.5 w-full bg-slate-100 dark:bg-blue-900/20 rounded-full overflow-hidden"
+              >
+                <div
+                  [class]="product.quantity < 10 ? 'bg-purple-600' : 'bg-blue-600'"
+                  class="h-full"
+                  [style.width.%]="(product.quantity / 50) * 100"
+                ></div>
               </div>
-            </td>
-          </tr>
+            </div>
+          </td>
+          <td class="px-8 py-6 text-right">
+            <div class="flex justify-end gap-2 items-center">
+              <!-- Upload image -->
+              <label
+                class="p-2 text-slate-400 hover:text-emerald-500 transition-colors cursor-pointer"
+                title="Changer l'image"
+              >
+                @if (uploadingImageId() === product.id) {
+                <span class="material-symbols-outlined text-lg animate-spin text-emerald-500"
+                  >sync</span
+                >
+                } @else {
+                <span class="material-symbols-outlined text-lg">add_photo_alternate</span>
+                }
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  class="hidden"
+                  (change)="onImageSelected(product, $event)"
+                />
+              </label>
+              <button
+                (click)="openEdit(product)"
+                class="p-2 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                title="Modifier"
+              >
+                <span class="material-symbols-outlined text-lg">edit</span>
+              </button>
+              <button
+                (click)="deleteProduct(product.id)"
+                class="p-2 text-slate-400 hover:text-red-500 transition-colors"
+                title="Supprimer"
+              >
+                <span class="material-symbols-outlined text-lg">delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
         }
       </tbody>
     </table>
@@ -84,84 +142,152 @@
 
 <!-- Modal Créer / Modifier -->
 @if (showModal()) {
-  <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
-    <!-- Backdrop -->
-    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="closeModal()"></div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="closeModal()"></div>
 
-    <!-- Modal panel -->
-    <div class="relative z-10 w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl p-8">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
-          {{ editingId !== null ? 'Modifier l\'équipement' : 'Nouvel équipement' }}
-        </h2>
-        <button (click)="closeModal()" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
-          <span class="material-symbols-outlined">close</span>
-        </button>
+  <!-- Modal panel -->
+  <div
+    class="relative z-10 w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl p-8"
+  >
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
+        {{ editingId !== null ? 'Modifier l\'équipement' : 'Nouvel équipement' }}
+      </h2>
+      <button
+        (click)="closeModal()"
+        class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+      >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div class="space-y-4">
+      <!-- Titre -->
+      <div>
+        <label
+          class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1"
+          >Désignation *</label
+        >
+        <input
+          [(ngModel)]="form.title"
+          name="title"
+          type="text"
+          placeholder="Nom du produit"
+          class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+        />
       </div>
 
-      <div class="space-y-4">
-        <!-- Titre -->
+      <!-- Description -->
+      <div>
+        <label
+          class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1"
+          >Description</label
+        >
+        <textarea
+          [(ngModel)]="form.description"
+          name="description"
+          rows="3"
+          placeholder="Description..."
+          class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm resize-none"
+        ></textarea>
+      </div>
+
+      <!-- Prix -->
+      <div class="grid grid-cols-2 gap-4">
         <div>
-          <label class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1">Désignation *</label>
-          <input [(ngModel)]="form.title" name="title" type="text" placeholder="Nom du produit"
-            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm" />
+          <label
+            class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1"
+            >Prix HT (€)</label
+          >
+          <input
+            [(ngModel)]="form.priceHT"
+            name="priceHT"
+            type="number"
+            step="0.01"
+            min="0"
+            placeholder="0.00"
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+          />
         </div>
-
-        <!-- Description -->
         <div>
-          <label class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1">Description</label>
-          <textarea [(ngModel)]="form.description" name="description" rows="3" placeholder="Description..."
-            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm resize-none"></textarea>
-        </div>
-
-        <!-- Prix -->
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1">Prix HT (€)</label>
-            <input [(ngModel)]="form.priceHT" name="priceHT" type="number" step="0.01" min="0" placeholder="0.00"
-              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1">Prix TTC (€)</label>
-            <input [(ngModel)]="form.priceTTC" name="priceTTC" type="number" step="0.01" min="0" placeholder="0.00"
-              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm" />
-          </div>
-        </div>
-
-        <!-- Stock + Actif -->
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1">Stock</label>
-            <input [(ngModel)]="form.quantity" name="quantity" type="number" min="0" placeholder="0"
-              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm" />
-          </div>
-          <div class="flex flex-col justify-end">
-            <label class="flex items-center gap-3 cursor-pointer">
-              <div class="relative">
-                <input [(ngModel)]="form.isActive" name="isActive" type="checkbox" class="sr-only peer" />
-                <div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-checked:bg-blue-600 rounded-full transition-colors"></div>
-                <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-5 shadow"></div>
-              </div>
-              <span class="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest">Actif</span>
-            </label>
-          </div>
+          <label
+            class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1"
+            >Prix TTC (€)</label
+          >
+          <input
+            [(ngModel)]="form.priceTTC"
+            name="priceTTC"
+            type="number"
+            step="0.01"
+            min="0"
+            placeholder="0.00"
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+          />
         </div>
       </div>
 
-      <!-- Actions -->
-      <div class="flex justify-end gap-3 mt-8">
-        <button type="button" (click)="closeModal()"
-          class="px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
-          Annuler
-        </button>
-        <button type="button" (click)="submit()" [disabled]="submitting() || !form.title.trim()"
-          class="px-7 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white text-sm font-bold transition-all flex items-center gap-2">
-          @if (submitting()) {
-            <span class="material-symbols-outlined text-sm animate-spin">sync</span>
-          }
-          {{ submitting() ? 'Déploiement...' : (editingId !== null ? 'Enregistrer' : 'Créer') }}
-        </button>
+      <!-- Stock + Actif -->
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label
+            class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1"
+            >Stock</label
+          >
+          <input
+            [(ngModel)]="form.quantity"
+            name="quantity"
+            type="number"
+            min="0"
+            placeholder="0"
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+          />
+        </div>
+        <div class="flex flex-col justify-end">
+          <label class="flex items-center gap-3 cursor-pointer">
+            <div class="relative">
+              <input
+                [(ngModel)]="form.isActive"
+                name="isActive"
+                type="checkbox"
+                class="sr-only peer"
+              />
+              <div
+                class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-checked:bg-blue-600 rounded-full transition-colors"
+              ></div>
+              <div
+                class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-5 shadow"
+              ></div>
+            </div>
+            <span
+              class="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest"
+              >Actif</span
+            >
+          </label>
+        </div>
       </div>
     </div>
+
+    <!-- Actions -->
+    <div class="flex justify-end gap-3 mt-8">
+      <button
+        type="button"
+        (click)="closeModal()"
+        class="px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+      >
+        Annuler
+      </button>
+      <button
+        type="button"
+        (click)="submit()"
+        [disabled]="submitting() || !form.title.trim()"
+        class="px-7 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white text-sm font-bold transition-all flex items-center gap-2"
+      >
+        @if (submitting()) {
+        <span class="material-symbols-outlined text-sm animate-spin">sync</span>
+        } {{ submitting() ? 'Déploiement...' : (editingId !== null ? 'Enregistrer' : 'Créer') }}
+      </button>
+    </div>
   </div>
+</div>
 }

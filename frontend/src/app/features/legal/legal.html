@@ -4,211 +4,367 @@
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
       <div>
         <div class="flex items-center gap-3 mb-4">
-          <span class="w-2.5 h-2.5 rounded-full animate-pulse shadow-[0_0_10px_currentColor]"
+          <span
+            class="w-2.5 h-2.5 rounded-full animate-pulse shadow-[0_0_10px_currentColor]"
             [class.text-blue-600]="type() === 'cgu'"
             [class.text-cyan-500]="type() === 'cgv'"
-            [class.text-purple-600]="type() === 'mentions'"></span>
-          <span class="font-mono text-[10px] font-black tracking-[0.4em] uppercase opacity-50 dark:text-blue-400/60">Lex Galactica Central Index</span>
+            [class.text-purple-600]="type() === 'mentions'"
+          ></span>
+          <span
+            class="font-mono text-[10px] font-black tracking-[0.4em] uppercase opacity-50 dark:text-blue-400/60"
+            >Lex Galactica Central Index</span
+          >
         </div>
-        <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white uppercase font-headline">
+        <h1
+          class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white uppercase font-headline"
+        >
           {{ titles[type()] }}
         </h1>
-        <p class="text-[10px] font-mono font-black text-slate-400 dark:text-blue-400/40 uppercase tracking-[0.2em] mt-3">
-          Séquence de Protocole : {{ type().toUpperCase() }}-{{ type() === 'cgu' ? '001A' : type() === 'cgv' ? '001B' : '001C' }} // Version 2.4.0-STABLE
+        <p
+          class="text-[10px] font-mono font-black text-slate-400 dark:text-blue-400/40 uppercase tracking-[0.2em] mt-3"
+        >
+          Séquence de Protocole : {{ type().toUpperCase() }}-{{ type() === 'cgu' ? '001A' : type()
+          === 'cgv' ? '001B' : '001C' }} // Version 2.4.0-STABLE
         </p>
       </div>
       <div class="font-mono text-right hidden md:block">
-        <p class="text-[9px] text-slate-400 dark:text-blue-400/30 uppercase tracking-widest mb-1">Dernière Synchronisation</p>
+        <p class="text-[9px] text-slate-400 dark:text-blue-400/30 uppercase tracking-widest mb-1">
+          Dernière Synchronisation
+        </p>
         <p class="text-xs font-bold text-slate-700 dark:text-blue-400">AVRIL 2026 // BASE TERRE</p>
       </div>
     </div>
-    
+
     <!-- Decorative Scanline Gradient -->
-    <div class="absolute -inset-x-8 -top-8 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-blue-500/30 to-transparent"></div>
+    <div
+      class="absolute -inset-x-8 -top-8 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-blue-500/30 to-transparent"
+    ></div>
   </header>
 
   <!-- CONTENT BLOCKS -->
   <div class="space-y-8 relative">
-    
     <!-- CGU Content -->
     @if (type() === 'cgu') {
-      <div class="grid grid-cols-1 gap-6">
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl transition-all duration-500 group relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-6 opacity-[0.03] dark:opacity-[0.05] pointer-events-none group-hover:opacity-[0.1] transition-opacity">
-            <span class="material-symbols-outlined text-9xl">gavel</span>
-          </div>
-          <div class="relative z-10">
-            <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-              <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
-              1. Objet du Protocole
-            </h2>
-            <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-              Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site <strong>La Nîmes'Alerie</strong> accessible à l'adresse nimes-alerie.space. En accédant au site, l'officier utilisateur accepte sans réserve les présentes directives de navigation.
-            </p>
-          </div>
-        </section>
-
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 group relative">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
+    <div class="grid grid-cols-1 gap-6">
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl transition-all duration-500 group relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 right-0 p-6 opacity-[0.03] dark:opacity-[0.05] pointer-events-none group-hover:opacity-[0.1] transition-opacity"
+        >
+          <span class="material-symbols-outlined text-9xl">gavel</span>
+        </div>
+        <div class="relative z-10">
+          <h2
+            class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+          >
             <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
-            2. Accès au Service Orbital
+            1. Objet du Protocole
           </h2>
           <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            Le site est accessible gratuitement à tout utilisateur disposant d'un accès au réseau intergalactique. L'accès à certaines fonctionnalités (commande de matériel, forum de liaison, dossier personnel) requiert la création d'une accréditation sécurisée.
+            Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et
+            l'utilisation du site <strong>La Nîmes'Alerie</strong> accessible à l'adresse
+            nimes-alerie.space. En accédant au site, l'officier utilisateur accepte sans réserve les
+            présentes directives de navigation.
           </p>
-        </section>
+        </div>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 group relative">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
-            3. Accréditation de l'Officier
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            L'utilisateur s'engage à fournir des données biométriques exactes lors de son enrôlement. Il est seul responsable de l'intégrité de ses clés d'accès. Tout accès au terminal avec ces clés sera réputé effectué par l'officier titulaire.
-          </p>
-        </section>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 group relative"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
+          2. Accès au Service Orbital
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          Le site est accessible gratuitement à tout utilisateur disposant d'un accès au réseau
+          intergalactique. L'accès à certaines fonctionnalités (commande de matériel, forum de
+          liaison, dossier personnel) requiert la création d'une accréditation sécurisée.
+        </p>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 group relative">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
-            4. Propriété Intellectuelle
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            L'ensemble des schémas techniques, documents de mission, codes source et logos sont protégés par le droit galactique de la propriété intellectuelle. Toute extraction non autorisée déclenchera une procédure de confinement légal.
-          </p>
-        </section>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 group relative"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
+          3. Accréditation de l'Officier
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          L'utilisateur s'engage à fournir des données biométriques exactes lors de son enrôlement.
+          Il est seul responsable de l'intégrité de ses clés d'accès. Tout accès au terminal avec
+          ces clés sera réputé effectué par l'officier titulaire.
+        </p>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 group relative">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
-            5. Limitation de Responsabilité
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            La Nîmes'Alerie s'efforce de maintenir le signal stable mais ne garantit pas une connexion ininterrompue en cas de tempête électromagnétique ou d'opérations de maintenance sur le noyau central.
-          </p>
-        </section>
-      </div>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 group relative"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
+          4. Propriété Intellectuelle
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          L'ensemble des schémas techniques, documents de mission, codes source et logos sont
+          protégés par le droit galactique de la propriété intellectuelle. Toute extraction non
+          autorisée déclenchera une procédure de confinement légal.
+        </p>
+      </section>
+
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 group relative"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
+          5. Limitation de Responsabilité
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          La Nîmes'Alerie s'efforce de maintenir le signal stable mais ne garantit pas une connexion
+          ininterrompue en cas de tempête électromagnétique ou d'opérations de maintenance sur le
+          noyau central.
+        </p>
+      </section>
+    </div>
     }
 
     <!-- CGV Content -->
     @if (type() === 'cgv') {
-      <div class="grid grid-cols-1 gap-6">
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-6 opacity-[0.03] dark:opacity-[0.05] pointer-events-none group-hover:opacity-[0.1] transition-opacity">
-            <span class="material-symbols-outlined text-9xl">shopping_cart_checkout</span>
-          </div>
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
-            1. Champ d'Application
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            Ces directives s'appliquent à l'avitaillement conclu sur La Nîmes'Alerie. Tout déploiement de commande implique l'acceptation du présent protocole de vente.
-          </p>
-        </section>
+    <div class="grid grid-cols-1 gap-6">
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 right-0 p-6 opacity-[0.03] dark:opacity-[0.05] pointer-events-none group-hover:opacity-[0.1] transition-opacity"
+        >
+          <span class="material-symbols-outlined text-9xl">shopping_cart_checkout</span>
+        </div>
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
+          1. Champ d'Application
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          Ces directives s'appliquent à l'avitaillement conclu sur La Nîmes'Alerie. Tout déploiement
+          de commande implique l'acceptation du présent protocole de vente.
+        </p>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
-            2. Arsenal et Cotations
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            Les équipements proposés sont ceux du catalogue actif, sous réserve de disponibilité dans les hangars. Les prix sont exprimés en Euros TTC. La cotation en vigueur est celle affichée lors de la synchronisation finale de l'achat.
-          </p>
-        </section>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
+          2. Arsenal et Cotations
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          Les équipements proposés sont ceux du catalogue actif, sous réserve de disponibilité dans
+          les hangars. Les prix sont exprimés en Euros TTC. La cotation en vigueur est celle
+          affichée lors de la synchronisation finale de l'achat.
+        </p>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
-            3. Validation du Déploiement
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            La mission est définitivement validée après acquittement du flux de paiement. Un canal de confirmation est ouvert immédiatement vers le terminal de l'officier.
-          </p>
-        </section>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
+          3. Validation du Déploiement
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          La mission est définitivement validée après acquittement du flux de paiement. Un canal de
+          confirmation est ouvert immédiatement vers le terminal de l'officier.
+        </p>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
-            4. Logistique de Livraison
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            Les cargaisons sont expédiées aux coordonnées de surface fournies sous 24h à 72h. Le fret interplanétaire est assuré vers tout le secteur nîmois et environnant.
-          </p>
-        </section>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
+          4. Logistique de Livraison
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          Les cargaisons sont expédiées aux coordonnées de surface fournies sous 24h à 72h. Le fret
+          interplanétaire est assuré vers tout le secteur nîmois et environnant.
+        </p>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
-            5. Droit de Rétractation
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            Conformément au code galactique, le client dispose de 14 cycles terrestres pour demander une annulation de mission et le retour du matériel à la base centrale.
-          </p>
-        </section>
-      </div>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-cyan-100 dark:border-cyan-900/50 shadow-2xl shadow-cyan-500/5 group relative"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-cyan-500 rounded-full"></span>
+          5. Droit de Rétractation
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          Conformément au code galactique, le client dispose de 14 cycles terrestres pour demander
+          une annulation de mission et le retour du matériel à la base centrale.
+        </p>
+      </section>
+    </div>
     }
 
     <!-- Mentions Content -->
     @if (type() === 'mentions') {
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-purple-100 dark:border-purple-900/50 shadow-2xl shadow-purple-500/5 col-span-1 md:col-span-2">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-8">
-            <span class="w-1.5 h-7 bg-purple-600 rounded-full"></span>
-            Éditeur du Hub Central
-          </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">
-            <div class="space-y-4">
-              <p><span class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1">Raison Sociale</span> La Nîmes'Alerie Galactique SAS</p>
-              <p><span class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1">Siège Opérationnel</span> Base Terrestre, 30000 Nîmes, France</p>
-              <p><span class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1">Enregistrement</span> SIRET : 123 456 789 00010</p>
-            </div>
-            <div class="space-y-4">
-              <p><span class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1">Commandement du Hub</span> Alexandre Dupont</p>
-              <p><span class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1">Fréq. Uplink</span> contact&#64;nimes-alerie.space</p>
-              <p><span class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1">Poids Éco</span> Capital : 10 000 €</p>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-purple-100 dark:border-purple-900/50 shadow-2xl shadow-purple-500/5 col-span-1 md:col-span-2"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-8"
+        >
+          <span class="w-1.5 h-7 bg-purple-600 rounded-full"></span>
+          Éditeur du Hub Central
+        </h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter"
+        >
+          <div class="space-y-4">
+            <p>
+              <span
+                class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1"
+                >Raison Sociale</span
+              >
+              La Nîmes'Alerie Galactique SAS
+            </p>
+            <p>
+              <span
+                class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1"
+                >Siège Opérationnel</span
+              >
+              Base Terrestre, 30000 Nîmes, France
+            </p>
+            <p>
+              <span
+                class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1"
+                >Enregistrement</span
+              >
+              SIRET : 123 456 789 00010
+            </p>
           </div>
-        </section>
+          <div class="space-y-4">
+            <p>
+              <span
+                class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1"
+                >Commandement du Hub</span
+              >
+              Alexandre Dupont
+            </p>
+            <p>
+              <span
+                class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1"
+                >Fréq. Uplink</span
+              >
+              contact&#64;nimes-alerie.space
+            </p>
+            <p>
+              <span
+                class="text-[9px] font-mono font-black text-purple-600 dark:text-purple-400 block mb-1"
+                >Poids Éco</span
+              >
+              Capital : 10 000 €
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
-            Hébergement Orbital
-          </h2>
-          <p class="text-xs font-bold text-slate-500 dark:text-blue-400 uppercase tracking-tight mb-2">Division Numérique Station Alpha</p>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400">1 Rue de la Galaxie, 75001 Paris, France</p>
-        </section>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-blue-600 rounded-full"></span>
+          Hébergement Orbital
+        </h2>
+        <p
+          class="text-xs font-bold text-slate-500 dark:text-blue-400 uppercase tracking-tight mb-2"
+        >
+          Division Numérique Station Alpha
+        </p>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400">
+          1 Rue de la Galaxie, 75001 Paris, France
+        </p>
+      </section>
 
-        <section class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-emerald-100 dark:border-emerald-900/50 shadow-2xl shadow-emerald-500/5">
-          <h2 class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6">
-            <span class="w-1.5 h-7 bg-emerald-500 rounded-full"></span>
-            RGPD & Cookies
-          </h2>
-          <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            Nous n'utilisons aucun traceur biologique publicitaire. Seul un jeton de navigation (JWT) crypté est stocké pour maintenir votre accréditation active sur le terminal.
-          </p>
-        </section>
-      </div>
+      <section
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-emerald-100 dark:border-emerald-900/50 shadow-2xl shadow-emerald-500/5"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter text-slate-900 dark:text-white uppercase flex items-center gap-3 mb-6"
+        >
+          <span class="w-1.5 h-7 bg-emerald-500 rounded-full"></span>
+          RGPD & Cookies
+        </h2>
+        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
+          Nous n'utilisons aucun traceur biologique publicitaire. Seul un jeton de navigation (JWT)
+          crypté est stocké pour maintenir votre accréditation active sur le terminal.
+        </p>
+      </section>
+    </div>
     }
 
     <!-- Background Decoration Overlay -->
-    <div class="fixed inset-0 pointer-events-none -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(0,82,255,0.05),transparent_50%)]"></div>
+    <div
+      class="fixed inset-0 pointer-events-none -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(0,82,255,0.05),transparent_50%)]"
+    ></div>
   </div>
 
   <!-- Lex Galactica Utility Footer -->
-  <footer class="mt-16 pt-8 border-t border-slate-100 dark:border-blue-950 flex flex-col items-center gap-6">
+  <footer
+    class="mt-16 pt-8 border-t border-slate-100 dark:border-blue-950 flex flex-col items-center gap-6"
+  >
     <div class="flex items-center gap-6">
-       <button [class]="type() === 'cgu' ? 'text-blue-600 font-black border-b-2 border-blue-600' : 'text-slate-400 font-bold'"
-               class="text-[10px] uppercase tracking-[0.2em] transition-all" (click)="type.set('cgu')">CGU</button>
-       <button [class]="type() === 'cgv' ? 'text-cyan-500 font-black border-b-2 border-cyan-500' : 'text-slate-400 font-bold'"
-               class="text-[10px] uppercase tracking-[0.2em] transition-all" (click)="type.set('cgv')">CGV</button>
-       <button [class]="type() === 'mentions' ? 'text-purple-600 font-black border-b-2 border-purple-600' : 'text-slate-400 font-bold'"
-               class="text-[10px] uppercase tracking-[0.2em] transition-all" (click)="type.set('mentions')">MENTIONS</button>
+      <button
+        [class]="type() === 'cgu' ? 'text-blue-600 font-black border-b-2 border-blue-600' : 'text-slate-400 font-bold'"
+        class="text-[10px] uppercase tracking-[0.2em] transition-all"
+        (click)="type.set('cgu')"
+      >
+        CGU
+      </button>
+      <button
+        [class]="type() === 'cgv' ? 'text-cyan-500 font-black border-b-2 border-cyan-500' : 'text-slate-400 font-bold'"
+        class="text-[10px] uppercase tracking-[0.2em] transition-all"
+        (click)="type.set('cgv')"
+      >
+        CGV
+      </button>
+      <button
+        [class]="type() === 'mentions' ? 'text-purple-600 font-black border-b-2 border-purple-600' : 'text-slate-400 font-bold'"
+        class="text-[10px] uppercase tracking-[0.2em] transition-all"
+        (click)="type.set('mentions')"
+      >
+        MENTIONS
+      </button>
     </div>
-    <div class="p-4 bg-slate-900 dark:bg-black rounded-full flex items-center gap-5 px-8 shadow-2xl">
-      <span class="text-[9px] font-mono text-emerald-500 uppercase tracking-widest">Encyption: AES-512</span>
+    <div
+      class="p-4 bg-slate-900 dark:bg-black rounded-full flex items-center gap-5 px-8 shadow-2xl"
+    >
+      <span class="text-[9px] font-mono text-emerald-500 uppercase tracking-widest"
+        >Encyption: AES-512</span
+      >
       <span class="w-1 h-1 bg-white/20 rounded-full"></span>
-      <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest italic">Lex Galactica Terminal v4.0.2</span>
+      <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest italic"
+        >Lex Galactica Terminal v4.0.2</span
+      >
     </div>
   </footer>
 </div>

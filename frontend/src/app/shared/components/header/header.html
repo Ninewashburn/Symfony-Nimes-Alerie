@@ -1,78 +1,144 @@
-<header class="fixed top-0 w-full z-50 glass-panel dark:bg-gray-900/80 border-b border-white/20 dark:border-gray-800/50 shadow-lg shadow-blue-500/10 h-20 transition-colors">
+<header
+  class="fixed top-0 w-full z-50 glass-panel dark:bg-gray-900/80 border-b border-white/20 dark:border-gray-800/50 shadow-lg shadow-blue-500/10 h-20 transition-colors"
+>
   <div class="container mx-auto px-4 h-full flex justify-between items-center">
     <!-- Logo & Title -->
     <div class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-3xl" data-icon="rocket_launch">rocket_launch</span>
-      <a routerLink="/" class="text-2xl font-black text-slate-900 dark:text-white hover:text-primary dark:hover:text-blue-400 transition-colors font-headline tracking-tight">
+      <span class="material-symbols-outlined text-primary text-3xl" data-icon="rocket_launch"
+        >rocket_launch</span
+      >
+      <a
+        routerLink="/"
+        class="text-2xl font-black text-slate-900 dark:text-white hover:text-primary dark:hover:text-blue-400 transition-colors font-headline tracking-tight"
+      >
         La Nîmes'Alerie
       </a>
     </div>
 
     <!-- Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-8 font-body font-bold text-gray-700 dark:text-gray-200">
-      <a routerLink="/products" routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20 rounded-xl" class="px-3 py-2 hover:text-primary dark:hover:text-blue-400 transition-all duration-200">Boutique</a>
-      <a routerLink="/articles" routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20 rounded-xl" class="px-3 py-2 hover:text-primary dark:hover:text-blue-400 transition-all duration-200">Articles</a>
-      <a routerLink="/forum" routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20 rounded-xl" class="px-3 py-2 hover:text-primary dark:hover:text-blue-400 transition-all duration-200">Forum</a>
-      <a routerLink="/contact" routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20 rounded-xl" class="px-3 py-2 hover:text-primary dark:hover:text-blue-400 transition-all duration-200">Contact</a>
+    <nav
+      class="hidden lg:flex items-center gap-8 font-body font-bold text-gray-700 dark:text-gray-200"
+    >
+      <a
+        routerLink="/products"
+        routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20 rounded-xl"
+        class="px-3 py-2 hover:text-primary dark:hover:text-blue-400 transition-all duration-200"
+        >Boutique</a
+      >
+      <a
+        routerLink="/articles"
+        routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20 rounded-xl"
+        class="px-3 py-2 hover:text-primary dark:hover:text-blue-400 transition-all duration-200"
+        >Articles</a
+      >
+      <a
+        routerLink="/forum"
+        routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20 rounded-xl"
+        class="px-3 py-2 hover:text-primary dark:hover:text-blue-400 transition-all duration-200"
+        >Forum</a
+      >
+      <a
+        routerLink="/contact"
+        routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20 rounded-xl"
+        class="px-3 py-2 hover:text-primary dark:hover:text-blue-400 transition-all duration-200"
+        >Contact</a
+      >
     </nav>
 
     <!-- User & Actions -->
     <div class="flex items-center gap-4">
       <!-- Burger Button (mobile only) -->
-      <button (click)="toggleMobileMenu()" class="lg:hidden text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition bg-gray-100 dark:bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center" title="Menu">
-        <span class="material-symbols-outlined text-xl">{{ mobileMenuOpen() ? 'close' : 'menu' }}</span>
+      <button
+        (click)="toggleMobileMenu()"
+        class="lg:hidden text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition bg-gray-100 dark:bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center"
+        title="Menu"
+      >
+        <span class="material-symbols-outlined text-xl"
+          >{{ mobileMenuOpen() ? 'close' : 'menu' }}</span
+        >
       </button>
       <!-- Dark Mode Toggle -->
-      <button (click)="toggleTheme()" class="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition bg-gray-100 dark:bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-inner" title="Basculer le mode sombre">
+      <button
+        (click)="toggleTheme()"
+        class="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition bg-gray-100 dark:bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-inner"
+        title="Basculer le mode sombre"
+      >
         <span class="material-symbols-outlined text-xl">
           {{ isDarkMode() ? 'light_mode' : 'dark_mode' }}
         </span>
       </button>
 
       <!-- Mini Game Bonus Button -->
-      <a routerLink="/bonus" class="bg-gradient-to-r from-purple-500 to-secondary text-white w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-purple-500/30" title="Jouer au mini-jeu !">
+      <a
+        routerLink="/bonus"
+        class="bg-gradient-to-r from-purple-500 to-secondary text-white w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-purple-500/30"
+        title="Jouer au mini-jeu !"
+      >
         <span class="material-symbols-outlined text-xl" data-icon="cruelty_free">cruelty_free</span>
       </a>
 
       <!-- Cart Button -->
-      <a routerLink="/cart" class="relative text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition bg-gray-100 dark:bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center">
-        <span class="material-symbols-outlined font-light text-xl" data-icon="shopping_basket">shopping_basket</span>
+      <a
+        routerLink="/cart"
+        class="relative text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition bg-gray-100 dark:bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center"
+      >
+        <span class="material-symbols-outlined font-light text-xl" data-icon="shopping_basket"
+          >shopping_basket</span
+        >
         @if (cartService.itemCount() > 0) {
-          <span class="absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-md">
-            {{ cartService.itemCount() }}
-          </span>
+        <span
+          class="absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-md"
+        >
+          {{ cartService.itemCount() }}
+        </span>
         }
       </a>
 
       <!-- Auth / Profile -->
-      @if (authService.loggedIn()) {
-        @if (authService.isAdmin()) {
-          <a routerLink="/admin" class="text-sm font-bold bg-primary/10 dark:bg-primary/20 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:text-white px-4 py-2 rounded-full transition-colors">
-            Admin
-          </a>
-        } @else {
-          <a routerLink="/space" class="text-sm font-bold bg-primary/10 dark:bg-primary/20 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:text-white px-4 py-2 rounded-full transition-colors">
-            Mon Espace
-          </a>
-          <a routerLink="/my-orders" class="relative text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition bg-gray-100 dark:bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center" title="Mes Commandes">
-            <span class="material-symbols-outlined font-light text-xl">inventory_2</span>
-          </a>
-        }
-        <button (click)="authService.logout()" class="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 transition px-2">
-          Déconnexion
-        </button>
-        <a routerLink="/profile" class="w-10 h-10 rounded-full border-2 border-primary dark:border-blue-400 bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-sm hover:scale-105 transition-transform" title="Mon profil">
-          <span class="text-white text-sm font-black select-none">
-            {{ (authService.user()?.firstName?.[0] ?? '') + (authService.user()?.lastName?.[0] ?? '') || 'U' }}
-          </span>
-        </a>
+      @if (authService.loggedIn()) { @if (authService.isAdmin()) {
+      <a
+        routerLink="/admin"
+        class="text-sm font-bold bg-primary/10 dark:bg-primary/20 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:text-white px-4 py-2 rounded-full transition-colors"
+      >
+        Admin
+      </a>
       } @else {
-        <a routerLink="/login" class="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition px-2">
-          Connexion
-        </a>
-        <a routerLink="/register" class="text-sm font-bold bg-gradient-to-r from-primary to-blue-400 text-white px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-primary/30 active:scale-95 transition-all w-max whitespace-nowrap">
-          S'inscrire
-        </a>
+      <a
+        routerLink="/space"
+        class="text-sm font-bold bg-primary/10 dark:bg-primary/20 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:text-white px-4 py-2 rounded-full transition-colors"
+      >
+        Mon Espace
+      </a>
+      }
+      <button
+        (click)="authService.logout()"
+        class="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 transition px-2"
+      >
+        Déconnexion
+      </button>
+      <a
+        routerLink="/profile"
+        class="w-10 h-10 rounded-full border-2 border-primary dark:border-blue-400 bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-sm hover:scale-105 transition-transform"
+        title="Mon profil"
+      >
+        <span class="text-white text-sm font-black select-none">
+          {{ (authService.user()?.firstName?.[0] ?? '') + (authService.user()?.lastName?.[0] ?? '')
+          || 'U' }}
+        </span>
+      </a>
+      } @else {
+      <a
+        routerLink="/login"
+        class="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition px-2"
+      >
+        Connexion
+      </a>
+      <a
+        routerLink="/register"
+        class="text-sm font-bold bg-gradient-to-r from-primary to-blue-400 text-white px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-primary/30 active:scale-95 transition-all w-max whitespace-nowrap"
+      >
+        S'inscrire
+      </a>
       }
     </div>
   </div>
@@ -80,76 +146,106 @@
 
 <!-- Mobile Menu Overlay -->
 @if (mobileMenuOpen()) {
-  <div class="lg:hidden fixed inset-0 z-40" (click)="closeMobileMenu()">
-    <!-- Backdrop -->
-    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+<div class="lg:hidden fixed inset-0 z-40" (click)="closeMobileMenu()">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
 
-    <!-- Drawer -->
-    <nav class="absolute top-20 left-0 right-0 glass-panel dark:bg-gray-900/95 border-b border-white/20 dark:border-gray-800/50 shadow-2xl px-4 py-6 flex flex-col gap-2 font-body font-bold" (click)="$event.stopPropagation()">
-      <a routerLink="/products" routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20" (click)="closeMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-        <span class="material-symbols-outlined text-xl">storefront</span>
-        Boutique
-      </a>
-      <a routerLink="/articles" routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20" (click)="closeMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-        <span class="material-symbols-outlined text-xl">newspaper</span>
-        Articles
-      </a>
-      <a routerLink="/forum" routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20" (click)="closeMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-        <span class="material-symbols-outlined text-xl">forum</span>
-        Forum
-      </a>
-      <a routerLink="/contact" routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20" (click)="closeMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-        <span class="material-symbols-outlined text-xl">mail</span>
-        Contact
-      </a>
+  <!-- Drawer -->
+  <nav
+    class="absolute top-20 left-0 right-0 glass-panel dark:bg-gray-900/95 border-b border-white/20 dark:border-gray-800/50 shadow-2xl px-4 py-6 flex flex-col gap-2 font-body font-bold"
+    (click)="$event.stopPropagation()"
+  >
+    <a
+      routerLink="/products"
+      routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
+    >
+      <span class="material-symbols-outlined text-xl">storefront</span>
+      Boutique
+    </a>
+    <a
+      routerLink="/articles"
+      routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
+    >
+      <span class="material-symbols-outlined text-xl">newspaper</span>
+      Articles
+    </a>
+    <a
+      routerLink="/forum"
+      routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
+    >
+      <span class="material-symbols-outlined text-xl">forum</span>
+      Forum
+    </a>
+    <a
+      routerLink="/contact"
+      routerLinkActive="text-primary bg-primary/10 dark:bg-primary/20"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
+    >
+      <span class="material-symbols-outlined text-xl">mail</span>
+      Contact
+    </a>
 
-      <div class="border-t border-gray-100 dark:border-gray-800 my-2"></div>
+    <div class="border-t border-gray-100 dark:border-gray-800 my-2"></div>
 
-      @if (authService.loggedIn()) {
-        @if (authService.isAdmin()) {
-          <a routerLink="/admin" (click)="closeMobileMenu()"
-            class="flex items-center gap-3 px-4 py-3 rounded-2xl text-primary dark:text-blue-400 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all">
-            <span class="material-symbols-outlined text-xl">admin_panel_settings</span>
-            Dashboard Admin
-          </a>
-        } @else {
-          <a routerLink="/space" (click)="closeMobileMenu()"
-            class="flex items-center gap-3 px-4 py-3 rounded-2xl text-primary dark:text-blue-400 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all">
-            <span class="material-symbols-outlined text-xl">rocket_launch</span>
-            Mon Espace
-          </a>
-          <a routerLink="/my-orders" (click)="closeMobileMenu()"
-            class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-            <span class="material-symbols-outlined text-xl">inventory_2</span>
-            Mes Commandes
-          </a>
-        }
-        <a routerLink="/profile" (click)="closeMobileMenu()"
-          class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-          <span class="material-symbols-outlined text-xl">account_circle</span>
-          Mon profil
-        </a>
-        <button (click)="authService.logout(); closeMobileMenu()"
-          class="flex items-center gap-3 px-4 py-3 rounded-2xl text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all w-full text-left">
-          <span class="material-symbols-outlined text-xl">logout</span>
-          Déconnexion
-        </button>
-      } @else {
-        <a routerLink="/login" (click)="closeMobileMenu()"
-          class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-          <span class="material-symbols-outlined text-xl">login</span>
-          Connexion
-        </a>
-        <a routerLink="/register" (click)="closeMobileMenu()"
-          class="flex items-center justify-center gap-2 mx-4 py-3 rounded-2xl bg-gradient-to-r from-primary to-blue-400 text-white font-bold transition-all hover:shadow-lg hover:shadow-primary/30">
-          <span class="material-symbols-outlined text-xl">person_add</span>
-          S'inscrire
-        </a>
-      }
-    </nav>
-  </div>
+    @if (authService.loggedIn()) { @if (authService.isAdmin()) {
+    <a
+      routerLink="/admin"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-primary dark:text-blue-400 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all"
+    >
+      <span class="material-symbols-outlined text-xl">admin_panel_settings</span>
+      Dashboard Admin
+    </a>
+    } @else {
+    <a
+      routerLink="/space"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-primary dark:text-blue-400 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all"
+    >
+      <span class="material-symbols-outlined text-xl">rocket_launch</span>
+      Mon Espace
+    </a>
+    }
+    <a
+      routerLink="/profile"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
+    >
+      <span class="material-symbols-outlined text-xl">account_circle</span>
+      Mon profil
+    </a>
+    <button
+      (click)="authService.logout(); closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all w-full text-left"
+    >
+      <span class="material-symbols-outlined text-xl">logout</span>
+      Déconnexion
+    </button>
+    } @else {
+    <a
+      routerLink="/login"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
+    >
+      <span class="material-symbols-outlined text-xl">login</span>
+      Connexion
+    </a>
+    <a
+      routerLink="/register"
+      (click)="closeMobileMenu()"
+      class="flex items-center justify-center gap-2 mx-4 py-3 rounded-2xl bg-gradient-to-r from-primary to-blue-400 text-white font-bold transition-all hover:shadow-lg hover:shadow-primary/30"
+    >
+      <span class="material-symbols-outlined text-xl">person_add</span>
+      S'inscrire
+    </a>
+    }
+  </nav>
+</div>
 }

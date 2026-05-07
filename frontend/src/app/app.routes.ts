@@ -110,13 +110,9 @@ export const routes: Routes = [
     path: 'admin/orders',
     canActivate: [adminGuard],
     loadComponent: () =>
-      import('@features/admin/orders/admin-orders/admin-orders').then((m) => m.AdminOrdersComponent),
-  },
-  {
-    path: 'my-orders',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('@features/orders/my-orders/my-orders').then((m) => m.MyOrdersComponent),
+      import('@features/admin/orders/admin-orders/admin-orders').then(
+        (m) => m.AdminOrdersComponent,
+      ),
   },
   {
     path: 'forgot-password',
@@ -128,9 +124,7 @@ export const routes: Routes = [
   {
     path: 'reset-password',
     loadComponent: () =>
-      import('@features/auth/reset-password/reset-password').then(
-        (m) => m.ResetPasswordComponent,
-      ),
+      import('@features/auth/reset-password/reset-password').then((m) => m.ResetPasswordComponent),
   },
   {
     path: 'verify-email',

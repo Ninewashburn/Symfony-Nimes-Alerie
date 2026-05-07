@@ -1,7 +1,7 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, switchMap, tap, map } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { environment } from '@env/environment';
 import { JwtToken, LoginCredentials, User } from '@core/models/product.model';
 
@@ -47,7 +47,10 @@ export class AuthService {
   }
 
   resetPassword(token: string, password: string): Observable<void> {
-    return this.http.post<void>(`${environment.apiUrl}/reset-password/confirm`, { token, password });
+    return this.http.post<void>(`${environment.apiUrl}/reset-password/confirm`, {
+      token,
+      password,
+    });
   }
 
   login(credentials: LoginCredentials): Observable<JwtToken> {

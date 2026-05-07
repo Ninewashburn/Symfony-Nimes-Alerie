@@ -61,7 +61,7 @@ export class ForumThreadListComponent implements OnInit {
     this.forumService
       .createThread({
         subject: this.newSubject,
-        subtype: `/api/sub_types/${this.subTypeId}` as any,
+        subtype: `/api/sub_types/${this.subTypeId}`,
       })
       .subscribe({
         next: (thread) => {

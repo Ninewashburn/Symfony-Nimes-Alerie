@@ -22,9 +22,7 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.json",
-            "assets": [
-              { "glob": "**/*", "input": "src/assets", "output": "/" }
-            ],
+            "assets": [{ "glob": "**/*", "input": "src/assets", "output": "/" }],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
@@ -79,9 +77,8 @@
           "options": {
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.json",
-            "assets": [
-              { "glob": "**/*", "input": "src/assets", "output": "/" }
-            ],
+            "karmaConfig": "karma.conf.js",
+            "assets": [{ "glob": "**/*", "input": "src/assets", "output": "/" }],
             "styles": ["src/styles.scss"],
             "scripts": []
           }

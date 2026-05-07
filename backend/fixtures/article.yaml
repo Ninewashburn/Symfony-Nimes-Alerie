@@ -1,6 +1,7 @@
 App\Entity\Article:
   article_arenes:
     name: Les Arènes de Nîmes, joyau de l'Antiquité
+    cover: '/images/articles/arenes-nimes-orbital.png'
     content: |
       Les Arènes de Nîmes sont l'un des amphithéâtres romains les mieux conservés au monde. Construites vers la fin du Ier siècle, elles pouvaient accueillir jusqu'à 24 000 spectateurs.
 
@@ -10,6 +11,7 @@ App\Entity\Article:
 
   article_brandade:
     name: La brandade de Nîmes, trésor gastronomique
+    cover: '/images/articles/brandade-nimes-orbital.png'
     content: |
       La brandade de Nîmes est le plat emblématique de la cuisine nîmoise. Cette préparation à base de morue effilochée, d'huile d'olive et parfois de pommes de terre, est un véritable patrimoine culinaire.
 
@@ -19,6 +21,7 @@ App\Entity\Article:
 
   article_pont:
     name: Le Pont du Gard, chef-d'œuvre d'ingénierie romaine
+    cover: '/images/articles/pont-du-gard-orbital.png'
     content: |
       Le Pont du Gard est un aqueduc romain situé à 25 km de Nîmes. Classé au patrimoine mondial de l'UNESCO, il fait partie de l'aqueduc qui alimentait Nîmes en eau depuis la source d'Eure à Uzès.
 
@@ -28,6 +31,7 @@ App\Entity\Article:
 
   article_feria:
     name: La Féria de Nîmes, entre tradition et festivités
+    cover: '/images/articles/feria-nimes-orbital.png'
     content: |
       La Féria de Nîmes est l'un des événements majeurs du sud de la France. Deux fois par an, à la Pentecôte et en septembre, la ville se transforme en capitale de la fête.
 
@@ -37,6 +41,7 @@ App\Entity\Article:
 
   article_maison_carree:
     name: La Maison Carrée, temple romain parfaitement conservé
+    cover: '/images/articles/maison-carree-orbital.png'
     content: |
       La Maison Carrée est un temple romain du Ier siècle avant J.-C., situé au cœur de Nîmes. C'est l'un des temples romains les mieux préservés au monde.
 

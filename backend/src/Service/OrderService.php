@@ -12,7 +12,7 @@ use App\Entity\User;
 use App\Enum\OrderStatus;
 use App\Enum\PaymentMethod;
 use App\Repository\ProductRepository;
-use DateTimeImmutable;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use DomainException;
 use InvalidArgumentException;
@@ -98,14 +98,20 @@ class OrderService
         $delivery->setOrderLine($orderLine);
         $orderLine->setDelivery($delivery);
 
+        $payment = PaymentMethod::tryFrom($paymentMethod);
+
+        if (!$payment) {
+            throw new InvalidArgumentException('Invalid payment method');
+        }
+
         $bill = new Bill();
-        $bill->setPayment(PaymentMethod::from($paymentMethod));
+        $bill->setPayment($payment);
         $bill->setNumber('BILL-'.strtoupper(uniqid()));
-        $bill->setCreatedAt(new DateTimeImmutable());
+        $bill->setCreatedAt(new DateTime());
 
         $order = new Order();
         $order->setStatus(OrderStatus::PENDING);
-        $order->setCreatedAt(new DateTimeImmutable());
+        $order->setCreatedAt(new DateTime());
         $order->setTotal((string) round($serverTotal, 2));
         $order->setItems($enrichedItems);
         $order->setOrderLine($orderLine);

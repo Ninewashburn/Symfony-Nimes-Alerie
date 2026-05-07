@@ -1,60 +1,91 @@
 <!-- 1. Deep Space Hero - FORCED Full Bleed & Immersive UI -->
-<section class="relative min-h-[85vh] flex items-center justify-center overflow-x-clip bg-slate-950 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-  
+<section
+  class="relative min-h-[85vh] flex items-center justify-center overflow-x-clip bg-slate-950 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
+>
   <!-- Animated Space Background -->
   <div class="absolute inset-0 z-0">
     <img
-      src="assets/images/stitch/hero-bg.jpg"
+      src="/images/stitch/hero-bg.jpg"
       alt="Nébuleuse profonde"
       class="w-full h-full object-cover opacity-60 animate-nebula"
     />
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-    
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"
+    ></div>
+
     <!-- HUD Scanning lines -->
     <div class="absolute inset-0 pointer-events-none opacity-20">
       <div class="w-full h-[2px] bg-blue-400 absolute animate-scan"></div>
     </div>
   </div>
 
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 pt-12">
-    
+  <div
+    class="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 pt-12"
+  >
     <!-- Left Wing: HUD Telemetry -->
     <div class="hidden lg:flex flex-col gap-5 w-60 animate-float" style="animation-delay: -2s">
       <div class="glass-panel-heavy p-5 rounded-3xl border-l-4 border-blue-500">
-        <p class="text-[9px] font-mono font-black text-blue-400 uppercase tracking-widest mb-1">Transmissions_Active</p>
-        <p class="text-3xl font-black text-white tabular-nums">{{ activeTransmissions() }}</p>
+        <p class="text-[9px] font-mono font-black text-blue-400 uppercase tracking-widest mb-1">
+          Transmissions_Active
+        </p>
+        <p class="text-3xl font-black text-slate-950 dark:text-white tabular-nums">
+          {{ activeTransmissions() }}
+        </p>
       </div>
       <div class="glass-panel-heavy p-5 rounded-3xl border-l-4 border-emerald-500">
-        <p class="text-[9px] font-mono font-black text-emerald-500 uppercase tracking-widest mb-1">Orbite_Logistique</p>
-        <p class="text-3xl font-black text-white tabular-nums">{{ deliveriesInOrbit() }}</p>
+        <p class="text-[9px] font-mono font-black text-emerald-500 uppercase tracking-widest mb-1">
+          Orbite_Logistique
+        </p>
+        <p class="text-3xl font-black text-slate-950 dark:text-white tabular-nums">
+          {{ deliveriesInOrbit() }}
+        </p>
       </div>
     </div>
 
     <!-- Center: Main Command Interface -->
     <div class="flex-1 text-center lg:text-left space-y-6">
-      <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-3xl border border-white/20 text-[10px] font-black uppercase tracking-[0.4em] text-blue-400">
+      <div
+        class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-3xl border border-white/20 text-[10px] font-black uppercase tracking-[0.4em] text-blue-400"
+      >
         <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+          ></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
         </span>
         Sector_Provence_Admin
       </div>
-      
-      <h1 class="text-5xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter uppercase italic">
-        VOTRE COMPAGNON <br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400">MÉRITE TOUT L'ESPACE.</span>
+
+      <h1
+        class="text-5xl md:text-7xl xl:text-8xl font-black text-white leading-[0.92] tracking-tighter uppercase italic"
+      >
+        VOTRE COMPAGNON <br />
+        <span class="hero-gradient-text inline-block">MÉRITE TOUT L'ESPACE.</span>
       </h1>
-      
+
       <p class="text-lg md:text-xl text-blue-100/70 font-medium max-w-2xl leading-relaxed">
         La première plateforme logistique interstellaire dédiée au confort de vos animaux.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-5 pt-4 justify-center lg:justify-start">
-        <a routerLink="/products" class="group relative px-8 py-4 rounded-full bg-blue-600 font-black text-base uppercase tracking-widest text-white shadow-xl hover:scale-105 active:scale-95 transition-all overflow-hidden">
-          <span class="relative z-10 flex items-center gap-3">LANCER LA MISSION <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">rocket_launch</span></span>
-          <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <a
+          routerLink="/products"
+          class="group relative px-8 py-4 rounded-full bg-blue-600 font-black text-base uppercase tracking-widest text-white shadow-xl hover:scale-105 active:scale-95 transition-all overflow-hidden"
+        >
+          <span class="relative z-10 flex items-center gap-3"
+            >LANCER LA MISSION
+            <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform"
+              >rocket_launch</span
+            ></span
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
         </a>
-        <a routerLink="/space" class="px-8 py-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 font-black text-base uppercase tracking-widest text-white hover:bg-white/15 active:scale-95 transition-all">
+        <a
+          routerLink="/space"
+          class="px-8 py-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 font-black text-base uppercase tracking-widest text-white hover:bg-white/15 active:scale-95 transition-all"
+        >
           ACCÈS TERMINAL
         </a>
       </div>
@@ -62,14 +93,24 @@
 
     <!-- Right Wing: System Clock & Sync Verify -->
     <div class="hidden lg:flex flex-col justify-end h-full w-48 text-right space-y-4">
-       <div class="space-y-1">
-          <p class="text-xs font-mono font-black text-white/40 uppercase tracking-widest">Temporal_Node_Sync</p>
-          <p class="text-4xl font-black text-white/90 font-mono tracking-tighter">{{ currentTime() | date:'HH:mm:ss' }}</p>
-          <div class="flex items-center justify-end gap-2">
-             <span [class.bg-emerald-500]="hudSync()" [class.bg-slate-700]="!hudSync()" class="w-1.5 h-1.5 rounded-full transition-colors duration-200 shadow-[0_0_10px_currentColor]"></span>
-             <p class="text-[9px] font-mono text-blue-500 font-black uppercase tracking-tighter">LIVE_SYNC_ACTIVE</p>
-          </div>
-       </div>
+      <div class="space-y-1">
+        <p class="text-xs font-mono font-black text-white/40 uppercase tracking-widest">
+          Temporal_Node_Sync
+        </p>
+        <p class="text-4xl font-black text-white/90 font-mono tracking-tighter">
+          {{ currentTime() | date:'HH:mm:ss' }}
+        </p>
+        <div class="flex items-center justify-end gap-2">
+          <span
+            [class.bg-emerald-500]="hudSync()"
+            [class.bg-slate-700]="!hudSync()"
+            class="w-1.5 h-1.5 rounded-full transition-colors duration-200 shadow-[0_0_10px_currentColor]"
+          ></span>
+          <p class="text-[9px] font-mono text-blue-500 font-black uppercase tracking-tighter">
+            LIVE_SYNC_ACTIVE
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -78,28 +119,48 @@
 <section class="py-10 bg-white dark:bg-slate-950">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex items-center gap-4 mb-6">
-      <h3 class="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">Navigation_Secteurs</h3>
+      <h3 class="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">
+        Navigation_Secteurs
+      </h3>
       <div class="h-px flex-1 bg-gradient-to-r from-blue-500/50 to-transparent"></div>
     </div>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <a routerLink="/products" class="md:col-span-2 group relative h-44 rounded-[2rem] overflow-hidden glass-panel-heavy border-blue-500/20 hover:border-blue-500/60 transition-all p-8 flex flex-col justify-between">
+      <a
+        routerLink="/products"
+        class="md:col-span-2 group relative h-44 rounded-[2rem] overflow-hidden glass-panel-heavy border-blue-500/20 hover:border-blue-500/60 transition-all p-8 flex flex-col justify-between"
+      >
         <div class="absolute inset-0 z-0 opacity-20">
-           <img src="assets/images/stitch/stitch_tech.png" class="w-full h-full object-cover" />
+          <img src="/images/stitch/stitch_tech.png" class="w-full h-full object-cover" />
         </div>
         <div class="relative z-10 flex justify-between">
-           <span class="material-symbols-outlined text-4xl text-blue-500 p-2 bg-blue-500/10 rounded-xl">nutrition</span>
-           <span class="text-[8px] font-mono text-blue-500 font-black tracking-widest">CAT_01</span>
+          <span
+            class="material-symbols-outlined text-4xl text-blue-500 p-2 bg-blue-500/10 rounded-xl"
+            >nutrition</span
+          >
+          <span class="text-[8px] font-mono text-blue-500 font-black tracking-widest">CAT_01</span>
         </div>
-        <h4 class="relative z-10 text-2xl font-black text-white uppercase italic">Nutriments de Vol</h4>
+        <h4
+          class="relative z-10 text-2xl font-black text-slate-950 dark:text-white uppercase italic"
+        >
+          Nutriments de Vol
+        </h4>
       </a>
 
-      <a routerLink="/products" class="group relative h-44 rounded-[2rem] overflow-hidden glass-panel-heavy border-emerald-500/20 hover:border-emerald-500/60 transition-all p-8 flex flex-col justify-between">
+      <a
+        routerLink="/products"
+        class="group relative h-44 rounded-[2rem] overflow-hidden glass-panel-heavy border-emerald-500/20 hover:border-emerald-500/60 transition-all p-8 flex flex-col justify-between"
+      >
         <span class="material-symbols-outlined text-3xl text-emerald-500">shield_person</span>
-        <h4 class="text-xl font-black text-white uppercase italic">Équipement</h4>
+        <h4 class="text-xl font-black text-slate-950 dark:text-white uppercase italic">
+          Équipement
+        </h4>
       </a>
 
-      <a routerLink="/forum" class="group relative h-44 bg-blue-600 rounded-[2rem] overflow-hidden p-8 flex flex-col justify-between hover:shadow-2xl transition-all">
+      <a
+        routerLink="/forum"
+        class="group relative h-44 bg-blue-600 rounded-[2rem] overflow-hidden p-8 flex flex-col justify-between hover:shadow-2xl transition-all"
+      >
         <span class="material-symbols-outlined text-3xl text-white">groups</span>
         <h4 class="text-xl font-black text-white uppercase italic">Communauté</h4>
       </a>
@@ -112,56 +173,86 @@
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
       <div>
-        <h3 class="text-4xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter">
+        <h3
+          class="text-4xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter"
+        >
           CARGAISONS <span class="text-blue-600">PRIORITAIRES</span>
         </h3>
-        <p class="text-slate-500 dark:text-blue-300/60 font-bold uppercase tracking-[0.3em] text-[10px] mt-2 pl-1 border-l-4 border-blue-500">Best_sellers_ready_for_dispatch</p>
+        <p
+          class="text-slate-500 dark:text-blue-300/60 font-bold uppercase tracking-[0.3em] text-[10px] mt-2 pl-1 border-l-4 border-blue-500"
+        >
+          Best_sellers_ready_for_dispatch
+        </p>
       </div>
-      <a routerLink="/products" class="group flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 hover:text-blue-600 transition-all pb-1 border-b border-transparent hover:border-blue-600">
+      <a
+        routerLink="/products"
+        class="group flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 hover:text-blue-600 transition-all pb-1 border-b border-transparent hover:border-blue-600"
+      >
         Voir l'arsenal <span class="material-symbols-outlined text-sm">arrow_forward</span>
       </a>
     </div>
 
     @if (featuredProducts().length === 0) {
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        @for (i of [1,2,3]; track i) {
-          <div class="h-64 rounded-[2rem] bg-slate-100 dark:bg-slate-900 animate-pulse"></div>
-        }
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      @for (i of [1,2,3]; track i) {
+      <div class="h-64 rounded-[2rem] bg-slate-100 dark:bg-slate-900 animate-pulse"></div>
+      }
+    </div>
     } @else {
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        @for (product of featuredProducts(); track product.id; let i = $index) {
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      @for (product of featuredProducts(); track product.id; let i = $index) {
+      <div
+        class="group relative glass-panel dark:bg-slate-900/40 p-8 rounded-[2.5rem] border border-blue-100 dark:border-white/5 transition-all duration-700 animate-float"
+        [style.animation-delay]="(i * -1.5) + 's'"
+      >
+        <div class="relative z-10">
           <div
-            class="group relative glass-panel dark:bg-slate-900/40 p-8 rounded-[2.5rem] border border-blue-100 dark:border-white/5 transition-all duration-700 animate-float"
-            [style.animation-delay]="(i * -1.5) + 's'"
+            class="relative h-44 w-full rounded-[2rem] overflow-hidden mb-6 shadow-xl bg-white dark:bg-slate-800 border border-white dark:border-white/10 group-hover:border-blue-500/50 transition-colors"
           >
-            <div class="relative z-10">
-              <div class="relative h-44 w-full rounded-[2rem] overflow-hidden mb-6 shadow-xl bg-white dark:bg-slate-800 border border-white dark:border-white/10 group-hover:border-blue-500/50 transition-colors">
-                @if (product.cover) {
-                  <img [src]="product.cover" [alt]="product.title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                } @else {
-                  <div class="w-full h-full flex items-center justify-center text-slate-200 dark:text-slate-700">
-                    <span class="material-symbols-outlined text-5xl">pets</span>
-                  </div>
-                }
-              </div>
+            @if (product.cover) {
+            <img
+              [src]="product.cover"
+              [alt]="product.title"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+            />
+            } @else {
+            <div
+              class="w-full h-full flex items-center justify-center text-slate-200 dark:text-slate-700"
+            >
+              <span class="material-symbols-outlined text-5xl">pets</span>
+            </div>
+            }
+          </div>
 
-              <div class="space-y-3">
-                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-500 text-[8px] font-black uppercase tracking-widest rounded-md border border-blue-500/20">
-                  {{ product.category?.[0]?.title ?? 'MATÉRIEL' }}
-                </span>
-                <h4 class="text-xl font-black text-slate-950 dark:text-white uppercase italic tracking-tighter">{{ product.title }}</h4>
-                <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
-                  <span class="text-2xl font-black text-slate-950 dark:text-white">{{ +product.priceTTC | currency:'EUR' }}</span>
-                  <button (click)="addToCart(product)" class="w-12 h-12 rounded-xl bg-blue-600 hover:bg-blue-500 text-white shadow-lg active:scale-90 transition-all flex items-center justify-center">
-                    <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
-                  </button>
-                </div>
-              </div>
+          <div class="space-y-3">
+            <span
+              class="px-2 py-0.5 bg-blue-500/10 text-blue-500 text-[8px] font-black uppercase tracking-widest rounded-md border border-blue-500/20"
+            >
+              {{ product.category?.[0]?.title ?? 'MATÉRIEL' }}
+            </span>
+            <h4
+              class="text-xl font-black text-slate-950 dark:text-white uppercase italic tracking-tighter"
+            >
+              {{ product.title }}
+            </h4>
+            <div
+              class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5"
+            >
+              <span class="text-2xl font-black text-slate-950 dark:text-white"
+                >{{ +product.priceTTC | currency:'EUR' }}</span
+              >
+              <button
+                (click)="addToCart(product)"
+                class="w-12 h-12 rounded-xl bg-blue-600 hover:bg-blue-500 text-white shadow-lg active:scale-90 transition-all flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+              </button>
             </div>
           </div>
-        }
+        </div>
       </div>
+      }
+    </div>
     }
   </div>
 </section>
@@ -169,19 +260,37 @@
 <!-- 4. Tactical Banner - Tighter Vertical -->
 <section class="py-10 bg-white dark:bg-slate-950">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="relative h-56 rounded-[3rem] overflow-hidden shadow-2xl group border border-white/10">
-      <img src="assets/images/stitch/register-bg.jpg" alt="Vue spatiale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[10s]" />
-      <div class="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-900/60 to-transparent"></div>
-      
+    <div
+      class="relative h-56 rounded-[3rem] overflow-hidden shadow-2xl group border border-white/10"
+    >
+      <img
+        src="/images/stitch/register-bg.jpg"
+        alt="Vue spatiale"
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[10s]"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-900/60 to-transparent"
+      ></div>
+
       <div class="absolute inset-0 flex items-center p-12">
         <div class="max-w-xl space-y-4">
           <h3 class="text-3xl md:text-3xl font-black text-white uppercase italic tracking-tighter">
             PRÊT POUR <span class="text-blue-400">L'ACCÉLÉRATION ?</span>
           </h3>
-          <p class="text-blue-100/70 font-medium text-xs">Rejoignez des milliers de colons qui ont déjà sécurisé le bonheur de leurs compagnons.</p>
+          <p class="text-blue-100/70 font-medium text-xs">
+            Rejoignez des milliers de colons qui ont déjà sécurisé le bonheur de leurs compagnons.
+          </p>
           <div class="flex gap-4 pt-1">
-             <a routerLink="/register" class="px-6 py-2.5 rounded-2xl bg-white text-blue-900 font-black text-[10px] uppercase tracking-widest hover:bg-blue-50 transition-all hover:scale-105">CRÉER UN IDENTIFIANT</a>
-             <a routerLink="/forum" class="px-6 py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-black text-[10px] uppercase tracking-widest hover:bg-white/20 transition-all">LE CERCLE</a>
+            <a
+              routerLink="/register"
+              class="px-6 py-2.5 rounded-2xl bg-white text-blue-900 font-black text-[10px] uppercase tracking-widest hover:bg-blue-50 transition-all hover:scale-105"
+              >CRÉER UN IDENTIFIANT</a
+            >
+            <a
+              routerLink="/forum"
+              class="px-6 py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-black text-[10px] uppercase tracking-widest hover:bg-white/20 transition-all"
+              >LE CERCLE</a
+            >
           </div>
         </div>
       </div>

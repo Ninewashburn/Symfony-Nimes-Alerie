@@ -1,7 +1,7 @@
 <app-header />
-<main
-  class="pt-24 pb-8 min-h-screen bg-white dark:bg-slate-950 transition-colors duration-200"
->
-  <router-outlet />
-</main>
-<app-footer />
+<div class="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-200 flex flex-col">
+  <main class="pt-24 bg-white dark:bg-slate-950 transition-colors duration-200 flex-1">
+    <router-outlet />
+  </main>
+  <app-footer />
+</div>

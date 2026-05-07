@@ -42,10 +42,14 @@ export class SpaceBaseComponent implements OnInit {
   };
 
   readonly statusColors: Record<string, string> = {
-    pending: 'bg-amber-500/10 text-amber-600 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.1)]',
-    preparing: 'bg-blue-500/10 text-blue-600 border border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.1)]',
-    shipped: 'bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.1)]',
-    refunded: 'bg-red-500/10 text-red-600 border border-red-500/20 shadow-[0_0_10px_rgba(239,68,68,0.1)]',
+    pending:
+      'bg-amber-500/10 text-amber-600 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.1)]',
+    preparing:
+      'bg-blue-500/10 text-blue-600 border border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.1)]',
+    shipped:
+      'bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.1)]',
+    refunded:
+      'bg-red-500/10 text-red-600 border border-red-500/20 shadow-[0_0_10px_rgba(239,68,68,0.1)]',
     cancelled: 'bg-slate-500/10 text-slate-600 border border-slate-500/20 shadow-sm',
   };
 

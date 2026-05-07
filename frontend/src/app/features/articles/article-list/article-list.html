@@ -1,38 +1,64 @@
 <div class="relative min-h-screen pb-24">
   <!-- Scanlines background effect -->
-  <div class="absolute inset-0 z-0 pointer-events-none" style="background: linear-gradient(to bottom, transparent 50%, rgba(0, 82, 255, 0.02) 50%); background-size: 100% 4px;"></div>
-  
+  <div
+    class="absolute inset-0 z-0 pointer-events-none"
+    style="
+      background: linear-gradient(to bottom, transparent 50%, rgba(0, 82, 255, 0.02) 50%);
+      background-size: 100% 4px;
+    "
+  ></div>
+
   <!-- Cockpit Header -->
   <section class="relative pt-8 md:pt-16 pb-16 px-4 md:px-6 overflow-hidden">
     <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]"></div>
-      <div class="absolute top-1/2 -right-24 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px]"></div>
+      <div
+        class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]"
+      ></div>
+      <div
+        class="absolute top-1/2 -right-24 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px]"
+      ></div>
     </div>
-    
+
     <div class="max-w-screen-xl mx-auto relative z-10">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div class="max-w-3xl">
-          <div class="inline-flex items-center space-x-2 bg-blue-600/10 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/20">
+          <div
+            class="inline-flex items-center space-x-2 bg-blue-600/10 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/20"
+          >
             <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
             <span>Transmission en direct</span>
           </div>
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tighter leading-none mb-6 font-headline w-full break-words">
+          <h1
+            class="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tighter leading-none mb-6 font-headline w-full break-words"
+          >
             Journaux <span class="text-blue-600">Orbitaux</span>
           </h1>
-          <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-2xl">
-            Les dernières découvertes scientifiques et actualités logistiques de la fédération. Archive centrale pour les rapports de mission canine et l'exploration galactique.
+          <p
+            class="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-2xl"
+          >
+            Les dernières découvertes scientifiques et actualités logistiques de la fédération.
+            Archive centrale pour les rapports de mission canine et l'exploration galactique.
           </p>
         </div>
-        
+
         @if (authService.loggedIn()) {
-          <div class="flex flex-col items-start md:items-end">
-            <button (click)="toggleForm()" class="group flex items-center space-x-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-2 pr-6 rounded-full shadow-2xl shadow-blue-500/5 hover:border-blue-500 transition-all cursor-pointer">
-              <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform">
-                <span class="material-symbols-outlined text-xl">{{ showForm() ? 'close' : 'edit_square' }}</span>
-              </div>
-              <span class="font-bold text-slate-900 dark:text-white">{{ showForm() ? 'Annuler' : 'Rédiger un rapport' }}</span>
-            </button>
-          </div>
+        <div class="flex flex-col items-start md:items-end">
+          <button
+            (click)="toggleForm()"
+            class="group flex items-center space-x-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-2 pr-6 rounded-full shadow-2xl shadow-blue-500/5 hover:border-blue-500 transition-all cursor-pointer"
+          >
+            <div
+              class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform"
+            >
+              <span class="material-symbols-outlined text-xl"
+                >{{ showForm() ? 'close' : 'edit_square' }}</span
+              >
+            </div>
+            <span class="font-bold text-slate-900 dark:text-white"
+              >{{ showForm() ? 'Annuler' : 'Rédiger un rapport' }}</span
+            >
+          </button>
+        </div>
         }
       </div>
     </div>
@@ -40,178 +66,291 @@
 
   <!-- Formulaire rédaction -->
   @if (showForm()) {
-    <section class="max-w-screen-xl mx-auto px-4 md:px-6 relative z-10 mb-8">
-      <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-3xl border border-slate-200 dark:border-slate-700 p-8 shadow-xl">
-        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-          <span class="material-symbols-outlined text-blue-600">edit_square</span>
-          Nouveau rapport de mission
-        </h3>
-        <div class="space-y-4">
-          <div>
-            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Titre du rapport</label>
-            <input [(ngModel)]="form.name" name="articleName" type="text" placeholder="Ex: Découverte d'une nouvelle nébuleuse..."
-              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm" />
-          </div>
-          <div>
-            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Contenu</label>
-            <textarea [(ngModel)]="form.content" name="articleContent" rows="6" placeholder="Rédigez votre rapport de mission..."
-              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm resize-none"></textarea>
-          </div>
-          <div class="flex justify-end gap-3">
-            <button type="button" (click)="toggleForm()"
-              class="px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
-              Annuler
-            </button>
-            <button type="button" (click)="submitArticle()" [disabled]="submitting() || !form.name.trim() || !form.content.trim()"
-              class="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white text-sm font-bold transition-all">
-              {{ submitting() ? 'Transmission...' : 'Envoyer le rapport' }}
-            </button>
-          </div>
+  <section class="max-w-screen-xl mx-auto px-4 md:px-6 relative z-10 mb-8">
+    <div
+      class="bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-3xl border border-slate-200 dark:border-slate-700 p-8 shadow-xl"
+    >
+      <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+        <span class="material-symbols-outlined text-blue-600">edit_square</span>
+        Nouveau rapport de mission
+      </h3>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1"
+            >Titre du rapport</label
+          >
+          <input
+            [(ngModel)]="form.name"
+            name="articleName"
+            type="text"
+            placeholder="Ex: Découverte d'une nouvelle nébuleuse..."
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1"
+            >Contenu</label
+          >
+          <textarea
+            [(ngModel)]="form.content"
+            name="articleContent"
+            rows="6"
+            placeholder="Rédigez votre rapport de mission..."
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm resize-none"
+          ></textarea>
+        </div>
+        <div class="flex justify-end gap-3">
+          <button
+            type="button"
+            (click)="toggleForm()"
+            class="px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+          >
+            Annuler
+          </button>
+          <button
+            type="button"
+            (click)="submitArticle()"
+            [disabled]="submitting() || !form.name.trim() || !form.content.trim()"
+            class="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white text-sm font-bold transition-all"
+          >
+            {{ submitting() ? 'Transmission...' : 'Envoyer le rapport' }}
+          </button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   }
 
   <!-- Article Grid -->
   <section class="max-w-screen-xl mx-auto px-4 md:px-6 relative z-10">
     @if (loading()) {
-      <div class="text-center py-20 flex flex-col items-center justify-center">
-        <span class="material-symbols-outlined text-5xl text-blue-500 animate-pulse mb-4">radar</span>
-        <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-sm">Synchronisation des archives...</p>
-      </div>
+    <div class="text-center py-20 flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-5xl text-blue-500 animate-pulse mb-4">radar</span>
+      <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-sm">
+        Synchronisation des archives...
+      </p>
+    </div>
     } @else {
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        @for (article of articles(); track article.id; let i = $index) {
-          <!-- Article Card -->
-          <article [class]="'group relative flex flex-col glass-panel dark:bg-slate-900/60 rounded-3xl border border-white/40 dark:border-slate-700/50 shadow-lg shadow-blue-900/5 hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden cursor-pointer ' + (i === 0 ? 'md:col-span-2 md:flex-row' : '')" [routerLink]="['/articles', article.id]">
-            
-            <!-- Image Area -->
-            <div [class]="'relative overflow-hidden bg-slate-100 dark:bg-slate-800 ' + (i === 0 ? 'md:w-1/2 min-h-[300px]' : 'h-64')">
-              <div class="absolute inset-0 bg-blue-600/20 flex items-center justify-center group-hover:bg-blue-600/10 transition-colors z-0">
-                <span class="material-symbols-outlined text-8xl text-blue-600/40 group-hover:scale-125 transition-transform" data-icon="science">science</span>
-              </div>
-              <img [alt]="article.name" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 mix-blend-overlay opacity-60 z-10" src="assets/images/stitch/article-card-bg.jpg"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10 pointer-events-none"></div>
-              <div class="absolute top-4 left-4 z-20">
-                <span class="bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black uppercase text-blue-600 dark:text-blue-400 tracking-widest border border-white/20 dark:border-slate-700/50 shadow-sm">
-                  Rapport #{{ article.id || (i+1) * 100 }}
-                </span>
-              </div>
-            </div>
-            
-            <!-- Content Area -->
-            <div [class]="'p-8 flex flex-col flex-grow ' + (i === 0 ? 'md:w-1/2 justify-center' : '')">
-              <div class="flex items-center justify-between text-xs text-slate-400 mb-4 font-bold tracking-widest uppercase">
-                <div class="flex items-center">
-                  <span class="material-symbols-outlined text-sm mr-1">schedule</span>
-                  Date stélaire
-                </div>
-              </div>
-              <h3 [class]="'font-bold text-slate-900 dark:text-white mb-4 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ' + (i === 0 ? 'text-4xl tracking-tighter' : 'text-2xl')">
-                {{ article.name }}
-              </h3>
-              <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-3 leading-relaxed font-light">
-                {{ article.content }}
-              </p>
-              
-              <div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                <a class="flex items-center space-x-2 font-bold text-blue-600 dark:text-blue-400 hover:text-purple-500 transition-colors text-sm uppercase tracking-wider">
-                  <span>Lire la suite</span>
-                  <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                </a>
-                @if (authService.isAdmin()) {
-                  <div class="flex items-center gap-1">
-                    <button type="button" (click)="openEdit(article, $event)"
-                      class="p-2 text-slate-300 hover:text-blue-600 dark:text-slate-600 dark:hover:text-blue-400 transition-colors" title="Modifier">
-                      <span class="material-symbols-outlined text-lg">edit</span>
-                    </button>
-                    <button type="button" (click)="deleteArticle(article.id, $event)"
-                      class="p-2 text-slate-300 hover:text-red-500 dark:text-slate-600 dark:hover:text-red-400 transition-colors" title="Supprimer">
-                      <span class="material-symbols-outlined text-lg">delete</span>
-                    </button>
-                  </div>
-                }
-              </div>
-            </div>
-          </article>
-        } @empty {
-          <div class="col-span-full py-16 text-center">
-            <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-700 mb-4">description</span>
-            <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">Aucun journal trouvé dans les archives.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (article of articles(); track article.id; let i = $index) {
+      <!-- Article Card -->
+      <article
+        [class]="'group relative flex flex-col glass-panel dark:bg-slate-900/60 rounded-3xl border border-white/40 dark:border-slate-700/50 shadow-lg shadow-blue-900/5 hover:shadow-blue-500/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden cursor-pointer ' + (i === 0 ? 'md:col-span-2 md:flex-row' : '')"
+        [routerLink]="['/articles', article.id]"
+      >
+        <!-- Image Area -->
+        <div
+          [class]="'relative overflow-hidden bg-slate-100 dark:bg-slate-800 ' + (i === 0 ? 'md:w-1/2 min-h-[300px]' : 'h-64')"
+        >
+          <div
+            class="absolute inset-0 bg-blue-600/20 flex items-center justify-center group-hover:bg-blue-600/10 transition-colors z-0"
+          >
+            <span
+              class="material-symbols-outlined text-8xl text-blue-600/40 group-hover:scale-125 transition-transform"
+              data-icon="science"
+              >science</span
+            >
           </div>
-        }
-      </div>
-      
-      <!-- Newsletter Block (Bento Add-on) -->
-      @if (articles() && articles().length > 0) {
-        <div class="mt-8 relative overflow-hidden rounded-3xl p-1 bg-gradient-to-br from-blue-600 to-purple-600 shadow-xl shadow-blue-600/20 max-w-4xl mx-auto">
-          <div class="bg-slate-900 h-full rounded-[1.25rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-            <div class="absolute inset-0 bg-[url('assets/images/stitch/article-card-bg.jpg')] bg-cover opacity-10 mix-blend-overlay"></div>
-            
-            <div class="flex items-center gap-6 relative z-10">
-              <div class="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex flex-shrink-0 items-center justify-center">
-                <span class="material-symbols-outlined text-white text-3xl">satellite_alt</span>
-              </div>
-              <div>
-                <h4 class="text-xl md:text-2xl font-bold text-white mb-1">Fréquence Orbitale</h4>
-                <p class="text-blue-200/70 text-sm font-light">Recevez nos rapports exclusifs directement dans votre terminal.</p>
-              </div>
-            </div>
-            
-            <div class="w-full md:w-auto flex-shrink-0 relative z-10 flex gap-2">
-              <input class="w-full md:w-64 bg-white/5 border border-white/10 focus:border-blue-500 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:ring-1 focus:ring-blue-500 transition-all text-sm" placeholder="ID. Communication (Email)" type="email"/>
-              <button class="bg-white text-slate-900 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors shadow-lg active:scale-95 text-sm uppercase tracking-wide">
-                Canal ON
-              </button>
-            </div>
+          @if (article.cover) {
+          <img
+            [src]="article.cover"
+            [alt]="article.name"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-75 dark:opacity-65 z-10"
+          />
+          } @else {
+          <img
+            [alt]="article.name"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 mix-blend-overlay opacity-60 z-10"
+            src="/images/stitch/article-card-bg.jpg"
+          />
+          }
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10 pointer-events-none"
+          ></div>
+          <div class="absolute top-4 left-4 z-20">
+            <span
+              class="bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black uppercase text-blue-600 dark:text-blue-400 tracking-widest border border-white/20 dark:border-slate-700/50 shadow-sm"
+            >
+              Rapport #{{ article.id || (i+1) * 100 }}
+            </span>
           </div>
         </div>
+
+        <!-- Content Area -->
+        <div [class]="'p-8 flex flex-col flex-grow ' + (i === 0 ? 'md:w-1/2 justify-center' : '')">
+          <div
+            class="flex items-center justify-between text-xs text-slate-400 mb-4 font-bold tracking-widest uppercase"
+          >
+            <div class="flex items-center">
+              <span class="material-symbols-outlined text-sm mr-1">schedule</span>
+              Date stélaire
+            </div>
+          </div>
+          <h3
+            [class]="'font-bold text-slate-900 dark:text-white mb-4 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ' + (i === 0 ? 'text-4xl tracking-tighter' : 'text-2xl')"
+          >
+            {{ article.name }}
+          </h3>
+          <p
+            class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-3 leading-relaxed font-light"
+          >
+            {{ article.content }}
+          </p>
+
+          <div
+            class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center"
+          >
+            <a
+              class="flex items-center space-x-2 font-bold text-blue-600 dark:text-blue-400 hover:text-purple-500 transition-colors text-sm uppercase tracking-wider"
+            >
+              <span>Lire la suite</span>
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
+            @if (authService.isAdmin()) {
+            <div class="flex items-center gap-1">
+              <button
+                type="button"
+                (click)="openEdit(article, $event)"
+                class="p-2 text-slate-300 hover:text-blue-600 dark:text-slate-600 dark:hover:text-blue-400 transition-colors"
+                title="Modifier"
+              >
+                <span class="material-symbols-outlined text-lg">edit</span>
+              </button>
+              <button
+                type="button"
+                (click)="deleteArticle(article.id, $event)"
+                class="p-2 text-slate-300 hover:text-red-500 dark:text-slate-600 dark:hover:text-red-400 transition-colors"
+                title="Supprimer"
+              >
+                <span class="material-symbols-outlined text-lg">delete</span>
+              </button>
+            </div>
+            }
+          </div>
+        </div>
+      </article>
+      } @empty {
+      <div class="col-span-full py-16 text-center">
+        <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-700 mb-4"
+          >description</span
+        >
+        <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">
+          Aucun journal trouvé dans les archives.
+        </p>
+      </div>
       }
-    }
+    </div>
+
+    <!-- Newsletter Block (Bento Add-on) -->
+    @if (articles() && articles().length > 0) {
+    <div
+      class="mt-8 relative overflow-hidden rounded-3xl p-1 bg-gradient-to-br from-blue-600 to-purple-600 shadow-xl shadow-blue-600/20 max-w-4xl mx-auto"
+    >
+      <div
+        class="bg-slate-900 h-full rounded-[1.25rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10"
+      >
+        <div
+          class="absolute inset-0 bg-[url('/images/stitch/article-card-bg.jpg')] bg-cover opacity-10 mix-blend-overlay"
+        ></div>
+
+        <div class="flex items-center gap-6 relative z-10">
+          <div
+            class="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex flex-shrink-0 items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-white text-3xl">satellite_alt</span>
+          </div>
+          <div>
+            <h4 class="text-xl md:text-2xl font-bold text-white mb-1">Fréquence Orbitale</h4>
+            <p class="text-blue-200/70 text-sm font-light">
+              Recevez nos rapports exclusifs directement dans votre terminal.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full md:w-auto flex-shrink-0 relative z-10 flex gap-2">
+          <input
+            class="w-full md:w-64 bg-white/5 border border-white/10 focus:border-blue-500 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
+            placeholder="ID. Communication (Email)"
+            type="email"
+          />
+          <button
+            class="bg-white text-slate-900 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors shadow-lg active:scale-95 text-sm uppercase tracking-wide"
+          >
+            Canal ON
+          </button>
+        </div>
+      </div>
+    </div>
+    } }
   </section>
 </div>
 
 <!-- Modal Édition Article -->
 @if (editingArticle()) {
-  <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
-    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="closeEdit()"></div>
-    <div class="relative z-10 w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl p-8">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-          <span class="material-symbols-outlined text-blue-600">edit_square</span>
-          Modifier le rapport
-        </h2>
-        <button (click)="closeEdit()" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
-          <span class="material-symbols-outlined">close</span>
-        </button>
-      </div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="closeEdit()"></div>
+  <div
+    class="relative z-10 w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl p-8"
+  >
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-blue-600">edit_square</span>
+        Modifier le rapport
+      </h2>
+      <button
+        (click)="closeEdit()"
+        class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+      >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
 
-      <div class="space-y-4">
-        <div>
-          <label class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1">Titre *</label>
-          <input [(ngModel)]="editForm.name" name="editName" type="text"
-            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm" />
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1">Contenu</label>
-          <textarea [(ngModel)]="editForm.content" name="editContent" rows="8"
-            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm resize-none"></textarea>
-        </div>
+    <div class="space-y-4">
+      <div>
+        <label
+          class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1"
+          >Titre *</label
+        >
+        <input
+          [(ngModel)]="editForm.name"
+          name="editName"
+          type="text"
+          class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+        />
       </div>
-
-      <div class="flex justify-end gap-3 mt-6">
-        <button type="button" (click)="closeEdit()"
-          class="px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
-          Annuler
-        </button>
-        <button type="button" (click)="saveEdit()" [disabled]="savingEdit() || !editForm.name.trim()"
-          class="px-7 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white text-sm font-bold transition-all flex items-center gap-2">
-          @if (savingEdit()) {
-            <span class="material-symbols-outlined text-sm animate-spin">sync</span>
-          }
-          {{ savingEdit() ? 'Transmission...' : 'Enregistrer' }}
-        </button>
+      <div>
+        <label
+          class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-1"
+          >Contenu</label
+        >
+        <textarea
+          [(ngModel)]="editForm.content"
+          name="editContent"
+          rows="8"
+          class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm resize-none"
+        ></textarea>
       </div>
     </div>
+
+    <div class="flex justify-end gap-3 mt-6">
+      <button
+        type="button"
+        (click)="closeEdit()"
+        class="px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+      >
+        Annuler
+      </button>
+      <button
+        type="button"
+        (click)="saveEdit()"
+        [disabled]="savingEdit() || !editForm.name.trim()"
+        class="px-7 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white text-sm font-bold transition-all flex items-center gap-2"
+      >
+        @if (savingEdit()) {
+        <span class="material-symbols-outlined text-sm animate-spin">sync</span>
+        } {{ savingEdit() ? 'Transmission...' : 'Enregistrer' }}
+      </button>
+    </div>
   </div>
+</div>
 }

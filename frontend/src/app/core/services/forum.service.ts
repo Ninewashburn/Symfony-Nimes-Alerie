@@ -26,11 +26,15 @@ export class ForumService {
       .pipe(map((res) => res['hydra:member']));
   }
 
-  getThreads(subTypeId: number, page = 1, itemsPerPage = 10): Observable<{ items: Thread[]; total: number }> {
+  getThreads(
+    subTypeId: number,
+    page = 1,
+    itemsPerPage = 10,
+  ): Observable<{ items: Thread[]; total: number }> {
     return this.http
-      .get<ApiCollection<Thread>>(
-        `${this.apiUrl}/threads?subtype=${subTypeId}&page=${page}&itemsPerPage=${itemsPerPage}`,
-      )
+      .get<
+        ApiCollection<Thread>
+      >(`${this.apiUrl}/threads?subtype=${subTypeId}&page=${page}&itemsPerPage=${itemsPerPage}`)
       .pipe(map((res) => ({ items: res['hydra:member'], total: res['hydra:totalItems'] })));
   }
 
@@ -38,11 +42,15 @@ export class ForumService {
     return this.http.get<Thread>(`${this.apiUrl}/threads/${id}`);
   }
 
-  getPosts(threadId: number, page = 1, itemsPerPage = 20): Observable<{ items: Post[]; total: number }> {
+  getPosts(
+    threadId: number,
+    page = 1,
+    itemsPerPage = 20,
+  ): Observable<{ items: Post[]; total: number }> {
     return this.http
-      .get<ApiCollection<Post>>(
-        `${this.apiUrl}/posts?thread=${threadId}&page=${page}&itemsPerPage=${itemsPerPage}`,
-      )
+      .get<
+        ApiCollection<Post>
+      >(`${this.apiUrl}/posts?thread=${threadId}&page=${page}&itemsPerPage=${itemsPerPage}`)
       .pipe(map((res) => ({ items: res['hydra:member'], total: res['hydra:totalItems'] })));
   }
 
@@ -70,7 +78,10 @@ export class ForumService {
     return this.http.delete<void>(`${this.apiUrl}/threads/${id}`);
   }
 
-  votePost(id: number, direction: 'upvote' | 'downvote'): Observable<{ upVote: number; downVote: number }> {
+  votePost(
+    id: number,
+    direction: 'upvote' | 'downvote',
+  ): Observable<{ upVote: number; downVote: number }> {
     return this.http.patch<{ upVote: number; downVote: number }>(
       `${this.apiUrl}/posts/${id}/${direction}`,
       {},

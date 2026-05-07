@@ -18,6 +18,10 @@ backend/vendor/
 backend/.phpunit.cache/
 backend/phpunit.xml
 backend/.phpunit.result.cache
+backend/.php-cs-fixer.cache
+backend/phpstan_errors.txt
+backend/public/build/
+backend/public/bundles/
 ###< Backend (Symfony) ###
 
 ###> Frontend (Angular) ###
@@ -39,5 +43,6 @@ node_modules
 ###> Custom Tools & Temp ###
 .gemini/
 .claude/
+tmp/
 frontend/stitch_*.html
 ###< Custom Tools & Temp ###

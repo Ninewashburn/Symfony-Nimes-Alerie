@@ -1,167 +1,283 @@
 @if (product(); as p) {
-  <div class="max-w-screen-2xl mx-auto px-4 md:px-8 py-12">
-    <!-- Breadcrumb / HUD Data -->
-    <div class="flex items-center gap-4 mb-10">
-      <div class="bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded tracking-widest uppercase animate-pulse">Target Locked</div>
-      <div class="text-slate-500 dark:text-blue-400/60 text-[10px] font-mono uppercase tracking-tighter">Sector: Gear-{{ p.id }} // ID: 882-XR-{{ p.id }}</div>
-      <div class="h-px flex-grow bg-slate-200 dark:bg-blue-900/30"></div>
+<div class="max-w-screen-2xl mx-auto px-4 md:px-8 py-12">
+  <!-- Breadcrumb / HUD Data -->
+  <div class="flex items-center gap-4 mb-10">
+    <div
+      class="bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded tracking-widest uppercase animate-pulse"
+    >
+      Target Locked
     </div>
+    <div
+      class="text-slate-500 dark:text-blue-400/60 text-[10px] font-mono uppercase tracking-tighter"
+    >
+      Sector: Gear-{{ p.id }} // ID: 882-XR-{{ p.id }}
+    </div>
+    <div class="h-px flex-grow bg-slate-200 dark:bg-blue-900/30"></div>
+  </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-      <!-- Image Area: Glassmorphism Block -->
-      <div class="lg:col-span-7 relative group">
-        <div class="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-blue-600 opacity-40"></div>
-        <div class="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-blue-600 opacity-40"></div>
-        <div class="absolute -bottom-4 -left-4 w-12 h-12 border-b-2 border-l-2 border-blue-600 opacity-40"></div>
-        <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-blue-600 opacity-40"></div>
-        
-        <div class="relative bg-white dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900/50 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/5 aspect-square flex items-center justify-center p-8 backdrop-blur-2xl">
-          <!-- Scan Viewfinder Overlay -->
-          <div class="absolute inset-0 pointer-events-none border-[20px] border-transparent border-slate-900/5 dark:border-white/5 mix-blend-overlay"></div>
-          <div class="absolute top-1/2 left-0 right-0 h-px bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)]"></div>
-          
-          @if (p.image || p.cover) {
-            <img [src]="p.image || p.cover" [alt]="p.title" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
-          } @else {
-            <div class="flex flex-col items-center text-slate-400">
-              <span class="material-symbols-outlined text-6xl mb-2">image_not_supported</span>
-              <p class="font-mono text-xs uppercase tracking-widest">No visual data</p>
-            </div>
-          }
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <!-- Image Area: Glassmorphism Block -->
+    <div class="lg:col-span-7 relative group">
+      <div
+        class="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-blue-600 opacity-40"
+      ></div>
+      <div
+        class="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-blue-600 opacity-40"
+      ></div>
+      <div
+        class="absolute -bottom-4 -left-4 w-12 h-12 border-b-2 border-l-2 border-blue-600 opacity-40"
+      ></div>
+      <div
+        class="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-blue-600 opacity-40"
+      ></div>
 
-          <!-- HUD Micro Data -->
-          <div class="absolute bottom-6 left-6 font-mono text-[10px] text-blue-600 dark:text-blue-400 space-y-1">
-            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span> SYSTEM READY</div>
-            <div>OPTICAL SENSORS: ACTIVE</div>
-          </div>
+      <div
+        class="relative bg-white dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900/50 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/5 aspect-square flex items-center justify-center p-8 backdrop-blur-2xl"
+      >
+        <!-- Scan Viewfinder Overlay -->
+        <div
+          class="absolute inset-0 pointer-events-none border-[20px] border-transparent border-slate-900/5 dark:border-white/5 mix-blend-overlay"
+        ></div>
+        <div
+          class="absolute top-1/2 left-0 right-0 h-px bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)]"
+        ></div>
+
+        @if (p.image || p.cover) {
+        <img
+          [src]="p.image || p.cover"
+          [alt]="p.title"
+          class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+        />
+        } @else {
+        <div class="flex flex-col items-center text-slate-400">
+          <span class="material-symbols-outlined text-6xl mb-2">image_not_supported</span>
+          <p class="font-mono text-xs uppercase tracking-widest">No visual data</p>
         </div>
-      </div>
+        }
 
-      <!-- Info Area -->
-      <div class="lg:col-span-5 flex flex-col pt-4">
-        <header class="mb-8">
-          <div class="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-black tracking-[0.2em] text-[10px] mb-4 uppercase">
-            <span class="material-symbols-outlined text-sm">verified</span>
-            Elite Fleet Authorization Required
+        <!-- HUD Micro Data -->
+        <div
+          class="absolute bottom-6 left-6 font-mono text-[10px] text-blue-600 dark:text-blue-400 space-y-1"
+        >
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span> SYSTEM READY
           </div>
-          <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter leading-none uppercase">{{ p.title }}</h1>
-          <p class="mt-8 text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
-            {{ p.description }}
-          </p>
-        </header>
-
-        <!-- Technical Specs Section (User Requested Fake Data After Real Description) -->
-        <section class="mb-10 bg-slate-50/50 dark:bg-blue-950/20 rounded-2xl p-6 border border-slate-200 dark:border-blue-900/50 backdrop-blur-sm">
-          <h2 class="text-[10px] font-black tracking-[0.3em] text-slate-400 dark:text-blue-400/60 mb-6 uppercase">SPÉCIFICATIONS TECHNIQUES_V4</h2>
-          <div class="grid grid-cols-1 gap-5">
-            <div class="flex items-center justify-between group">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-blue-900/30 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                  <span class="material-symbols-outlined text-sm">rocket</span>
-                </div>
-                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Poussée Orbitale</span>
-              </div>
-              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400">{{ (p.id * 1.2).toFixed(1) }} KN / SEC</span>
-            </div>
-            
-            <div class="flex items-center justify-between group">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-blue-900/30 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                  <span class="material-symbols-outlined text-sm">shield</span>
-                </div>
-                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Résistance Ionique</span>
-              </div>
-              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400">GRADE {{ p.quantity > 50 ? 'A++' : 'B+' }}</span>
-            </div>
-
-            <div class="flex items-center justify-between group">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-blue-900/30 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                  <span class="material-symbols-outlined text-sm">scale</span>
-                </div>
-                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Poids en G-Nîmes</span>
-              </div>
-              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400">0.{{ p.id }}2 G-UNIT</span>
-            </div>
-
-            <div class="flex items-center justify-between group">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-blue-900/30 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                  <span class="material-symbols-outlined text-sm">settings_input_antenna</span>
-                </div>
-                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Fréquence Ultrason</span>
-              </div>
-              <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400">{{ 100 + p.id }} KHZ</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Stock & Gauge -->
-        <div class="mb-10">
-          <div class="flex justify-between items-end mb-2">
-            <span class="text-[10px] font-black tracking-widest text-slate-900 dark:text-white uppercase">Payload Capacity</span>
-            <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400">{{ p.quantity > 0 ? 'OPERATIONAL' : 'DEPLETED' }} // {{ p.quantity }} units</span>
-          </div>
-          <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-            <div class="h-full bg-gradient-to-r from-blue-600 to-cyan-400 shadow-[0_0_10px_#0052FF]" 
-              [style.width.%]="p.quantity > 100 ? 100 : p.quantity"></div>
-          </div>
-        </div>
-
-        <!-- Pricing & Actions -->
-        <div class="mt-auto pt-8 border-t border-slate-200 dark:border-blue-900/30">
-          <div class="flex items-baseline gap-4 mb-8">
-            <div class="text-4xl font-black text-slate-900 dark:text-white tabular-nums">{{ +p.priceTTC | currency: 'EUR' }}</div>
-            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Crédits Galactiques</div>
-            <div class="ml-auto text-[10px] font-mono text-slate-400">{{ +p.priceHT | currency: 'EUR' }} HT</div>
-          </div>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button (click)="addToCart(p)"
-              class="bg-blue-600 text-white py-5 px-8 rounded-full font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-blue-500/20 flex items-center justify-center gap-3 hover:bg-blue-700 hover:scale-[1.02] transition-all active:scale-[0.98] group">
-              <span class="material-symbols-outlined text-lg group-hover:rotate-12 transition-transform">shopping_cart</span>
-              Acquérir l'Équipement
-            </button>
-            <a routerLink="/cart"
-              class="border-2 border-slate-200 dark:border-blue-900/50 text-slate-600 dark:text-blue-400 py-5 px-8 rounded-full font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-slate-50 dark:hover:bg-blue-900/20 transition-all">
-              <span class="material-symbols-outlined text-lg">description</span>
-              Manifeste Transport
-            </a>
-          </div>
+          <div>OPTICAL SENSORS: ACTIVE</div>
         </div>
       </div>
     </div>
 
-    <!-- Technical Bento Details -->
-    <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="p-8 border border-blue-100 dark:border-blue-900/30 rounded-3xl bg-white dark:bg-slate-900/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group">
-        <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
-          <span class="material-symbols-outlined">satellite_alt</span>
+    <!-- Info Area -->
+    <div class="lg:col-span-5 flex flex-col pt-4">
+      <header class="mb-8">
+        <div
+          class="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-black tracking-[0.2em] text-[10px] mb-4 uppercase"
+        >
+          <span class="material-symbols-outlined text-sm">verified</span>
+          Elite Fleet Authorization Required
         </div>
-        <h3 class="text-lg font-black text-slate-900 dark:text-white mb-3 uppercase tracking-tight">Synchronisation Orbitale</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Localisation GPS-Galactique en temps réel via la constellation de satellites Nîmes-1.</p>
+        <h1
+          class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter leading-none uppercase"
+        >
+          {{ p.title }}
+        </h1>
+        <p class="mt-8 text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+          {{ p.description }}
+        </p>
+      </header>
+
+      <!-- Technical Specs Section (User Requested Fake Data After Real Description) -->
+      <section
+        class="mb-10 bg-slate-50/50 dark:bg-blue-950/20 rounded-2xl p-6 border border-slate-200 dark:border-blue-900/50 backdrop-blur-sm"
+      >
+        <h2
+          class="text-[10px] font-black tracking-[0.3em] text-slate-400 dark:text-blue-400/60 mb-6 uppercase"
+        >
+          SPÉCIFICATIONS TECHNIQUES_V4
+        </h2>
+        <div class="grid grid-cols-1 gap-5">
+          <div class="flex items-center justify-between group">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-blue-900/30 group-hover:bg-blue-600 group-hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined text-sm">rocket</span>
+              </div>
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300"
+                >Poussée Orbitale</span
+              >
+            </div>
+            <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400"
+              >{{ (p.id * 1.2).toFixed(1) }} KN / SEC</span
+            >
+          </div>
+
+          <div class="flex items-center justify-between group">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-blue-900/30 group-hover:bg-blue-600 group-hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined text-sm">shield</span>
+              </div>
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300"
+                >Résistance Ionique</span
+              >
+            </div>
+            <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400"
+              >GRADE {{ p.quantity > 50 ? 'A++' : 'B+' }}</span
+            >
+          </div>
+
+          <div class="flex items-center justify-between group">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-blue-900/30 group-hover:bg-blue-600 group-hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined text-sm">scale</span>
+              </div>
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300"
+                >Poids en G-Nîmes</span
+              >
+            </div>
+            <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400"
+              >0.{{ p.id }}2 G-UNIT</span
+            >
+          </div>
+
+          <div class="flex items-center justify-between group">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-blue-900/30 group-hover:bg-blue-600 group-hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined text-sm">settings_input_antenna</span>
+              </div>
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300"
+                >Fréquence Ultrason</span
+              >
+            </div>
+            <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400"
+              >{{ 100 + p.id }} KHZ</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Stock & Gauge -->
+      <div class="mb-10">
+        <div class="flex justify-between items-end mb-2">
+          <span
+            class="text-[10px] font-black tracking-widest text-slate-900 dark:text-white uppercase"
+            >Payload Capacity</span
+          >
+          <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400"
+            >{{ p.quantity > 0 ? 'OPERATIONAL' : 'DEPLETED' }} // {{ p.quantity }} units</span
+          >
+        </div>
+        <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+          <div
+            class="h-full bg-gradient-to-r from-blue-600 to-cyan-400 shadow-[0_0_10px_#0052FF]"
+            [style.width.%]="p.quantity > 100 ? 100 : p.quantity"
+          ></div>
+        </div>
       </div>
-      
-      <div class="p-8 border border-blue-100 dark:border-blue-900/30 rounded-3xl bg-white dark:bg-slate-900/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group">
-        <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
-          <span class="material-symbols-outlined">thermostat</span>
+
+      <!-- Pricing & Actions -->
+      <div class="mt-auto pt-8 border-t border-slate-200 dark:border-blue-900/30">
+        <div class="flex items-baseline gap-4 mb-8">
+          <div class="text-4xl font-black text-slate-900 dark:text-white tabular-nums">
+            {{ +p.priceTTC | currency: 'EUR' }}
+          </div>
+          <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+            Crédits Galactiques
+          </div>
+          <div class="ml-auto text-[10px] font-mono text-slate-400">
+            {{ +p.priceHT | currency: 'EUR' }} HT
+          </div>
         </div>
-        <h3 class="text-lg font-black text-slate-900 dark:text-white mb-3 uppercase tracking-tight">Régulation Thermique</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Maintient une température optimale entre -50°C et +120°C lors des rentrées atmosphériques.</p>
-      </div>
-      
-      <div class="p-8 border border-blue-100 dark:border-blue-900/30 rounded-3xl bg-white dark:bg-slate-900/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group">
-        <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
-          <span class="material-symbols-outlined">hardware</span>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <button
+            (click)="addToCart(p)"
+            class="bg-blue-600 text-white py-5 px-8 rounded-full font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-blue-500/20 flex items-center justify-center gap-3 hover:bg-blue-700 hover:scale-[1.02] transition-all active:scale-[0.98] group"
+          >
+            <span
+              class="material-symbols-outlined text-lg group-hover:rotate-12 transition-transform"
+              >shopping_cart</span
+            >
+            Acquérir l'Équipement
+          </button>
+          <a
+            routerLink="/cart"
+            class="border-2 border-slate-200 dark:border-blue-900/50 text-slate-600 dark:text-blue-400 py-5 px-8 rounded-full font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-slate-50 dark:hover:bg-blue-900/20 transition-all"
+          >
+            <span class="material-symbols-outlined text-lg">description</span>
+            Manifeste Transport
+          </a>
         </div>
-        <h3 class="text-lg font-black text-slate-900 dark:text-white mb-3 uppercase tracking-tight">Alliage Titan-Nîmes</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Structure renforcée quasi-indestructible mais ultra-légère pour une agilité K9 maximale.</p>
       </div>
     </div>
   </div>
+
+  <!-- Technical Bento Details -->
+  <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div
+      class="p-8 border border-blue-100 dark:border-blue-900/30 rounded-3xl bg-white dark:bg-slate-900/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group"
+    >
+      <div
+        class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all"
+      >
+        <span class="material-symbols-outlined">satellite_alt</span>
+      </div>
+      <h3 class="text-lg font-black text-slate-900 dark:text-white mb-3 uppercase tracking-tight">
+        Synchronisation Orbitale
+      </h3>
+      <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+        Localisation GPS-Galactique en temps réel via la constellation de satellites Nîmes-1.
+      </p>
+    </div>
+
+    <div
+      class="p-8 border border-blue-100 dark:border-blue-900/30 rounded-3xl bg-white dark:bg-slate-900/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group"
+    >
+      <div
+        class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all"
+      >
+        <span class="material-symbols-outlined">thermostat</span>
+      </div>
+      <h3 class="text-lg font-black text-slate-900 dark:text-white mb-3 uppercase tracking-tight">
+        Régulation Thermique
+      </h3>
+      <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+        Maintient une température optimale entre -50°C et +120°C lors des rentrées atmosphériques.
+      </p>
+    </div>
+
+    <div
+      class="p-8 border border-blue-100 dark:border-blue-900/30 rounded-3xl bg-white dark:bg-slate-900/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group"
+    >
+      <div
+        class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all"
+      >
+        <span class="material-symbols-outlined">hardware</span>
+      </div>
+      <h3 class="text-lg font-black text-slate-900 dark:text-white mb-3 uppercase tracking-tight">
+        Alliage Titan-Nîmes
+      </h3>
+      <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+        Structure renforcée quasi-indestructible mais ultra-légère pour une agilité K9 maximale.
+      </p>
+    </div>
+  </div>
+</div>
 } @else {
-  <div class="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-    <div class="w-16 h-16 border-4 border-blue-600/30 border-t-blue-600 rounded-full animate-spin mb-6"></div>
-    <p class="text-slate-500 dark:text-blue-400 font-mono text-xs uppercase tracking-[0.3em] animate-pulse">Initializing Data Stream...</p>
-  </div>
+<div class="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+  <div
+    class="w-16 h-16 border-4 border-blue-600/30 border-t-blue-600 rounded-full animate-spin mb-6"
+  ></div>
+  <p
+    class="text-slate-500 dark:text-blue-400 font-mono text-xs uppercase tracking-[0.3em] animate-pulse"
+  >
+    Initializing Data Stream...
+  </p>
+</div>
 }

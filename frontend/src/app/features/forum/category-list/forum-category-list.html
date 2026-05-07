@@ -1,84 +1,160 @@
 <div class="relative min-h-[80vh] pb-20">
+  <div class="absolute inset-x-0 top-0 h-[28rem] z-0 pointer-events-none overflow-hidden">
+    <img
+      src="/images/stitch/contact-hub.jpg"
+      alt=""
+      class="w-full h-full object-cover opacity-20 dark:opacity-25"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-slate-950/10 via-white/80 to-white dark:from-slate-950/35 dark:via-slate-950/80 dark:to-slate-950"
+    ></div>
+  </div>
+
   <!-- Header Section -->
-  <header class="mb-16 relative pt-8">
-    <div class="flex items-center gap-4 mb-4">
-      <div class="h-px w-12 bg-blue-500"></div>
-      <span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs">Command Center Terminal</span>
+  <header class="relative z-10 pt-8 md:pt-16 mb-16 px-4 md:px-6 overflow-hidden">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="flex items-center gap-4 mb-4 min-w-0">
+        <div class="h-px w-12 flex-shrink-0 bg-blue-500"></div>
+        <span class="min-w-0 text-blue-500 font-bold tracking-[0.3em] uppercase text-xs"
+          >Command Center Terminal</span
+        >
+      </div>
+      <h1
+        class="max-w-5xl text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-6 font-headline leading-[1.02] break-words"
+      >
+        Dispatching des <span class="hero-gradient-text block md:inline">Communications</span>
+      </h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+        Échangez avec les autres unités de la flotte sur les protocoles de mission et la vie
+        orbitale. Accédez aux terminaux sécurisés ci-dessous pour initier une transmission.
+      </p>
     </div>
-    <h1 class="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-6 font-headline">
-      Dispatching des <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">Communications</span>
-    </h1>
-    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-      Échangez avec les autres unités de la flotte sur les protocoles de mission et la vie orbitale. Accédez aux terminaux sécurisés ci-dessous pour initier une transmission.
-    </p>
   </header>
 
   @if (loading()) {
-    <div class="flex flex-col items-center justify-center py-20">
-      <span class="material-symbols-outlined text-6xl text-blue-500 animate-spin mb-4">refresh</span>
-      <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-sm">Synchronisation des fréquences...</p>
-    </div>
+  <div class="flex flex-col items-center justify-center py-20">
+    <span class="material-symbols-outlined text-6xl text-blue-500 animate-spin mb-4">refresh</span>
+    <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-sm">
+      Synchronisation des fréquences...
+    </p>
+  </div>
   } @else {
+  <section class="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @for (type of types(); track type.id; let i = $index) {
-        <!-- Category Module -->
-        <div class="glass-panel dark:bg-slate-900/60 rounded-3xl p-8 flex flex-col group hover:shadow-[0_20px_50px_rgba(0,82,255,0.15)] transition-all duration-500 hover:-translate-y-2 border border-white/40 dark:border-slate-800/50 relative overflow-hidden">
-          
-          <!-- Decorative signal bars -->
-          <div class="absolute top-8 right-8 flex items-end gap-[2px] h-3 opacity-30 group-hover:opacity-100 transition-opacity">
-            <div class="w-[3px] bg-blue-500 rounded-full animate-pulse h-1"></div>
-            <div class="w-[3px] bg-blue-500 rounded-full animate-pulse h-3" style="animation-delay: 0.2s"></div>
-            <div class="w-[3px] bg-blue-500 rounded-full animate-pulse h-2" style="animation-delay: 0.4s"></div>
-          </div>
-
-          <div class="flex justify-between items-start mb-8">
-            <div [class]="'w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition-transform group-hover:rotate-12 ' + (i % 3 === 0 ? 'bg-blue-600 text-white shadow-blue-600/30' : i % 3 === 1 ? 'bg-slate-900 dark:bg-slate-800 text-cyan-400' : 'bg-purple-600 text-white shadow-purple-600/30')">
-              <span class="material-symbols-outlined text-3xl">
-                {{ i % 5 === 0 ? 'radar' : i % 5 === 1 ? 'engineering' : i % 5 === 2 ? 'pets' : i % 5 === 3 ? 'science' : 'warning' }}
-              </span>
-            </div>
-          </div>
-
-          <h3 class="text-xl font-black text-slate-900 dark:text-white mb-3 tracking-tight font-headline">
-            {{ type.name }}
-          </h3>
-          <p class="text-slate-500 dark:text-slate-400 text-sm mb-8 flex-grow leading-relaxed">
-            {{ type.description }}
-          </p>
-
-          <button [routerLink]="['/forum', type.id]" class="w-full py-4 bg-slate-900 dark:bg-blue-600 text-white rounded-full font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 group-hover:bg-blue-600 dark:group-hover:bg-blue-500 transition-all shadow-xl active:scale-95">
-            Établir la connexion
-            <span class="material-symbols-outlined text-sm">sensors</span>
-          </button>
+      <!-- Category Module -->
+      <div
+        class="glass-panel dark:bg-slate-900/60 rounded-3xl p-8 flex flex-col group hover:shadow-[0_20px_50px_rgba(0,82,255,0.15)] transition-all duration-500 hover:-translate-y-2 border border-white/40 dark:border-slate-800/50 relative overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 z-0 opacity-10 group-hover:opacity-25 transition-opacity duration-700"
+        >
+          <img
+            [src]="i % 3 === 0 ? '/images/stitch/contact-hub.jpg' : i % 3 === 1 ? '/images/stitch/stitch_tech.png' : '/images/stitch/banner-space.jpg'"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-blue-600/30 dark:from-slate-950 dark:via-slate-950/80 dark:to-blue-950/30"
+          ></div>
         </div>
+
+        <!-- Decorative signal bars -->
+        <div
+          class="absolute top-8 right-8 z-10 flex items-end gap-[2px] h-3 opacity-30 group-hover:opacity-100 transition-opacity"
+        >
+          <div class="w-[3px] bg-blue-500 rounded-full animate-pulse h-1"></div>
+          <div
+            class="w-[3px] bg-blue-500 rounded-full animate-pulse h-3"
+            style="animation-delay: 0.2s"
+          ></div>
+          <div
+            class="w-[3px] bg-blue-500 rounded-full animate-pulse h-2"
+            style="animation-delay: 0.4s"
+          ></div>
+        </div>
+
+        <div class="relative z-10 flex justify-between items-start mb-8">
+          <div
+            [class]="'w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition-transform group-hover:rotate-12 ' + (i % 3 === 0 ? 'bg-blue-600 text-white shadow-blue-600/30' : i % 3 === 1 ? 'bg-slate-900 dark:bg-slate-800 text-cyan-400' : 'bg-purple-600 text-white shadow-purple-600/30')"
+          >
+            <span class="material-symbols-outlined text-3xl">
+              {{ i % 5 === 0 ? 'radar' : i % 5 === 1 ? 'engineering' : i % 5 === 2 ? 'pets' : i % 5
+              === 3 ? 'science' : 'warning' }}
+            </span>
+          </div>
+        </div>
+
+        <h3
+          class="relative z-10 text-xl font-black text-slate-900 dark:text-white mb-3 tracking-tight font-headline"
+        >
+          {{ type.name }}
+        </h3>
+        <p
+          class="relative z-10 text-slate-500 dark:text-slate-400 text-sm mb-8 flex-grow leading-relaxed"
+        >
+          {{ type.description }}
+        </p>
+
+        <button
+          [routerLink]="['/forum', type.id]"
+          class="relative z-10 w-full py-4 bg-slate-900 dark:bg-blue-600 text-white rounded-full font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 group-hover:bg-blue-600 dark:group-hover:bg-blue-500 transition-all shadow-xl active:scale-95"
+        >
+          Établir la connexion
+          <span class="material-symbols-outlined text-sm">sensors</span>
+        </button>
+      </div>
       } @empty {
-        <div class="col-span-full py-20 text-center">
-          <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-700 mb-4">wifi_off</span>
-          <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">Aucune fréquence détectée dans ce secteur.</p>
-        </div>
+      <div class="col-span-full py-20 text-center">
+        <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-700 mb-4"
+          >wifi_off</span
+        >
+        <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">
+          Aucune fréquence détectée dans ce secteur.
+        </p>
+      </div>
       }
     </div>
 
     <!-- Terminal Activity Log -->
-    <section class="mt-16 bg-white/40 dark:bg-slate-900/40 backdrop-blur rounded-2xl p-6 border border-white/20 dark:border-slate-800/50">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-        <h4 class="font-bold text-[10px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Flux d'Activité de la Station</h4>
+    <section
+      class="relative mt-16 overflow-hidden bg-white/40 dark:bg-slate-900/40 backdrop-blur rounded-2xl p-6 border border-white/20 dark:border-slate-800/50"
+    >
+      <div class="absolute inset-y-0 right-0 w-1/2 opacity-15 dark:opacity-20 pointer-events-none">
+        <img src="/images/stitch/banner-space.jpg" alt="" class="w-full h-full object-cover" />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-white dark:from-slate-950 to-transparent"
+        ></div>
       </div>
-      <div class="space-y-3 font-mono text-[11px] text-slate-400 dark:text-slate-500">
+      <div class="relative z-10 flex items-center gap-3 mb-4">
+        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+        <h4
+          class="font-bold text-[10px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400"
+        >
+          Flux d'Activité de la Station
+        </h4>
+      </div>
+      <div class="relative z-10 space-y-3 font-mono text-[11px] text-slate-400 dark:text-slate-500">
         <div class="flex gap-4 border-b border-slate-100 dark:border-slate-800/50 pb-2">
           <span class="text-blue-500">[14:02:44]</span>
-          <span class="text-slate-700 dark:text-slate-300">Unité_K9: Transmission entrante sur le canal Maintenance.</span>
+          <span class="text-slate-700 dark:text-slate-300"
+            >Unité_K9: Transmission entrante sur le canal Maintenance.</span
+          >
         </div>
         <div class="flex gap-4 border-b border-slate-100 dark:border-slate-800/50 pb-2">
           <span class="text-blue-500">[13:58:12]</span>
-          <span class="text-slate-700 dark:text-slate-300">Station_Alpha: Synchronisation des données d'inventaire terminée.</span>
+          <span class="text-slate-700 dark:text-slate-300"
+            >Station_Alpha: Synchronisation des données d'inventaire terminée.</span
+          >
         </div>
         <div class="flex gap-4">
           <span class="text-blue-500">[13:45:00]</span>
-          <span class="text-slate-700 dark:text-slate-300">Secteur_Loisirs: Nouvelle mise à jour des protocoles de divertissement.</span>
+          <span class="text-slate-700 dark:text-slate-300"
+            >Secteur_Loisirs: Nouvelle mise à jour des protocoles de divertissement.</span
+          >
         </div>
       </div>
     </section>
+  </section>
   }
 </div>

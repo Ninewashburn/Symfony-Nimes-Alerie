@@ -1,147 +1,227 @@
 <div class="fixed inset-0 z-0 pointer-events-none">
-  <img alt="Cockpit View" class="w-full h-full object-cover opacity-60" 
-    src="assets/images/stitch/register-bg.jpg"/>
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/40 to-slate-950"></div>
+  <img
+    alt="Cockpit View"
+    class="w-full h-full object-cover opacity-60"
+    src="/images/stitch/register-bg.jpg"
+  />
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/40 to-slate-950"
+  ></div>
 </div>
 
 <main class="relative z-10 flex-grow flex items-center justify-center pt-24 pb-16 px-4">
-  <div class="w-full max-w-4xl glass-panel dark:bg-slate-900/40 rounded-3xl p-8 md:p-12 relative overflow-hidden border border-blue-500/30 shadow-2xl backdrop-blur-2xl">
+  <div
+    class="w-full max-w-4xl glass-panel dark:bg-slate-900/40 rounded-3xl p-8 md:p-12 relative overflow-hidden border border-blue-500/30 shadow-2xl backdrop-blur-2xl"
+  >
     <!-- HUD Decorative Elements -->
     <div class="absolute top-4 right-8 hidden md:flex flex-col items-end gap-1 opacity-60">
-      <div class="text-[10px] font-mono text-blue-500 uppercase tracking-widest">Encryption Level: Quantum V2</div>
+      <div class="text-[10px] font-mono text-blue-500 uppercase tracking-widest">
+        Encryption Level: Quantum V2
+      </div>
       <div class="w-32 h-1 bg-slate-200/20 rounded-full overflow-hidden">
         <div class="w-3/4 h-full bg-blue-500"></div>
       </div>
-      <div class="text-[10px] font-mono text-blue-500 uppercase tracking-widest mt-2">Data Sync: 88%</div>
+      <div class="text-[10px] font-mono text-blue-500 uppercase tracking-widest mt-2">
+        Data Sync: 88%
+      </div>
     </div>
-    
+
     <!-- Left Decorative Radar -->
     <div class="absolute -left-12 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
-      <span class="material-symbols-outlined text-[180px]" style="font-variation-settings: 'wght' 100;">radar</span>
+      <span
+        class="material-symbols-outlined text-[180px]"
+        style="font-variation-settings: 'wght' 100"
+        >radar</span
+      >
     </div>
 
     <!-- Header -->
     <div class="relative mb-10">
-      <h1 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tighter uppercase mb-2">Nouvelle Accréditation d'Officier</h1>
+      <h1
+        class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tighter uppercase mb-2"
+      >
+        Nouvelle Accréditation d'Officier
+      </h1>
       <div class="flex items-center gap-2">
         <span class="h-1 w-12 bg-blue-500 rounded-full"></span>
-        <p class="text-slate-500 dark:text-slate-400 font-medium text-sm tracking-wide">SECURE ORBITAL ONBOARDING PROTOCOL</p>
+        <p class="text-slate-500 dark:text-slate-400 font-medium text-sm tracking-wide">
+          SECURE ORBITAL ONBOARDING PROTOCOL
+        </p>
       </div>
     </div>
 
     @if (error()) {
-      <div class="bg-red-500/10 border border-red-500/50 text-red-600 dark:text-red-400 p-4 rounded-xl text-[10px] font-mono tracking-wider mb-6 animate-in fade-in slide-in-from-top-1">
-        // PROTOCOL_ERROR: {{ error() }}
-      </div>
+    <div
+      class="bg-red-500/10 border border-red-500/50 text-red-600 dark:text-red-400 p-4 rounded-xl text-[10px] font-mono tracking-wider mb-6 animate-in fade-in slide-in-from-top-1"
+    >
+      // PROTOCOL_ERROR: {{ error() }}
+    </div>
     }
 
     <!-- Registration Form -->
     <form (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
       <!-- Prénom -->
       <div class="space-y-1.5">
-        <label class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2">
+        <label
+          class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2"
+        >
           <span class="material-symbols-outlined text-[14px]">person</span> Prénom
         </label>
-        <input 
-          [(ngModel)]="form.firstName" name="firstName" required type="text"
-          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white" 
-          placeholder="John" />
+        <input
+          [(ngModel)]="form.firstName"
+          name="firstName"
+          required
+          type="text"
+          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white"
+          placeholder="John"
+        />
       </div>
 
       <!-- Nom -->
       <div class="space-y-1.5">
-        <label class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2">
+        <label
+          class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2"
+        >
           <span class="material-symbols-outlined text-[14px]">badge</span> Nom
         </label>
-        <input 
-          [(ngModel)]="form.lastName" name="lastName" required type="text"
-          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white" 
-          placeholder="Doe" />
+        <input
+          [(ngModel)]="form.lastName"
+          name="lastName"
+          required
+          type="text"
+          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white"
+          placeholder="Doe"
+        />
       </div>
 
       <!-- Date de naissance -->
       <div class="space-y-1.5">
-        <label class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2">
-          <span class="material-symbols-outlined text-[14px]">calendar_today</span> Date de naissance
+        <label
+          class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[14px]">calendar_today</span> Date de
+          naissance
         </label>
-        <input 
-          [(ngModel)]="form.birthAt" name="birthAt" required type="date"
-          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none dark:text-white" />
+        <input
+          [(ngModel)]="form.birthAt"
+          name="birthAt"
+          required
+          type="date"
+          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none dark:text-white"
+        />
       </div>
 
       <!-- Téléphone -->
       <div class="space-y-1.5">
-        <label class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2">
+        <label
+          class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2"
+        >
           <span class="material-symbols-outlined text-[14px]">call</span> Téléphone
         </label>
-        <input 
-          [(ngModel)]="form.telephone" name="telephone" type="tel"
-          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white" 
-          placeholder="+33 6 XX XX XX XX" />
+        <input
+          [(ngModel)]="form.telephone"
+          name="telephone"
+          type="tel"
+          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white"
+          placeholder="+33 6 XX XX XX XX"
+        />
       </div>
 
       <!-- Adresse -->
       <div class="space-y-1.5 md:col-span-2">
-        <label class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2">
+        <label
+          class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2"
+        >
           <span class="material-symbols-outlined text-[14px]">home</span> Adresse de résidence
         </label>
-        <input 
-          [(ngModel)]="form.address" name="address" required type="text"
-          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white" 
-          placeholder="123 Orbital Hub" />
+        <input
+          [(ngModel)]="form.address"
+          name="address"
+          required
+          type="text"
+          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white"
+          placeholder="123 Orbital Hub"
+        />
       </div>
 
       <!-- Ville / Secteur -->
       <div class="space-y-1.5">
-        <label class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2">
+        <label
+          class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2"
+        >
           <span class="material-symbols-outlined text-[14px]">map</span> Ville / Secteur
         </label>
-        <input 
-          [(ngModel)]="form.city" name="city" required type="text"
-          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white" 
-          placeholder="Nîmes / Quadrant 4" />
+        <input
+          [(ngModel)]="form.city"
+          name="city"
+          required
+          type="text"
+          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white"
+          placeholder="Nîmes / Quadrant 4"
+        />
       </div>
 
       <!-- Email Officier -->
       <div class="space-y-1.5">
-        <label class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2">
+        <label
+          class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2"
+        >
           <span class="material-symbols-outlined text-[14px]">alternate_email</span> Email Officier
         </label>
-        <input 
-          [(ngModel)]="form.email" name="email" required type="email"
-          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white" 
-          placeholder="officer@nimesalerie.gal" />
+        <input
+          [(ngModel)]="form.email"
+          name="email"
+          required
+          type="email"
+          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white"
+          placeholder="officer@nimesalerie.gal"
+        />
       </div>
 
       <!-- Mot de passe -->
       <div class="space-y-1.5 md:col-span-2">
-        <label class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2">
+        <label
+          class="block text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1 ml-1 flex items-center gap-2"
+        >
           <span class="material-symbols-outlined text-[14px]">lock</span> Mot de passe de sécurité
         </label>
-        <input 
-          [(ngModel)]="form.password" name="password" required minlength="6" type="password"
-          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white" 
-          placeholder="••••••••••••" />
+        <input
+          [(ngModel)]="form.password"
+          name="password"
+          required
+          minlength="6"
+          type="password"
+          autocomplete="new-password"
+          class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/20 rounded-xl px-4 py-3.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none placeholder:text-slate-400 dark:text-white"
+          placeholder="••••••••••••"
+        />
       </div>
 
       <!-- CTA -->
       <div class="md:col-span-2 mt-6">
-        <button 
-          type="submit" [disabled]="loading()"
-          class="w-full bg-blue-600 text-white font-black text-lg py-5 rounded-full uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(0,82,255,0.4)] hover:bg-blue-700 transition-all active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-50">
+        <button
+          type="submit"
+          [disabled]="loading()"
+          class="w-full bg-blue-600 text-white font-black text-lg py-5 rounded-full uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(0,82,255,0.4)] hover:bg-blue-700 transition-all active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-50"
+        >
           @if (loading()) {
-            <span class="material-symbols-outlined animate-spin">sync</span>
-            <span>TRANSMITTING...</span>
+          <span class="material-symbols-outlined animate-spin">sync</span>
+          <span>TRANSMITTING...</span>
           } @else {
-            <span class="material-symbols-outlined">how_to_reg</span>
-            <span>Finaliser l'Accréditation</span>
+          <span class="material-symbols-outlined">how_to_reg</span>
+          <span>Finaliser l'Accréditation</span>
           }
         </button>
       </div>
     </form>
 
-    <div class="mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800 flex flex-col items-center gap-4">
-      <a routerLink="/login" class="text-xs font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest hover:text-fuchsia-500 transition-colors flex items-center gap-2">
+    <div
+      class="mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800 flex flex-col items-center gap-4"
+    >
+      <a
+        routerLink="/login"
+        class="text-xs font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest hover:text-fuchsia-500 transition-colors flex items-center gap-2"
+      >
         <span class="material-symbols-outlined text-[16px]">login</span>
         Identification de l'Officier
       </a>

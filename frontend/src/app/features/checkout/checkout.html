@@ -3,38 +3,80 @@
   <section class="w-full flex flex-col gap-8 mb-12">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
       <div>
-        <span class="font-mono text-xs text-blue-600 dark:text-blue-400 font-black tracking-[0.3em] uppercase">Mission Configuration</span>
-        <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white uppercase font-headline">PROTOCOLE DE DÉPLOIEMENT</h1>
+        <span
+          class="font-mono text-xs text-blue-600 dark:text-blue-400 font-black tracking-[0.3em] uppercase"
+          >Mission Configuration</span
+        >
+        <h1
+          class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white uppercase font-headline"
+        >
+          PROTOCOLE DE DÉPLOIEMENT
+        </h1>
       </div>
       <div class="font-mono text-right hidden md:block">
-        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-1">System Status: Nominal</p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-1">
+          System Status: Nominal
+        </p>
         <p class="text-xs text-blue-600 dark:text-blue-400 font-bold">ORBITAL VELOCITY: 7.8 KM/S</p>
       </div>
     </div>
 
     <!-- HUD Progress Indicator -->
     <div class="grid grid-cols-3 gap-3 h-16 w-full">
-      <div [class]="step() >= 1 ? 'border-blue-600 bg-white/80 dark:bg-blue-900/30 shadow-[0_0_15px_rgba(0,82,255,0.2)]' : 'border-slate-200 dark:border-blue-900/10 bg-slate-50 dark:bg-slate-900/20'" 
-           class="relative flex flex-col justify-end p-4 rounded-xl border-b-4 transition-all duration-500 overflow-hidden backdrop-blur-xl">
-        <span [class]="step() >= 1 ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400'" class="font-mono text-[10px] font-black tracking-widest">01: LIVRAISON</span>
-        <div class="h-1.5 w-full bg-slate-100 dark:bg-blue-900/20 mt-2 overflow-hidden rounded-full">
-          <div class="h-full bg-blue-600 shadow-[0_0_10px_#0052FF] transition-all duration-700" [style.width.%]="step() >= 1 ? 100 : 0"></div>
+      <div
+        [class]="step() >= 1 ? 'border-blue-600 bg-white/80 dark:bg-blue-900/30 shadow-[0_0_15px_rgba(0,82,255,0.2)]' : 'border-slate-200 dark:border-blue-900/10 bg-slate-50 dark:bg-slate-900/20'"
+        class="relative flex flex-col justify-end p-4 rounded-xl border-b-4 transition-all duration-500 overflow-hidden backdrop-blur-xl"
+      >
+        <span
+          [class]="step() >= 1 ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400'"
+          class="font-mono text-[10px] font-black tracking-widest"
+          >01: LIVRAISON</span
+        >
+        <div
+          class="h-1.5 w-full bg-slate-100 dark:bg-blue-900/20 mt-2 overflow-hidden rounded-full"
+        >
+          <div
+            class="h-full bg-blue-600 shadow-[0_0_10px_#0052FF] transition-all duration-700"
+            [style.width.%]="step() >= 1 ? 100 : 0"
+          ></div>
         </div>
       </div>
 
-      <div [class]="step() >= 2 ? 'border-blue-600 bg-white/80 dark:bg-blue-900/30 shadow-[0_0_15px_rgba(0,82,255,0.2)]' : 'border-slate-200 dark:border-blue-900/10 bg-slate-50 dark:bg-slate-900/20'" 
-           class="relative flex flex-col justify-end p-4 rounded-xl border-b-4 transition-all duration-500 overflow-hidden backdrop-blur-xl">
-        <span [class]="step() >= 2 ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400'" class="font-mono text-[10px] font-black tracking-widest">02: AVITAILLEMENT</span>
-        <div class="h-1.5 w-full bg-slate-100 dark:bg-blue-900/20 mt-2 overflow-hidden rounded-full">
-          <div class="h-full bg-blue-600 shadow-[0_0_10px_#0052FF] transition-all duration-700" [style.width.%]="step() >= 2 ? 100 : 0"></div>
+      <div
+        [class]="step() >= 2 ? 'border-blue-600 bg-white/80 dark:bg-blue-900/30 shadow-[0_0_15px_rgba(0,82,255,0.2)]' : 'border-slate-200 dark:border-blue-900/10 bg-slate-50 dark:bg-slate-900/20'"
+        class="relative flex flex-col justify-end p-4 rounded-xl border-b-4 transition-all duration-500 overflow-hidden backdrop-blur-xl"
+      >
+        <span
+          [class]="step() >= 2 ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400'"
+          class="font-mono text-[10px] font-black tracking-widest"
+          >02: AVITAILLEMENT</span
+        >
+        <div
+          class="h-1.5 w-full bg-slate-100 dark:bg-blue-900/20 mt-2 overflow-hidden rounded-full"
+        >
+          <div
+            class="h-full bg-blue-600 shadow-[0_0_10px_#0052FF] transition-all duration-700"
+            [style.width.%]="step() >= 2 ? 100 : 0"
+          ></div>
         </div>
       </div>
 
-      <div [class]="step() >= 3 ? 'border-emerald-500 bg-white/80 dark:bg-emerald-900/20 shadow-[0_0_15px_rgba(16,185,129,0.2)]' : 'border-slate-200 dark:border-blue-900/10 bg-slate-50 dark:bg-slate-900/20'" 
-           class="relative flex flex-col justify-end p-4 rounded-xl border-b-4 transition-all duration-500 overflow-hidden backdrop-blur-xl">
-        <span [class]="step() >= 3 ? 'text-emerald-500' : 'text-slate-400'" class="font-mono text-[10px] font-black tracking-widest">03: LANCEMENT</span>
-        <div class="h-1.5 w-full bg-slate-100 dark:bg-blue-900/20 mt-2 overflow-hidden rounded-full">
-          <div class="h-full bg-emerald-500 shadow-[0_0_10px_#10b981] transition-all duration-700" [style.width.%]="step() >= 3 ? 100 : 0"></div>
+      <div
+        [class]="step() >= 3 ? 'border-emerald-500 bg-white/80 dark:bg-emerald-900/20 shadow-[0_0_15px_rgba(16,185,129,0.2)]' : 'border-slate-200 dark:border-blue-900/10 bg-slate-50 dark:bg-slate-900/20'"
+        class="relative flex flex-col justify-end p-4 rounded-xl border-b-4 transition-all duration-500 overflow-hidden backdrop-blur-xl"
+      >
+        <span
+          [class]="step() >= 3 ? 'text-emerald-500' : 'text-slate-400'"
+          class="font-mono text-[10px] font-black tracking-widest"
+          >03: LANCEMENT</span
+        >
+        <div
+          class="h-1.5 w-full bg-slate-100 dark:bg-blue-900/20 mt-2 overflow-hidden rounded-full"
+        >
+          <div
+            class="h-full bg-emerald-500 shadow-[0_0_10px_#10b981] transition-all duration-700"
+            [style.width.%]="step() >= 3 ? 100 : 0"
+          ></div>
         </div>
       </div>
     </div>
@@ -43,250 +85,430 @@
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
     <!-- Main Content Area -->
     <div class="lg:col-span-8 flex flex-col gap-8">
-      
       <!-- STEP 1 : Adresse de livraison -->
       @if (step() === 1) {
-        <div class="glass-panel dark:bg-slate-900/40 p-8 md:p-10 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl relative overflow-hidden transition-all duration-500">
-          <div class="absolute top-0 right-0 p-8 opacity-[0.02] dark:opacity-[0.05] pointer-events-none">
-            <span class="material-symbols-outlined text-[12rem]">rocket</span>
+      <div
+        class="glass-panel dark:bg-slate-900/40 p-8 md:p-10 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl relative overflow-hidden transition-all duration-500"
+      >
+        <div
+          class="absolute top-0 right-0 p-8 opacity-[0.02] dark:opacity-[0.05] pointer-events-none"
+        >
+          <span class="material-symbols-outlined text-[12rem]">rocket</span>
+        </div>
+
+        <div class="space-y-12">
+          <!-- Coordonnées de Livraison -->
+          <div class="space-y-8">
+            <div class="flex items-center gap-4 border-l-4 border-blue-600 pl-6">
+              <span class="material-symbols-outlined text-blue-600 text-2xl"
+                >person_pin_circle</span
+              >
+              <h2
+                class="text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase"
+              >
+                Coordonnées de Livraison
+              </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label
+                  class="block font-mono text-[10px] uppercase font-black text-slate-500 dark:text-blue-400/60 tracking-widest pl-1"
+                  >Adresse de Surface *</label
+                >
+                <input
+                  type="text"
+                  [ngModel]="deliveryAddress()"
+                  (ngModelChange)="deliveryAddress.set($event)"
+                  class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 px-5 py-4 text-sm font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-blue-900/30 transition-all"
+                  placeholder="12 rue des Étoiles"
+                />
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label
+                    class="block font-mono text-[10px] uppercase font-black text-slate-500 dark:text-blue-400/60 tracking-widest pl-1"
+                    >Code/Quadrant *</label
+                  >
+                  <input
+                    type="text"
+                    [ngModel]="deliveryPostalCode()"
+                    (ngModelChange)="deliveryPostalCode.set($event)"
+                    class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 px-5 py-4 text-sm font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-blue-900/30 transition-all"
+                    placeholder="30000"
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label
+                    class="block font-mono text-[10px] uppercase font-black text-slate-500 dark:text-blue-400/60 tracking-widest pl-1"
+                    >Base/Ville *</label
+                  >
+                  <input
+                    type="text"
+                    [ngModel]="deliveryCity()"
+                    (ngModelChange)="deliveryCity.set($event)"
+                    class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 px-5 py-4 text-sm font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-blue-900/30 transition-all"
+                    placeholder="Nîmes-01"
+                  />
+                </div>
+              </div>
+
+              <div class="md:col-span-2 space-y-2">
+                <label
+                  class="block font-mono text-[10px] uppercase font-black text-slate-500 dark:text-blue-400/60 tracking-widest pl-1"
+                  >Secteur Galactique (Pays)</label
+                >
+                <input
+                  type="text"
+                  [ngModel]="deliveryCountry()"
+                  (ngModelChange)="deliveryCountry.set($event)"
+                  class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 px-5 py-4 text-sm font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-blue-900/30 transition-all"
+                  placeholder="France Sector"
+                />
+              </div>
+            </div>
           </div>
 
-          <div class="space-y-12">
-            <!-- Coordonnées de Livraison -->
-            <div class="space-y-8">
-              <div class="flex items-center gap-4 border-l-4 border-blue-600 pl-6">
-                <span class="material-symbols-outlined text-blue-600 text-2xl">person_pin_circle</span>
-                <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase">Coordonnées de Livraison</h2>
-              </div>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                  <label class="block font-mono text-[10px] uppercase font-black text-slate-500 dark:text-blue-400/60 tracking-widest pl-1">Adresse de Surface *</label>
-                  <input type="text" [ngModel]="deliveryAddress()" (ngModelChange)="deliveryAddress.set($event)"
-                    class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 px-5 py-4 text-sm font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-blue-900/30 transition-all"
-                    placeholder="12 rue des Étoiles" />
-                </div>
-                
-                <div class="grid grid-cols-2 gap-4">
-                  <div class="space-y-2">
-                    <label class="block font-mono text-[10px] uppercase font-black text-slate-500 dark:text-blue-400/60 tracking-widest pl-1">Code/Quadrant *</label>
-                    <input type="text" [ngModel]="deliveryPostalCode()" (ngModelChange)="deliveryPostalCode.set($event)"
-                      class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 px-5 py-4 text-sm font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-blue-900/30 transition-all"
-                      placeholder="30000" />
-                  </div>
-                  <div class="space-y-2">
-                    <label class="block font-mono text-[10px] uppercase font-black text-slate-500 dark:text-blue-400/60 tracking-widest pl-1">Base/Ville *</label>
-                    <input type="text" [ngModel]="deliveryCity()" (ngModelChange)="deliveryCity.set($event)"
-                      class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 px-5 py-4 text-sm font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-blue-900/30 transition-all"
-                      placeholder="Nîmes-01" />
-                  </div>
-                </div>
+          <div
+            class="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border border-blue-100 dark:border-blue-900/50 flex gap-5"
+          >
+            <span class="material-symbols-outlined text-blue-600 dark:text-blue-400">info</span>
+            <p
+              class="text-[11px] text-blue-800 dark:text-blue-300 leading-relaxed font-bold uppercase tracking-tight"
+            >
+              Nos drones utilisent une navigation par intrication quantique. Assurez-vous que votre
+              quadrant de secteur est dégagé pour une descente orbitale sans encombre.
+            </p>
+          </div>
 
-                <div class="md:col-span-2 space-y-2">
-                  <label class="block font-mono text-[10px] uppercase font-black text-slate-500 dark:text-blue-400/60 tracking-widest pl-1">Secteur Galactique (Pays)</label>
-                  <input type="text" [ngModel]="deliveryCountry()" (ngModelChange)="deliveryCountry.set($event)"
-                    class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-blue-600 px-5 py-4 text-sm font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-blue-900/30 transition-all"
-                    placeholder="France Sector" />
-                </div>
-              </div>
-            </div>
-
-            <div class="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border border-blue-100 dark:border-blue-900/50 flex gap-5">
-              <span class="material-symbols-outlined text-blue-600 dark:text-blue-400">info</span>
-              <p class="text-[11px] text-blue-800 dark:text-blue-300 leading-relaxed font-bold uppercase tracking-tight">
-                Nos drones utilisent une navigation par intrication quantique. Assurez-vous que votre quadrant de secteur est dégagé pour une descente orbitale sans encombre.
-              </p>
-            </div>
-
-            <!-- Actions Step 1 -->
-            <div class="pt-8 border-t border-slate-100 dark:border-blue-900/30 flex justify-between items-center">
-              <a routerLink="/cart" class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">arrow_back</span>
-                Retour au Cargaison
-              </a>
-              <button (click)="goToPayment()" [disabled]="!isAddressValid()"
-                class="bg-gradient-to-r from-blue-600 to-blue-500 text-white font-black px-10 py-4 rounded-full shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 disabled:scale-100 disabled:opacity-30 disabled:grayscale transition-all flex items-center gap-3 group tracking-[0.2em] text-[10px]">
-                VALIDER LA TRAJECTOIRE
-                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </button>
-            </div>
+          <!-- Actions Step 1 -->
+          <div
+            class="pt-8 border-t border-slate-100 dark:border-blue-900/30 flex justify-between items-center"
+          >
+            <a
+              routerLink="/cart"
+              class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-sm">arrow_back</span>
+              Retour au Cargaison
+            </a>
+            <button
+              (click)="goToPayment()"
+              [disabled]="!isAddressValid()"
+              class="bg-gradient-to-r from-blue-600 to-blue-500 text-white font-black px-10 py-4 rounded-full shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 disabled:scale-100 disabled:opacity-30 disabled:grayscale transition-all flex items-center gap-3 group tracking-[0.2em] text-[10px]"
+            >
+              VALIDER LA TRAJECTOIRE
+              <span
+                class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </button>
           </div>
         </div>
+      </div>
       }
 
       <!-- ÉTAPE 2 : Mode de paiement -->
       @if (step() === 2) {
-        <div class="glass-panel dark:bg-slate-900/40 p-8 md:p-10 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl relative overflow-hidden transition-all duration-500">
-          
-          <div class="space-y-10">
-            <div class="flex items-center gap-4 border-l-4 border-blue-600 pl-6 mb-10">
-              <span class="material-symbols-outlined text-blue-600 text-2xl">account_balance_wallet</span>
-              <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase">Mode de Paiement</h2>
-            </div>
+      <div
+        class="glass-panel dark:bg-slate-900/40 p-8 md:p-10 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl relative overflow-hidden transition-all duration-500"
+      >
+        <div class="space-y-10">
+          <div class="flex items-center gap-4 border-l-4 border-blue-600 pl-6 mb-10">
+            <span class="material-symbols-outlined text-blue-600 text-2xl"
+              >account_balance_wallet</span
+            >
+            <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase">
+              Mode de Paiement
+            </h2>
+          </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <label class="relative group cursor-pointer">
-                <input type="radio" name="payment" value="card" [checked]="paymentMethod() === 'card'" (change)="paymentMethod.set('card')" class="peer sr-only" />
-                <div class="h-full border-2 border-slate-100 dark:border-blue-900/30 rounded-2xl p-6 transition-all duration-300 peer-checked:border-blue-600 peer-checked:bg-blue-50/50 dark:peer-checked:bg-blue-900/20 flex flex-col gap-4 group-hover:shadow-xl">
-                  <div class="flex justify-between items-start">
-                    <span class="material-symbols-outlined text-3xl text-slate-400 peer-checked:text-blue-600 transition-colors">credit_card</span>
-                    <div class="w-4 h-4 rounded-full border-2 border-slate-200 peer-checked:border-blue-600 peer-checked:bg-blue-600"></div>
-                  </div>
-                  <div>
-                    <p class="font-black text-slate-900 dark:text-white uppercase tracking-tight">Carte Galactique</p>
-                    <p class="text-[10px] text-slate-500 dark:text-blue-400 font-bold uppercase tracking-widest mt-1">Séquence CB / Visa / Mastercard</p>
-                  </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <label class="relative group cursor-pointer">
+              <input
+                type="radio"
+                name="payment"
+                value="card"
+                [checked]="paymentMethod() === 'card'"
+                (change)="paymentMethod.set('card')"
+                class="peer sr-only"
+              />
+              <div
+                class="h-full border-2 border-slate-100 dark:border-blue-900/30 rounded-2xl p-6 transition-all duration-300 peer-checked:border-blue-600 peer-checked:bg-blue-50/50 dark:peer-checked:bg-blue-900/20 flex flex-col gap-4 group-hover:shadow-xl"
+              >
+                <div class="flex justify-between items-start">
+                  <span
+                    class="material-symbols-outlined text-3xl text-slate-400 peer-checked:text-blue-600 transition-colors"
+                    >credit_card</span
+                  >
+                  <div
+                    class="w-4 h-4 rounded-full border-2 border-slate-200 peer-checked:border-blue-600 peer-checked:bg-blue-600"
+                  ></div>
                 </div>
-              </label>
-
-              <label class="relative group cursor-pointer">
-                <input type="radio" name="payment" value="paypal" [checked]="paymentMethod() === 'paypal'" (change)="paymentMethod.set('paypal')" class="peer sr-only" />
-                <div class="h-full border-2 border-slate-100 dark:border-blue-900/30 rounded-2xl p-6 transition-all duration-300 peer-checked:border-blue-600 peer-checked:bg-blue-50/50 dark:peer-checked:bg-blue-900/20 flex flex-col gap-4 group-hover:shadow-xl">
-                  <div class="flex justify-between items-start">
-                    <span class="material-symbols-outlined text-3xl text-slate-400 peer-checked:text-blue-600 transition-colors">account_balance</span>
-                    <div class="w-4 h-4 rounded-full border-2 border-slate-200 peer-checked:border-blue-600 peer-checked:bg-blue-600"></div>
-                  </div>
-                  <div>
-                    <p class="font-black text-slate-900 dark:text-white uppercase tracking-tight">Flux PayPal</p>
-                    <p class="text-[10px] text-slate-500 dark:text-blue-400 font-bold uppercase tracking-widest mt-1">Redirection Tunnel Sécurisé</p>
-                  </div>
+                <div>
+                  <p class="font-black text-slate-900 dark:text-white uppercase tracking-tight">
+                    Carte Galactique
+                  </p>
+                  <p
+                    class="text-[10px] text-slate-500 dark:text-blue-400 font-bold uppercase tracking-widest mt-1"
+                  >
+                    Séquence CB / Visa / Mastercard
+                  </p>
                 </div>
-              </label>
-            </div>
-
-            <!-- Récap Adr -->
-            <div class="mt-10 p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-blue-900/20">
-               <div class="flex items-center gap-3 mb-3">
-                  <span class="material-symbols-outlined text-xs text-blue-600">location_on</span>
-                  <span class="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">Destinations de Déploiement</span>
-               </div>
-               <p class="text-xs font-bold text-slate-600 dark:text-slate-300 italic">
-                {{ deliveryAddress() }}, {{ deliveryPostalCode() }} {{ deliveryCity() }}, {{ deliveryCountry() }}
-               </p>
-            </div>
-
-            @if (errorMessage()) {
-              <div class="bg-red-50 dark:bg-red-900/30 border border-red-100 dark:border-red-900/50 text-red-600 dark:text-red-400 p-4 rounded-xl text-[11px] font-bold uppercase tracking-wide flex items-center gap-3">
-                <span class="material-symbols-outlined text-lg">error</span>
-                {{ errorMessage() }}
               </div>
-            }
+            </label>
 
-            <div class="pt-8 border-t border-slate-100 dark:border-blue-900/30 flex justify-between items-center">
-              <button (click)="goToAddress()" class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">adjust</span>
-                Corriger les Coordonnées
-              </button>
-              <button (click)="placeOrder()" [disabled]="isLoading()"
-                class="bg-gradient-to-r from-blue-600 to-blue-500 text-white font-black px-10 py-4 rounded-full shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 disabled:opacity-50 transition-all flex items-center gap-3 group tracking-[0.2em] text-[10px]">
-                @if (isLoading()) {
-                  CHARGEMENT DU NOYAU...
-                } @else {
-                  AUTORISER LE LANCEMENT
-                  <span class="material-symbols-outlined text-sm group-hover:rotate-45 transition-transform">rocket_launch</span>
-                }
-              </button>
+            <label class="relative group cursor-pointer">
+              <input
+                type="radio"
+                name="payment"
+                value="paypal"
+                [checked]="paymentMethod() === 'paypal'"
+                (change)="paymentMethod.set('paypal')"
+                class="peer sr-only"
+              />
+              <div
+                class="h-full border-2 border-slate-100 dark:border-blue-900/30 rounded-2xl p-6 transition-all duration-300 peer-checked:border-blue-600 peer-checked:bg-blue-50/50 dark:peer-checked:bg-blue-900/20 flex flex-col gap-4 group-hover:shadow-xl"
+              >
+                <div class="flex justify-between items-start">
+                  <span
+                    class="material-symbols-outlined text-3xl text-slate-400 peer-checked:text-blue-600 transition-colors"
+                    >account_balance</span
+                  >
+                  <div
+                    class="w-4 h-4 rounded-full border-2 border-slate-200 peer-checked:border-blue-600 peer-checked:bg-blue-600"
+                  ></div>
+                </div>
+                <div>
+                  <p class="font-black text-slate-900 dark:text-white uppercase tracking-tight">
+                    Flux PayPal
+                  </p>
+                  <p
+                    class="text-[10px] text-slate-500 dark:text-blue-400 font-bold uppercase tracking-widest mt-1"
+                  >
+                    Redirection Tunnel Sécurisé
+                  </p>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Récap Adr -->
+          <div
+            class="mt-10 p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-blue-900/20"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <span class="material-symbols-outlined text-xs text-blue-600">location_on</span>
+              <span class="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600"
+                >Destinations de Déploiement</span
+              >
             </div>
+            <p class="text-xs font-bold text-slate-600 dark:text-slate-300 italic">
+              {{ deliveryAddress() }}, {{ deliveryPostalCode() }} {{ deliveryCity() }}, {{
+              deliveryCountry() }}
+            </p>
+          </div>
+
+          @if (errorMessage()) {
+          <div
+            class="bg-red-50 dark:bg-red-900/30 border border-red-100 dark:border-red-900/50 text-red-600 dark:text-red-400 p-4 rounded-xl text-[11px] font-bold uppercase tracking-wide flex items-center gap-3"
+          >
+            <span class="material-symbols-outlined text-lg">error</span>
+            {{ errorMessage() }}
+          </div>
+          }
+
+          <div
+            class="pt-8 border-t border-slate-100 dark:border-blue-900/30 flex justify-between items-center"
+          >
+            <button
+              (click)="goToAddress()"
+              class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-sm">adjust</span>
+              Corriger les Coordonnées
+            </button>
+            <button
+              (click)="placeOrder()"
+              [disabled]="isLoading()"
+              class="bg-gradient-to-r from-blue-600 to-blue-500 text-white font-black px-10 py-4 rounded-full shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 disabled:opacity-50 transition-all flex items-center gap-3 group tracking-[0.2em] text-[10px]"
+            >
+              @if (isLoading()) { CHARGEMENT DU NOYAU... } @else { AUTORISER LE LANCEMENT
+              <span
+                class="material-symbols-outlined text-sm group-hover:rotate-45 transition-transform"
+                >rocket_launch</span
+              >
+              }
+            </button>
           </div>
         </div>
+      </div>
       }
 
       <!-- ÉTAPE 3 : Confirmation -->
       @if (step() === 3) {
-        <div class="glass-panel dark:bg-slate-900/40 p-12 rounded-3xl border-2 border-emerald-500/20 shadow-2xl shadow-emerald-500/5 text-center relative overflow-hidden">
-          <div class="absolute -top-12 -right-12 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl"></div>
-          
-          <div class="w-24 h-24 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-8 relative">
-            <div class="absolute inset-0 rounded-full border-4 border-emerald-500/30 animate-ping"></div>
-            <span class="material-symbols-outlined text-5xl text-emerald-500">done_all</span>
+      <div
+        class="glass-panel dark:bg-slate-900/40 p-12 rounded-3xl border-2 border-emerald-500/20 shadow-2xl shadow-emerald-500/5 text-center relative overflow-hidden"
+      >
+        <div
+          class="absolute -top-12 -right-12 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl"
+        ></div>
+
+        <div
+          class="w-24 h-24 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-8 relative"
+        >
+          <div
+            class="absolute inset-0 rounded-full border-4 border-emerald-500/30 animate-ping"
+          ></div>
+          <span class="material-symbols-outlined text-5xl text-emerald-500">done_all</span>
+        </div>
+
+        <h2
+          class="text-4xl font-black text-slate-900 dark:text-white tracking-tighter uppercase mb-4"
+        >
+          MISSION ACCOMPLIE !
+        </h2>
+        <p
+          class="text-slate-500 dark:text-slate-400 max-w-sm mx-auto font-medium text-sm leading-relaxed mb-10"
+        >
+          Votre cargaison a été autorisée pour le déploiement immédiat. Ground Control vous
+          informera du débarquement.
+        </p>
+
+        @if (confirmation(); as c) {
+        <div
+          class="max-w-md mx-auto bg-slate-50 dark:bg-blue-950/20 rounded-2xl p-8 text-left border border-slate-100 dark:border-blue-900/30 space-y-5"
+        >
+          <div
+            class="flex justify-between items-center text-[10px] font-black tracking-widest text-slate-400 uppercase"
+          >
+            <span>Rapport de Mission</span>
+            <span class="font-mono">{{ c.billNumber }}</span>
           </div>
 
-          <h2 class="text-4xl font-black text-slate-900 dark:text-white tracking-tighter uppercase mb-4">MISSION ACCOMPLIE !</h2>
-          <p class="text-slate-500 dark:text-slate-400 max-w-sm mx-auto font-medium text-sm leading-relaxed mb-10">
-            Votre cargaison a été autorisée pour le déploiement immédiat. Ground Control vous informera du débarquement.
-          </p>
+          <div class="h-px bg-slate-200 dark:bg-blue-900/30"></div>
 
-          @if (confirmation(); as c) {
-            <div class="max-w-md mx-auto bg-slate-50 dark:bg-blue-950/20 rounded-2xl p-8 text-left border border-slate-100 dark:border-blue-900/30 space-y-5">
-              <div class="flex justify-between items-center text-[10px] font-black tracking-widest text-slate-400 uppercase">
-                <span>Rapport de Mission</span>
-                <span class="font-mono">{{ c.billNumber }}</span>
-              </div>
-              
-              <div class="h-px bg-slate-200 dark:bg-blue-900/30"></div>
-              
-              <div class="space-y-3">
-                <div class="flex justify-between text-xs">
-                  <span class="text-slate-500 font-bold uppercase">Logistique</span>
-                  <span class="text-slate-900 dark:text-white font-black">{{ c.itemsCount }} Unité(s)</span>
-                </div>
-                <div class="flex justify-between text-xs">
-                  <span class="text-slate-500 font-bold uppercase">Canal de Paiement</span>
-                  <span class="text-slate-900 dark:text-white font-black uppercase">{{ c.payment }}</span>
-                </div>
-              </div>
-
-              <div class="pt-4 border-t border-slate-200 dark:border-blue-900/30 flex justify-between items-end">
-                <span class="text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest">Total Acquitté</span>
-                <span class="text-2xl font-black text-slate-900 dark:text-white tabular-nums">{{ +c.total | currency: 'EUR' }}</span>
-              </div>
+          <div class="space-y-3">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-500 font-bold uppercase">Logistique</span>
+              <span class="text-slate-900 dark:text-white font-black"
+                >{{ c.itemsCount }} Unité(s)</span
+              >
             </div>
-          }
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-500 font-bold uppercase">Canal de Paiement</span>
+              <span class="text-slate-900 dark:text-white font-black uppercase"
+                >{{ c.payment }}</span
+              >
+            </div>
+          </div>
 
-          <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-            <a routerLink="/products"
-               class="bg-blue-600 text-white font-black px-10 py-4 rounded-full shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-all text-xs tracking-widest flex items-center justify-center gap-3">
-              <span class="material-symbols-outlined text-lg">explore</span>
-              NOUVELLE EXPLORATION
-            </a>
-            <a routerLink="/profile"
-               class="border-2 border-slate-200 dark:border-blue-900/50 text-slate-600 dark:text-blue-400 font-black px-10 py-4 rounded-full hover:bg-slate-50 dark:hover:bg-blue-900/20 transition-all text-xs tracking-widest">
-              VOIR MON DOSSIER
-            </a>
+          <div
+            class="pt-4 border-t border-slate-200 dark:border-blue-900/30 flex justify-between items-end"
+          >
+            <span
+              class="text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest"
+              >Total Acquitté</span
+            >
+            <span class="text-2xl font-black text-slate-900 dark:text-white tabular-nums"
+              >{{ +c.total | currency: 'EUR' }}</span
+            >
           </div>
         </div>
+        }
+
+        <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            routerLink="/products"
+            class="bg-blue-600 text-white font-black px-10 py-4 rounded-full shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-all text-xs tracking-widest flex items-center justify-center gap-3"
+          >
+            <span class="material-symbols-outlined text-lg">explore</span>
+            NOUVELLE EXPLORATION
+          </a>
+          <a
+            routerLink="/profile"
+            class="border-2 border-slate-200 dark:border-blue-900/50 text-slate-600 dark:text-blue-400 font-black px-10 py-4 rounded-full hover:bg-slate-50 dark:hover:bg-blue-900/20 transition-all text-xs tracking-widest"
+          >
+            VOIR MON DOSSIER
+          </a>
+        </div>
+      </div>
       }
     </div>
 
     <!-- Sidebar: Compact Cart Summary -->
     <aside class="lg:col-span-4 flex flex-col gap-6 sticky top-24">
-      <div class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl">
-        <h3 class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-blue-400/60 mb-8 flex items-center justify-between border-b border-blue-100 dark:border-blue-900/30 pb-4">
+      <div
+        class="glass-panel dark:bg-slate-900/40 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/50 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl"
+      >
+        <h3
+          class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-blue-400/60 mb-8 flex items-center justify-between border-b border-blue-100 dark:border-blue-900/30 pb-4"
+        >
           MISSION CARGO
-          <span class="font-mono text-[9px] px-2 py-0.5 bg-slate-100 dark:bg-blue-900/30 rounded text-slate-500">ID: #PX-{{ cartItems().length * 123 }}</span>
+          <span
+            class="font-mono text-[9px] px-2 py-0.5 bg-slate-100 dark:bg-blue-900/30 rounded text-slate-500"
+            >ID: #PX-{{ cartItems().length * 123 }}</span
+          >
         </h3>
-        
+
         <div class="space-y-6">
           @for (item of cartItems(); track item.product.id) {
-            <div class="flex gap-4 group">
-              <div class="w-14 h-14 rounded-xl bg-slate-50 dark:bg-slate-800 overflow-hidden shrink-0 border border-slate-100 dark:border-blue-900/30">
-                <img [src]="item.product.image || item.product.cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <div class="flex flex-col justify-between py-0.5">
-                <p class="text-[11px] font-black text-slate-900 dark:text-white uppercase tracking-tight line-clamp-1">{{ item.product.title }}</p>
-                <div class="flex items-center gap-3">
-                  <span class="text-[10px] text-slate-400 font-mono">QTY: {{ item.quantity }}</span>
-                  <span class="text-[11px] font-black text-blue-600 dark:text-blue-400 tabular-nums">{{ +item.product.priceTTC * item.quantity | currency: 'EUR' }}</span>
-                </div>
+          <div class="flex gap-4 group">
+            <div
+              class="w-14 h-14 rounded-xl bg-slate-50 dark:bg-slate-800 overflow-hidden shrink-0 border border-slate-100 dark:border-blue-900/30"
+            >
+              <img
+                [src]="item.product.image || item.product.cover"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="flex flex-col justify-between py-0.5">
+              <p
+                class="text-[11px] font-black text-slate-900 dark:text-white uppercase tracking-tight line-clamp-1"
+              >
+                {{ item.product.title }}
+              </p>
+              <div class="flex items-center gap-3">
+                <span class="text-[10px] text-slate-400 font-mono">QTY: {{ item.quantity }}</span>
+                <span class="text-[11px] font-black text-blue-600 dark:text-blue-400 tabular-nums"
+                  >{{ +item.product.priceTTC * item.quantity | currency: 'EUR' }}</span
+                >
               </div>
             </div>
+          </div>
           }
         </div>
 
-        <div class="mt-8 pt-6 border-t border-dashed border-slate-200 dark:border-blue-900/30 space-y-3">
-          <div class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 font-black tracking-widest">
+        <div
+          class="mt-8 pt-6 border-t border-dashed border-slate-200 dark:border-blue-900/30 space-y-3"
+        >
+          <div
+            class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 font-black tracking-widest"
+          >
             <span>SUBTOTAL HT</span>
             <span class="tabular-nums uppercase">{{ totalHT() | currency: 'EUR' }}</span>
           </div>
-          <div class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 font-black tracking-widest">
+          <div
+            class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 font-black tracking-widest"
+          >
             <span>DOUANES (20%)</span>
-            <span class="tabular-nums uppercase">{{ (totalTTC() - totalHT()) | currency: 'EUR' }}</span>
+            <span class="tabular-nums uppercase"
+              >{{ (totalTTC() - totalHT()) | currency: 'EUR' }}</span
+            >
           </div>
-          
-          <div class="flex justify-between items-center pt-5 border-t border-blue-100 dark:border-blue-900/50">
-            <span class="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-widest">Total Galactique</span>
+
+          <div
+            class="flex justify-between items-center pt-5 border-t border-blue-100 dark:border-blue-900/50"
+          >
+            <span
+              class="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-widest"
+              >Total Galactique</span
+            >
             <div class="text-right">
-              <span class="block text-2xl font-black text-blue-600 dark:text-blue-400 leading-none tabular-nums tracking-tighter">
+              <span
+                class="block text-2xl font-black text-blue-600 dark:text-blue-400 leading-none tabular-nums tracking-tighter"
+              >
                 {{ totalTTC() | currency: 'EUR' }}
               </span>
             </div>
@@ -295,12 +517,21 @@
       </div>
 
       <!-- Support Context -->
-      <div class="glass-panel dark:bg-slate-900/40 p-6 rounded-3xl border-l-4 border-cyan-400/50 flex gap-4">
+      <div
+        class="glass-panel dark:bg-slate-900/40 p-6 rounded-3xl border-l-4 border-cyan-400/50 flex gap-4"
+      >
         <span class="material-symbols-outlined text-cyan-500 text-lg">support_agent</span>
         <div>
-          <p class="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-widest mb-1">Assistance de Vol</p>
-          <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium uppercase tracking-tighter">
-            Un officier de liaison est prêt à vous assister pour configurer vos coordonnées de livraison orbitale.
+          <p
+            class="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-widest mb-1"
+          >
+            Assistance de Vol
+          </p>
+          <p
+            class="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium uppercase tracking-tighter"
+          >
+            Un officier de liaison est prêt à vous assister pour configurer vos coordonnées de
+            livraison orbitale.
           </p>
         </div>
       </div>

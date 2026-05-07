@@ -1,136 +1,370 @@
 <div class="max-w-7xl mx-auto px-4 md:px-8 py-12">
   <!-- Header: Holographic ID Card -->
   <header class="mb-12">
-    <div class="glass-panel dark:bg-slate-900/40 holographic-glow border border-blue-100 dark:border-blue-900/50 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 relative overflow-hidden backdrop-blur-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10">
+    <div
+      class="glass-panel dark:bg-slate-900/40 holographic-glow border border-blue-100 dark:border-blue-900/50 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 relative overflow-hidden backdrop-blur-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10"
+    >
       <!-- Decorative Orbitals -->
-      <div class="absolute -right-20 -top-20 w-80 h-80 border border-blue-600/10 rounded-full animate-pulse"></div>
-      <div class="absolute -right-10 -top-10 w-64 h-64 border border-purple-600/10 rounded-full"></div>
-      
+      <div
+        class="absolute -right-20 -top-20 w-80 h-80 border border-blue-600/10 rounded-full animate-pulse"
+      ></div>
+      <div
+        class="absolute -right-10 -top-10 w-64 h-64 border border-purple-600/10 rounded-full"
+      ></div>
+
       <!-- Avatar with Neon Circle -->
       <div class="relative group">
-        <div class="absolute inset-x-[-8px] inset-y-[-8px] rounded-full border-4 border-blue-600 shadow-[0_0_25px_rgba(0,82,255,0.4)] animate-pulse"></div>
-        <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white dark:border-blue-950 overflow-hidden relative z-10 bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-          <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-blue-900/50">person</span>
+        <div
+          class="absolute inset-x-[-8px] inset-y-[-8px] rounded-full border-4 border-blue-600 shadow-[0_0_25px_rgba(0,82,255,0.4)] animate-pulse"
+        ></div>
+        <div
+          class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white dark:border-blue-950 overflow-hidden relative z-10 bg-slate-100 dark:bg-slate-800 flex items-center justify-center"
+        >
+          <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-blue-900/50"
+            >person</span
+          >
           <!-- Simulation d'avatar si on en avait un -->
-          <img src="https://api.dicebear.com/7.x/bottts/svg?seed={{authService.user()?.lastName}}" class="absolute inset-0 w-full h-full object-cover opacity-80" alt="Avatar">
+          <img
+            src="https://api.dicebear.com/7.x/bottts/svg?seed={{authService.user()?.lastName}}"
+            class="absolute inset-0 w-full h-full object-cover opacity-80"
+            alt="Avatar"
+          />
         </div>
       </div>
 
       <div class="text-center md:text-left z-10 flex-grow">
-        <div class="inline-flex items-center px-4 py-1.5 bg-blue-600 text-white text-[10px] font-black tracking-[0.3em] uppercase rounded-full mb-6 border border-blue-500 shadow-lg shadow-blue-500/20">
+        <div
+          class="inline-flex items-center px-4 py-1.5 bg-blue-600 text-white text-[10px] font-black tracking-[0.3em] uppercase rounded-full mb-6 border border-blue-500 shadow-lg shadow-blue-500/20"
+        >
           <span class="material-symbols-outlined text-sm mr-2">verified_user</span>
           Active Duty Specialist
         </div>
-        <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white uppercase font-headline">
+        <h1
+          class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white uppercase font-headline"
+        >
           Commandant {{ authService.user()?.firstName }} {{ authService.user()?.lastName }}
         </h1>
-        <p class="text-blue-600 dark:text-blue-400 font-bold tracking-[0.2em] uppercase text-xs mt-3">
+        <p
+          class="text-blue-600 dark:text-blue-400 font-bold tracking-[0.2em] uppercase text-xs mt-3"
+        >
           Fleet Member // Sector {{ authService.user()?.city || 'Terra' }}-9G
         </p>
-        
+
         <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
-          <div class="flex items-center gap-2 text-[10px] font-mono font-black text-slate-500 dark:text-blue-400/60 bg-slate-50 dark:bg-blue-950/30 px-4 py-2 rounded-lg border border-slate-200 dark:border-blue-900/30">
-            <span class="text-blue-600 dark:text-blue-400">UID:</span> NG-{{ authService.user()?.id }}82-XLR
+          <div
+            class="flex items-center gap-2 text-[10px] font-mono font-black text-slate-500 dark:text-blue-400/60 bg-slate-50 dark:bg-blue-950/30 px-4 py-2 rounded-lg border border-slate-200 dark:border-blue-900/30"
+          >
+            <span class="text-blue-600 dark:text-blue-400">UID:</span> NG-{{ authService.user()?.id
+            }}82-XLR
           </div>
-          <div class="flex items-center gap-2 text-[10px] font-mono font-black text-slate-500 dark:text-blue-400/60 bg-slate-50 dark:bg-blue-950/30 px-4 py-2 rounded-lg border border-slate-200 dark:border-blue-900/30">
-            <span class="text-blue-600 dark:text-blue-400">CLEARANCE:</span> LEVEL {{ authService.user()?.roles?.includes('ROLE_ADMIN') ? 'MAX (ADM)' : '5 (STD)' }}
+          <div
+            class="flex items-center gap-2 text-[10px] font-mono font-black text-slate-500 dark:text-blue-400/60 bg-slate-50 dark:bg-blue-950/30 px-4 py-2 rounded-lg border border-slate-200 dark:border-blue-900/30"
+          >
+            <span class="text-blue-600 dark:text-blue-400">CLEARANCE:</span> LEVEL {{
+            authService.user()?.roles?.includes('ROLE_ADMIN') ? 'MAX (ADM)' : '5 (STD)' }}
           </div>
+          <a
+            href="#orders-panel"
+            class="inline-flex items-center gap-3 rounded-full bg-slate-900 dark:bg-white px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.22em] text-white dark:text-slate-950 shadow-xl shadow-blue-500/10 transition-all hover:-translate-y-0.5 hover:shadow-blue-500/25"
+          >
+            <span class="material-symbols-outlined text-base">receipt_long</span>
+            Factures & commandes
+          </a>
         </div>
       </div>
-      
+
       <div class="ml-auto hidden xl:block text-right self-end opacity-[0.05] dark:opacity-[0.1]">
-        <div class="text-[120px] font-black italic text-slate-900 dark:text-white select-none uppercase tracking-tighter leading-none">PILOT</div>
+        <div
+          class="text-[120px] font-black italic text-slate-900 dark:text-white select-none uppercase tracking-tighter leading-none"
+        >
+          PILOT
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- Orders & Invoices -->
+  <section
+    id="orders-panel"
+    class="mb-8 glass-panel dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900/50 rounded-3xl p-6 md:p-8 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl scroll-mt-28"
+  >
+    <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between mb-7">
+      <div>
+        <p
+          class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400 mb-2"
+        >
+          Journal d'achat
+        </p>
+        <h2
+          class="text-2xl md:text-3xl font-black italic uppercase tracking-tight text-slate-900 dark:text-white"
+        >
+          Commandes & factures
+        </h2>
+      </div>
+      <div
+        class="inline-flex w-fit items-center gap-3 rounded-2xl border border-blue-500/20 bg-blue-600/10 px-4 py-3 text-blue-600 dark:text-blue-300"
+      >
+        <span class="material-symbols-outlined">receipt_long</span>
+        <span class="text-[10px] font-black uppercase tracking-[0.18em]"
+          >{{ orders().length }} archive(s)</span
+        >
+      </div>
+    </div>
+
+    @if (ordersLoading()) {
+    <div
+      class="flex items-center justify-center gap-3 rounded-2xl border border-blue-500/20 bg-blue-600/5 py-10 text-blue-600 dark:text-blue-300"
+    >
+      <span class="material-symbols-outlined animate-spin">sync</span>
+      <span class="text-xs font-black uppercase tracking-[0.22em]">Chargement des commandes</span>
+    </div>
+    } @else if (ordersError()) {
+    <div
+      class="rounded-2xl border border-red-500/20 bg-red-500/10 p-5 text-sm font-bold text-red-500 dark:text-red-300"
+    >
+      {{ ordersError() }}
+    </div>
+    } @else if (orders().length === 0) {
+    <div
+      class="rounded-2xl border border-dashed border-slate-300 dark:border-blue-900/50 bg-slate-50/70 dark:bg-blue-950/10 p-8 text-center"
+    >
+      <span class="material-symbols-outlined mb-3 text-5xl text-slate-300 dark:text-blue-900/70"
+        >inventory_2</span
+      >
+      <h3 class="text-lg font-black uppercase tracking-tight text-slate-900 dark:text-white">
+        Aucun achat enregistre
+      </h3>
+      <p class="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+        Vos commandes apparaitront ici apres validation.
+      </p>
+    </div>
+    } @else {
+    <div class="space-y-4">
+      @for (order of orders(); track order.id) {
+      <article
+        class="rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-xl shadow-blue-500/5 transition-all hover:-translate-y-0.5 hover:border-blue-500/40 dark:border-blue-900/40 dark:bg-slate-950/50"
+      >
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+          <div class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-center gap-3">
+              <span
+                class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-white"
+              >
+                <span class="material-symbols-outlined text-sm">tag</span>
+                {{ order.billNumber ?? 'Commande #' + order.id }}
+              </span>
+              <span
+                [class]="'inline-flex rounded-full border px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] ' + statusClass(order.status)"
+              >
+                {{ statusLabel(order.status) }}
+              </span>
+              <span class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400"
+                >{{ order.createdAt }}</span
+              >
+            </div>
+
+            <div class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              @for (item of order.items ?? []; track item.productId) {
+              <div
+                class="rounded-xl border border-slate-100 bg-slate-50 p-4 dark:border-blue-900/30 dark:bg-blue-950/20"
+              >
+                <p class="truncate text-sm font-black text-slate-900 dark:text-white">
+                  {{ item.title }}
+                </p>
+                <p class="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                  {{ item.quantity }} x {{ item.priceTTC }} EUR
+                </p>
+              </div>
+              }
+            </div>
+          </div>
+
+          <div
+            class="lg:w-72 rounded-2xl border border-blue-500/20 bg-blue-600/5 p-5 dark:bg-blue-950/20"
+          >
+            <dl class="space-y-4">
+              <div class="flex items-center justify-between gap-4">
+                <dt class="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">
+                  Articles
+                </dt>
+                <dd class="text-sm font-black text-slate-900 dark:text-white">
+                  {{ totalItems(order) }}
+                </dd>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <dt class="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">
+                  Paiement
+                </dt>
+                <dd class="text-sm font-black text-slate-900 dark:text-white">
+                  {{ paymentLabel(order.payment) }}
+                </dd>
+              </div>
+              <div class="flex items-center justify-between gap-4 border-t border-blue-500/10 pt-4">
+                <dt class="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">
+                  Total TTC
+                </dt>
+                <dd class="text-xl font-black text-blue-600 dark:text-blue-300">
+                  {{ order.total ?? '0' }} EUR
+                </dd>
+              </div>
+            </dl>
+
+            <button
+              type="button"
+              (click)="downloadInvoice(order)"
+              [disabled]="invoiceLoading() === order.id"
+              class="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-full bg-slate-900 px-5 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-lg shadow-blue-500/10 transition-all hover:bg-blue-600 hover:shadow-blue-500/30 disabled:cursor-wait disabled:opacity-70 dark:bg-white dark:text-slate-950 dark:hover:bg-blue-500 dark:hover:text-white"
+            >
+              <span class="material-symbols-outlined text-base"
+                >{{ invoiceLoading() === order.id ? 'sync' : 'picture_as_pdf' }}</span
+              >
+              {{ invoiceLoading() === order.id ? 'Telechargement...' : 'Telecharger la facture' }}
+            </button>
+          </div>
+        </div>
+      </article>
+      }
+    </div>
+    }
+  </section>
+
   <!-- Bento Grid Layout -->
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-    
     <!-- Info Section: Biometric Data & Contact Info -->
-    <section class="lg:col-span-8 glass-panel dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900/50 rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl transition-all duration-500 group">
+    <section
+      class="lg:col-span-8 glass-panel dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900/50 rounded-3xl p-8 md:p-10 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl transition-all duration-500 group"
+    >
       <div class="flex items-center justify-between mb-10">
-        <h2 class="text-2xl font-black italic tracking-tighter uppercase text-slate-900 dark:text-white flex items-center gap-4">
+        <h2
+          class="text-2xl font-black italic tracking-tighter uppercase text-slate-900 dark:text-white flex items-center gap-4"
+        >
           <span class="w-2 h-10 bg-blue-600 rounded-full"></span>
           Données Biométriques & Contact
         </h2>
-        <span class="material-symbols-outlined text-slate-300 dark:text-blue-900/50 text-4xl group-hover:text-blue-600 transition-colors">fingerprint</span>
+        <span
+          class="material-symbols-outlined text-slate-300 dark:text-blue-900/50 text-4xl group-hover:text-blue-600 transition-colors"
+          >fingerprint</span
+        >
       </div>
 
       <form (submit)="saveProfile()" class="space-y-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
           <div class="space-y-6">
             <div class="group/field">
-              <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1 group-hover/field:text-blue-600 transition-colors">Prénom d'Officier</label>
-              <input type="text" [(ngModel)]="form.firstName" name="firstName"
-                class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-600 transition-all shadow-inner" />
+              <label
+                class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1 group-hover/field:text-blue-600 transition-colors"
+                >Prénom d'Officier</label
+              >
+              <input
+                type="text"
+                [(ngModel)]="form.firstName"
+                name="firstName"
+                class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-600 transition-all shadow-inner"
+              />
             </div>
             <div class="group/field">
-              <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1 group-hover/field:text-blue-600 transition-colors">Nom de Lignée</label>
-              <input type="text" [(ngModel)]="form.lastName" name="lastName"
-                class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-600 transition-all shadow-inner" />
+              <label
+                class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1 group-hover/field:text-blue-600 transition-colors"
+                >Nom de Lignée</label
+              >
+              <input
+                type="text"
+                [(ngModel)]="form.lastName"
+                name="lastName"
+                class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-600 transition-all shadow-inner"
+              />
             </div>
             <div class="group/field">
-              <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1 group-hover/field:text-blue-600 transition-colors">Fréquence Subspatiale (Email)</label>
-              <input type="email" [value]="authService.user()?.email" disabled
-                class="w-full bg-slate-100 dark:bg-slate-950/50 border-slate-200 dark:border-blue-900/30 rounded-xl px-5 py-4 text-sm font-mono text-slate-400 dark:text-blue-900/50 cursor-not-allowed" />
-              <p class="text-[9px] text-slate-400 mt-2 italic px-1">* Identifiant de communication non modifiable.</p>
+              <label
+                class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1 group-hover/field:text-blue-600 transition-colors"
+                >Fréquence Subspatiale (Email)</label
+              >
+              <input
+                type="email"
+                [value]="authService.user()?.email"
+                disabled
+                class="w-full bg-slate-100 dark:bg-slate-950/50 border-slate-200 dark:border-blue-900/30 rounded-xl px-5 py-4 text-sm font-mono text-slate-400 dark:text-blue-900/50 cursor-not-allowed"
+              />
+              <p class="text-[9px] text-slate-400 mt-2 italic px-1">
+                * Identifiant de communication non modifiable.
+              </p>
             </div>
           </div>
 
           <div class="space-y-6 text-slate-600 dark:text-slate-400">
-            <div class="p-6 bg-slate-50 dark:bg-blue-950/20 rounded-2xl border border-slate-100 dark:border-blue-900/30 space-y-6 shadow-inner">
-               <div class="space-y-4">
-                  <div class="flex justify-between items-end">
-                    <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Neural Stability</span>
-                    <span class="text-xs font-mono font-black text-blue-600">OPTIMAL</span>
-                  </div>
-                  <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                    <div class="bg-blue-600 h-full w-full shadow-[0_0_10px_#0052FF]"></div>
-                  </div>
-               </div>
-               <div class="space-y-4">
-                  <div class="flex justify-between items-end">
-                    <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Orbital Fatigue</span>
-                    <span class="text-xs font-mono font-black text-purple-500">LOW</span>
-                  </div>
-                  <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                    <div class="bg-purple-500 h-full w-[12%]"></div>
-                  </div>
-               </div>
-               
-               <div class="pt-4 space-y-3">
-                  <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em]">Canal de Comms (Tel)</label>
-                  <input type="text" [(ngModel)]="form.telephone" name="telephone"
-                    class="w-full bg-white dark:bg-slate-900 border-slate-200 dark:border-blue-900/50 rounded-xl px-4 py-3 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-600"
-                    placeholder="+33 0 00 00 00 00" />
-               </div>
+            <div
+              class="p-6 bg-slate-50 dark:bg-blue-950/20 rounded-2xl border border-slate-100 dark:border-blue-900/30 space-y-6 shadow-inner"
+            >
+              <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                  <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                    >Neural Stability</span
+                  >
+                  <span class="text-xs font-mono font-black text-blue-600">OPTIMAL</span>
+                </div>
+                <div
+                  class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden"
+                >
+                  <div class="bg-blue-600 h-full w-full shadow-[0_0_10px_#0052FF]"></div>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                  <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                    >Orbital Fatigue</span
+                  >
+                  <span class="text-xs font-mono font-black text-purple-500">LOW</span>
+                </div>
+                <div
+                  class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden"
+                >
+                  <div class="bg-purple-500 h-full w-[12%]"></div>
+                </div>
+              </div>
+
+              <div class="pt-4 space-y-3">
+                <label
+                  class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em]"
+                  >Canal de Comms (Tel)</label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="form.telephone"
+                  name="telephone"
+                  class="w-full bg-white dark:bg-slate-900 border-slate-200 dark:border-blue-900/50 rounded-xl px-4 py-3 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-600"
+                  placeholder="+33 0 00 00 00 00"
+                />
+              </div>
             </div>
 
             @if (saveSuccess()) {
-              <div class="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-xl text-xs font-black uppercase tracking-widest flex items-center gap-3 animate-bounce">
-                <span class="material-symbols-outlined text-lg">check_circle</span>
-                Dossier mis à jour
-              </div>
-            }
-            @if (saveError()) {
-              <div class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-900/50 text-red-600 dark:text-red-400 rounded-xl text-xs font-black uppercase tracking-widest flex items-center gap-3">
-                <span class="material-symbols-outlined text-lg">error</span>
-                {{ saveError() }}
-              </div>
+            <div
+              class="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-xl text-xs font-black uppercase tracking-widest flex items-center gap-3 animate-bounce"
+            >
+              <span class="material-symbols-outlined text-lg">check_circle</span>
+              Dossier mis à jour
+            </div>
+            } @if (saveError()) {
+            <div
+              class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-900/50 text-red-600 dark:text-red-400 rounded-xl text-xs font-black uppercase tracking-widest flex items-center gap-3"
+            >
+              <span class="material-symbols-outlined text-lg">error</span>
+              {{ saveError() }}
+            </div>
             }
           </div>
         </div>
 
         <div class="flex justify-end pt-8 border-t border-slate-100 dark:border-blue-900/30">
-          <button type="submit" [disabled]="saving()"
-            class="bg-blue-600 text-white font-black px-12 py-5 rounded-full shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 disabled:opacity-50 transition-all flex items-center gap-3 tracking-[0.2em] text-xs">
-            @if (saving()) { 
-              <span class="material-symbols-outlined animate-spin">sync</span> SYNC...
-            } @else {
-              <span class="material-symbols-outlined">save</span>
-              SYNCHRONISER LES DONNÉES
-            }
+          <button
+            type="submit"
+            [disabled]="saving()"
+            class="bg-blue-600 text-white font-black px-12 py-5 rounded-full shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 disabled:opacity-50 transition-all flex items-center gap-3 tracking-[0.2em] text-xs"
+          >
+            @if (saving()) {
+            <span class="material-symbols-outlined animate-spin">sync</span> SYNC... } @else {
+            <span class="material-symbols-outlined">save</span>
+            SYNCHRONISER LES DONNÉES }
           </button>
         </div>
       </form>
@@ -138,104 +372,180 @@
 
     <div class="lg:col-span-4 flex flex-col gap-8 h-full">
       <!-- Base de Rattachement -->
-      <section class="glass-panel dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900/50 rounded-3xl p-8 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl transition-all duration-500">
-        <h2 class="text-xl font-black italic tracking-tighter uppercase text-slate-900 dark:text-white flex items-center gap-3 mb-8">
+      <section
+        class="glass-panel dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900/50 rounded-3xl p-8 shadow-2xl shadow-blue-500/5 backdrop-blur-2xl transition-all duration-500"
+      >
+        <h2
+          class="text-xl font-black italic tracking-tighter uppercase text-slate-900 dark:text-white flex items-center gap-3 mb-8"
+        >
           <span class="w-1.5 h-7 bg-purple-600 rounded-full"></span>
           Base de Rattachement
         </h2>
-        
+
         <div class="space-y-8">
           <div class="group/field">
-            <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1">Secteur / Ville</label>
-            <input type="text" [(ngModel)]="form.city" name="city"
-              class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-4 py-3 text-sm font-bold text-slate-900 dark:text-white transition-all shadow-inner" />
+            <label
+              class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1"
+              >Secteur / Ville</label
+            >
+            <input
+              type="text"
+              [(ngModel)]="form.city"
+              name="city"
+              class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-4 py-3 text-sm font-bold text-slate-900 dark:text-white transition-all shadow-inner"
+            />
           </div>
           <div class="group/field">
-            <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1">Planète / Pays</label>
-            <input type="text" [(ngModel)]="form.country" name="country"
-              class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-4 py-3 text-sm font-bold text-slate-900 dark:text-white transition-all shadow-inner" />
+            <label
+              class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1"
+              >Planète / Pays</label
+            >
+            <input
+              type="text"
+              [(ngModel)]="form.country"
+              name="country"
+              class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-4 py-3 text-sm font-bold text-slate-900 dark:text-white transition-all shadow-inner"
+            />
           </div>
           <div class="group/field">
-            <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1">Coordonnées (Adresse)</label>
-            <textarea [(ngModel)]="form.address" name="address" rows="3"
-              class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-4 py-3 text-sm font-bold text-slate-900 dark:text-white transition-all shadow-inner resize-none"></textarea>
+            <label
+              class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-[0.2em] mb-2 pl-1"
+              >Coordonnées (Adresse)</label
+            >
+            <textarea
+              [(ngModel)]="form.address"
+              name="address"
+              rows="3"
+              class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-4 py-3 text-sm font-bold text-slate-900 dark:text-white transition-all shadow-inner resize-none"
+            ></textarea>
           </div>
         </div>
       </section>
 
       <!-- Security Awareness -->
-      <div class="bg-slate-950 p-6 rounded-3xl text-white relative overflow-hidden border border-white/5 flex-grow">
+      <div
+        class="bg-slate-950 p-6 rounded-3xl text-white relative overflow-hidden border border-white/5 flex-grow"
+      >
         <div class="relative z-10 space-y-4">
           <div class="flex items-center gap-3 text-blue-400">
             <span class="material-symbols-outlined">security</span>
             <span class="text-[10px] font-black uppercase tracking-widest">Alerte Sécurité</span>
           </div>
-          <p class="text-[10px] text-slate-400 leading-relaxed font-medium uppercase tracking-tighter">
-            Toute tentative de modification de dossier non autorisée sera enregistrée et envoyée au Ground Control pour analyse biotique immédiate.
+          <p
+            class="text-[10px] text-slate-400 leading-relaxed font-medium uppercase tracking-tighter"
+          >
+            Toute tentative de modification de dossier non autorisée sera enregistrée et envoyée au
+            Ground Control pour analyse biotique immédiate.
           </p>
         </div>
-        <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
+        <div
+          class="absolute -right-10 -bottom-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"
+        ></div>
       </div>
     </div>
   </div>
 
   <!-- Security: Accreditation Management -->
-  <section class="mt-8 glass-panel dark:bg-slate-900/40 border-2 border-red-500/20 bg-red-50/5 dark:bg-red-950/10 rounded-3xl p-8 md:p-10 group relative overflow-hidden transition-all duration-500 hover:border-red-500/40">
+  <section
+    class="mt-8 glass-panel dark:bg-slate-900/40 border-2 border-red-500/20 bg-red-50/5 dark:bg-red-950/10 rounded-3xl p-8 md:p-10 group relative overflow-hidden transition-all duration-500 hover:border-red-500/40"
+  >
     <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
       <span class="material-symbols-outlined text-[150px]">verified_user</span>
     </div>
 
     <div class="flex flex-col xl:flex-row gap-12 items-start relative z-10">
       <div class="xl:w-1/3 space-y-4">
-        <h2 class="text-2xl font-black italic tracking-tight uppercase text-slate-900 dark:text-white">Gestion de l'Accréditation</h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Les protocoles de sécurité de la flotte exigent une rotation périodique des clés d'accès. Tout accès par un terminal non certifié déclenchera une procédure de confinement.</p>
-        <div class="flex items-center gap-3 p-4 bg-red-500/10 rounded-2xl border border-red-500/20 text-red-600 dark:text-red-400">
-          <span class="material-symbols-outlined animate-pulse">warning</span>
-          <span class="text-[10px] font-black uppercase tracking-widest">Surveillance de terminal active</span>
-        </div>
+        <h2
+          class="text-2xl font-black italic tracking-tight uppercase text-slate-900 dark:text-white"
+        >
+          Gestion de l'Accréditation
+        </h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+          Les protocoles de sécurité de la flotte exigent une rotation périodique des clés d'accès.
+          Tout accès par un terminal non certifié déclenchera une procédure de confinement.
+        </p>
       </div>
 
       <div class="flex-grow w-full">
-        <form (submit)="changePassword()" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-end">
+        <form
+          (submit)="changePassword()"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-end"
+        >
           <div class="space-y-2">
-            <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-widest pl-1">Clé actuelle</label>
-            <input type="password" [(ngModel)]="passwordForm.currentPassword" name="currentPassword"
-              class="w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-red-500 shadow-inner" />
+            <label
+              class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-widest pl-1"
+              >Clé actuelle</label
+            >
+            <input
+              type="password"
+              [(ngModel)]="passwordForm.currentPassword"
+              name="currentPassword"
+              autocomplete="current-password"
+              class="w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-red-500 shadow-inner"
+            />
           </div>
           <div class="space-y-2">
-            <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-widest pl-1">Nouvelle Clé</label>
-            <input type="password" [(ngModel)]="passwordForm.newPassword" name="newPassword"
-              class="w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-red-500 shadow-inner" />
+            <label
+              class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-widest pl-1"
+              >Nouvelle Clé</label
+            >
+            <input
+              type="password"
+              [(ngModel)]="passwordForm.newPassword"
+              name="newPassword"
+              autocomplete="new-password"
+              class="w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-red-500 shadow-inner"
+            />
           </div>
           <div class="flex flex-col sm:flex-row gap-4 items-center">
-             <div class="space-y-2 flex-grow w-full">
-                <label class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-widest pl-1">Confirmation</label>
-                <input type="password" [(ngModel)]="passwordForm.confirmPassword" name="confirmPassword"
-                  class="w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-red-500 shadow-inner" />
-             </div>
+            <div class="space-y-2 flex-grow w-full">
+              <label
+                class="block text-[10px] font-black text-slate-400 dark:text-blue-400/60 uppercase tracking-widest pl-1"
+                >Confirmation</label
+              >
+              <input
+                type="password"
+                [(ngModel)]="passwordForm.confirmPassword"
+                name="confirmPassword"
+                autocomplete="new-password"
+                class="w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-blue-900/50 rounded-xl px-5 py-4 text-sm font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-red-500 shadow-inner"
+              />
+            </div>
           </div>
 
-          <div class="sm:col-span-2 lg:col-span-3 flex flex-col md:flex-row items-center gap-6 pt-4">
-            <button type="submit" [disabled]="changingPassword()"
-              class="w-full md:w-auto bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black italic uppercase tracking-[0.2em] px-12 py-5 rounded-full hover:scale-105 active:scale-95 transition-all text-xs shadow-2xl">
-              @if (changingPassword()) { 
-                ROTATION DES CLÉS... 
-              } @else { 
-                ROTATION DES CLÉS D'ACCÈS 
-              }
+          <div
+            class="sm:col-span-2 lg:col-span-3 flex flex-col md:flex-row items-center gap-6 pt-4"
+          >
+            <button
+              type="submit"
+              [disabled]="changingPassword()"
+              class="w-full md:w-auto bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black italic uppercase tracking-[0.2em] px-12 py-5 rounded-full hover:scale-105 active:scale-95 transition-all text-xs shadow-2xl"
+            >
+              @if (changingPassword()) { ROTATION DES CLÉS... } @else { ROTATION DES CLÉS D'ACCÈS }
             </button>
-            
+            <div
+              class="w-full md:w-auto flex items-center gap-3 p-4 bg-red-500/10 rounded-2xl border border-red-500/20 text-red-600 dark:text-red-400"
+            >
+              <span class="material-symbols-outlined animate-pulse">warning</span>
+              <span class="text-[10px] font-black uppercase tracking-widest"
+                >Surveillance de terminal active</span
+              >
+            </div>
+
             @if (passwordSuccess()) {
-              <div class="text-emerald-500 font-black uppercase text-[10px] tracking-widest flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">enhanced_encryption</span>
-                Nouveau cryptage appliqué.
-              </div>
-            }
-            @if (passwordError()) {
-              <div class="text-red-500 font-black uppercase text-[10px] tracking-widest flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">security_update_warning</span>
-                {{ passwordError() }}
-              </div>
+            <div
+              class="text-emerald-500 font-black uppercase text-[10px] tracking-widest flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-sm">enhanced_encryption</span>
+              Nouveau cryptage appliqué.
+            </div>
+            } @if (passwordError()) {
+            <div
+              class="text-red-500 font-black uppercase text-[10px] tracking-widest flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-sm">security_update_warning</span>
+              {{ passwordError() }}
+            </div>
             }
           </div>
         </form>

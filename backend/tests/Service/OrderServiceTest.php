@@ -165,4 +165,52 @@ class OrderServiceTest extends TestCase
             paymentMethod: 'card',
         );
     }
+
+    public function testCreateOrderAcceptsPaypalPayment(): void
+    {
+        $product = new Product();
+        $product->setTitle('Lot magnets Nîmes');
+        $product->setQuantity(10);
+        $product->setPriceTTC('9.90');
+
+        $this->productRepo->method('find')->willReturn($product);
+        $this->em->expects($this->atLeastOnce())->method('persist');
+        $this->em->expects($this->once())->method('flush');
+
+        $order = $this->orderService->createOrder(
+            user: new User(),
+            items: [['productId' => 12, 'quantity' => 1]],
+            deliveryAddress: '5 Rue de la République',
+            deliveryCity: 'Nîmes',
+            deliveryPostal: '30000',
+            deliveryCountry: 'France',
+            paymentMethod: 'paypal',
+        );
+
+        $this->assertSame('paypal', $order->getBill()?->getPayment()->value);
+        $this->assertSame('9.9', $order->getTotal());
+    }
+
+    public function testCreateOrderThrowsOnInvalidPaymentMethod(): void
+    {
+        $product = new Product();
+        $product->setTitle('Lot magnets Nîmes');
+        $product->setQuantity(10);
+        $product->setPriceTTC('9.90');
+
+        $this->productRepo->method('find')->willReturn($product);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid payment method');
+
+        $this->orderService->createOrder(
+            user: new User(),
+            items: [['productId' => 12, 'quantity' => 1]],
+            deliveryAddress: '5 Rue de la République',
+            deliveryCity: 'Nîmes',
+            deliveryPostal: '30000',
+            deliveryCountry: 'France',
+            paymentMethod: 'bitcoin',
+        );
+    }
 }

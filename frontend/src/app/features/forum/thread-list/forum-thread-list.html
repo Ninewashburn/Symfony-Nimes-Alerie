@@ -1,32 +1,60 @@
 <div class="relative min-h-[80vh] pb-20">
+  <div class="absolute inset-x-0 top-0 h-80 pointer-events-none overflow-hidden">
+    <img
+      src="/images/stitch/article-card-bg.jpg"
+      alt=""
+      class="w-full h-full object-cover opacity-20 dark:opacity-25"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-white/50 via-white/90 to-white dark:from-slate-950/30 dark:via-slate-950/85 dark:to-slate-950"
+    ></div>
+  </div>
+
   <!-- Header Section -->
-  <header class="mb-12 pt-8">
-    <a routerLink="/forum" class="inline-flex items-center gap-2 group mb-8 text-blue-600 font-bold tracking-wide transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,82,255,0.6)]">
-      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
+  <header class="relative z-10 mb-12 pt-8">
+    <a
+      routerLink="/forum"
+      class="inline-flex items-center gap-2 group mb-8 text-blue-600 font-bold tracking-wide transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,82,255,0.6)]"
+    >
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform"
+        >arrow_back</span
+      >
       <span class="uppercase text-sm tracking-widest">Retour au Hub</span>
     </a>
-    
+
     <div class="flex items-center justify-between mb-4">
       <div>
         <div class="flex items-center gap-4 mb-2">
           <div class="h-px w-8 bg-blue-500"></div>
-          <span class="text-blue-500 font-bold tracking-[0.2em] uppercase text-[10px]">Canaux de Transmission</span>
+          <span class="text-blue-500 font-bold tracking-[0.2em] uppercase text-[10px]"
+            >Canaux de Transmission</span
+          >
         </div>
-        <h1 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter font-headline">
-          Discussions <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 text-2xl md:text-3xl ml-2">Flux Live</span>
+        <h1
+          class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter font-headline"
+        >
+          Discussions
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 text-2xl md:text-3xl ml-2"
+            >Flux Live</span
+          >
         </h1>
       </div>
-      
+
       <div class="flex items-center gap-3">
-        <span class="hidden sm:inline text-[10px] bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full font-mono border border-blue-200 dark:border-blue-800 animate-pulse">
+        <span
+          class="hidden sm:inline text-[10px] bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full font-mono border border-blue-200 dark:border-blue-800 animate-pulse"
+        >
           SCANNING_DATA...
         </span>
         @if (authService.loggedIn()) {
-          <button (click)="toggleForm()"
-            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-full transition-all">
-            <span class="material-symbols-outlined text-sm">{{ showForm() ? 'close' : 'add' }}</span>
-            {{ showForm() ? 'Annuler' : 'Nouveau canal' }}
-          </button>
+        <button
+          (click)="toggleForm()"
+          class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-full transition-all"
+        >
+          <span class="material-symbols-outlined text-sm">{{ showForm() ? 'close' : 'add' }}</span>
+          {{ showForm() ? 'Annuler' : 'Nouveau canal' }}
+        </button>
         }
       </div>
     </div>
@@ -34,98 +62,151 @@
 
   <!-- Formulaire nouveau thread -->
   @if (showForm()) {
-    <div class="mb-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
-      <h3 class="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-        <span class="material-symbols-outlined text-blue-600 text-lg">broadcast_on_personal</span>
-        Ouvrir un nouveau canal de transmission
-      </h3>
-      <div class="flex gap-3">
-        <input [(ngModel)]="newSubject" name="threadSubject" type="text" placeholder="Sujet de la transmission..."
-          class="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm" />
-        <button (click)="submitThread()" [disabled]="submitting() || !newSubject.trim()"
-          class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white text-sm font-bold transition-all whitespace-nowrap">
-          {{ submitting() ? '...' : 'Ouvrir le canal' }}
-        </button>
-      </div>
+  <div
+    class="relative z-10 mb-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg"
+  >
+    <h3 class="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+      <span class="material-symbols-outlined text-blue-600 text-lg">broadcast_on_personal</span>
+      Ouvrir un nouveau canal de transmission
+    </h3>
+    <div class="flex gap-3">
+      <input
+        [(ngModel)]="newSubject"
+        name="threadSubject"
+        type="text"
+        placeholder="Sujet de la transmission..."
+        class="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+      />
+      <button
+        (click)="submitThread()"
+        [disabled]="submitting() || !newSubject.trim()"
+        class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white text-sm font-bold transition-all whitespace-nowrap"
+      >
+        {{ submitting() ? '...' : 'Ouvrir le canal' }}
+      </button>
     </div>
-  }
-
-  @if (loading()) {
-    <div class="flex flex-col items-center justify-center py-20">
-      <span class="material-symbols-outlined text-6xl text-blue-500 animate-spin mb-4">radar</span>
-      <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-sm text-center">Interception du flux de données...</p>
-    </div>
+  </div>
+  } @if (loading()) {
+  <div class="flex flex-col items-center justify-center py-20">
+    <span class="material-symbols-outlined text-6xl text-blue-500 animate-spin mb-4">radar</span>
+    <p
+      class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-sm text-center"
+    >
+      Interception du flux de données...
+    </p>
+  </div>
   } @else {
-    <div class="space-y-4">
-      @for (thread of threads(); track thread.id) {
-        <div [routerLink]="['/forum/thread', thread.id]" class="group relative glass-panel dark:bg-slate-900/60 rounded-2xl p-6 border border-white/40 dark:border-slate-800/50 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-1 cursor-pointer overflow-hidden">
-          
-          <!-- Scanline effect on hover -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-[0.03] pointer-events-none transition-opacity bg-gradient-to-b from-transparent 50% to-blue-500 50%" style="background-size: 100% 4px;"></div>
+  <div class="relative z-10 space-y-4">
+    @for (thread of threads(); track thread.id) {
+    <div
+      [routerLink]="['/forum/thread', thread.id]"
+      class="group relative glass-panel dark:bg-slate-900/60 rounded-2xl p-6 border border-white/40 dark:border-slate-800/50 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-1 cursor-pointer overflow-hidden"
+    >
+      <div
+        class="absolute inset-y-0 right-0 w-64 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+      >
+        <img src="/images/stitch/contact-hub.jpg" alt="" class="w-full h-full object-cover" />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-white dark:from-slate-950 to-transparent"
+        ></div>
+      </div>
 
-          <div class="flex items-center gap-6">
-            <!-- Author Holo-Avatar simulator -->
-            <div class="relative w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden border-2 border-transparent group-hover:border-blue-500/50 shadow-inner">
-               <span class="material-symbols-outlined text-slate-400 dark:text-slate-600 text-3xl">account_circle</span>
-               <div class="absolute inset-0 bg-blue-600/10 opacity-30"></div>
+      <!-- Scanline effect on hover -->
+      <div
+        class="absolute inset-0 opacity-0 group-hover:opacity-[0.03] pointer-events-none transition-opacity bg-gradient-to-b from-transparent 50% to-blue-500 50%"
+        style="background-size: 100% 4px"
+      ></div>
+
+      <div class="flex items-center gap-6">
+        <!-- Author Holo-Avatar simulator -->
+        <div
+          class="relative w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden border-2 border-transparent group-hover:border-blue-500/50 shadow-inner"
+        >
+          <span class="material-symbols-outlined text-slate-400 dark:text-slate-600 text-3xl"
+            >account_circle</span
+          >
+          <div class="absolute inset-0 bg-blue-600/10 opacity-30"></div>
+        </div>
+
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-1">
+            <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400 font-bold"
+              >{{ thread.createdAt | date: 'dd.MM.yy @ HH:mm' }}</span
+            >
+            <span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+              >ID: #{{ thread.id }}</span
+            >
+          </div>
+
+          <h3
+            class="text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-tight mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-headline"
+          >
+            {{ thread.subject }}
+          </h3>
+
+          <div
+            class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-tighter text-slate-500 dark:text-slate-400"
+          >
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">person</span>
+              <span>{{ thread.user?.email || 'OFFICIER_ANONYME' }}</span>
             </div>
-
-            <div class="flex-1">
-              <div class="flex items-center gap-3 mb-1">
-                <span class="text-[10px] font-mono text-blue-600 dark:text-blue-400 font-bold">{{ thread.createdAt | date: 'dd.MM.yy @ HH:mm' }}</span>
-                <span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ID: #{{ thread.id }}</span>
-              </div>
-              
-              <h3 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-tight mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-headline">
-                {{ thread.subject }}
-              </h3>
-              
-              <div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-tighter text-slate-500 dark:text-slate-400">
-                <div class="flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-sm">person</span>
-                  <span>{{ thread.user?.email || 'OFFICIER_ANONYME' }}</span>
-                </div>
-                <div class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></div>
-                <div class="flex items-center gap-1.5 text-blue-600 dark:text-blue-400">
-                  <span class="material-symbols-outlined text-sm">chat</span>
-                  <span>Flux de Données Actif</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- "Establish Connection" indicator -->
-            <div class="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-slate-100 dark:border-slate-800 text-slate-300 dark:text-slate-700 group-hover:border-blue-500 group-hover:text-blue-500 transition-all group-hover:shadow-[0_0_15px_rgba(0,82,255,0.2)]">
-               <span class="material-symbols-outlined group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+            <div class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+            <div class="flex items-center gap-1.5 text-blue-600 dark:text-blue-400">
+              <span class="material-symbols-outlined text-sm">chat</span>
+              <span>Flux de Données Actif</span>
             </div>
           </div>
         </div>
-      } @empty {
 
-        <div class="py-20 text-center glass-panel rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
-          <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-800 mb-4">cloud_off</span>
-          <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">Aucune transmission active dans ce secteur.</p>
+        <!-- "Establish Connection" indicator -->
+        <div
+          class="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-slate-100 dark:border-slate-800 text-slate-300 dark:text-slate-700 group-hover:border-blue-500 group-hover:text-blue-500 transition-all group-hover:shadow-[0_0_15px_rgba(0,82,255,0.2)]"
+        >
+          <span class="material-symbols-outlined group-hover:translate-x-0.5 transition-transform"
+            >arrow_forward</span
+          >
         </div>
-      }
-    </div>
-
-    <!-- Pagination -->
-    @if (totalPages() > 1) {
-      <div class="flex items-center justify-center gap-3 mt-10">
-        <button (click)="loadPage(currentPage() - 1)" [disabled]="currentPage() === 1"
-          class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-sm hover:border-blue-500 hover:text-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
-          <span class="material-symbols-outlined text-base">arrow_back</span>
-          Précédent
-        </button>
-        <span class="text-sm font-mono text-slate-500 dark:text-slate-400 px-3">
-          {{ currentPage() }} / {{ totalPages() }}
-        </span>
-        <button (click)="loadPage(currentPage() + 1)" [disabled]="currentPage() === totalPages()"
-          class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-sm hover:border-blue-500 hover:text-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
-          Suivant
-          <span class="material-symbols-outlined text-base">arrow_forward</span>
-        </button>
       </div>
+    </div>
+    } @empty {
+
+    <div
+      class="py-20 text-center glass-panel rounded-3xl border border-dashed border-slate-200 dark:border-slate-800"
+    >
+      <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-800 mb-4"
+        >cloud_off</span
+      >
+      <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">
+        Aucune transmission active dans ce secteur.
+      </p>
+    </div>
     }
-  }
+  </div>
+
+  <!-- Pagination -->
+  @if (totalPages() > 1) {
+  <div class="flex items-center justify-center gap-3 mt-10">
+    <button
+      (click)="loadPage(currentPage() - 1)"
+      [disabled]="currentPage() === 1"
+      class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-sm hover:border-blue-500 hover:text-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+    >
+      <span class="material-symbols-outlined text-base">arrow_back</span>
+      Précédent
+    </button>
+    <span class="text-sm font-mono text-slate-500 dark:text-slate-400 px-3">
+      {{ currentPage() }} / {{ totalPages() }}
+    </span>
+    <button
+      (click)="loadPage(currentPage() + 1)"
+      [disabled]="currentPage() === totalPages()"
+      class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-sm hover:border-blue-500 hover:text-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+    >
+      Suivant
+      <span class="material-symbols-outlined text-base">arrow_forward</span>
+    </button>
+  </div>
+  } }
 </div>

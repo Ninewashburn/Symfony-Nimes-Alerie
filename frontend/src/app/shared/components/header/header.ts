@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   mobileMenuOpen = signal(false);
 
   toggleMobileMenu(): void {
-    this.mobileMenuOpen.update(v => !v);
+    this.mobileMenuOpen.update((v) => !v);
   }
 
   closeMobileMenu(): void {

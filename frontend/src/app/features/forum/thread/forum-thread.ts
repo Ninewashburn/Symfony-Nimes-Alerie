@@ -42,11 +42,13 @@ export class ForumThreadComponent implements OnInit {
   }
 
   loadPage(page: number): void {
-    this.forumService.getPosts(this.threadId, page, this.itemsPerPage).subscribe(({ items, total }) => {
-      this.posts.set(items);
-      this.totalItems.set(total);
-      this.currentPage.set(page);
-    });
+    this.forumService
+      .getPosts(this.threadId, page, this.itemsPerPage)
+      .subscribe(({ items, total }) => {
+        this.posts.set(items);
+        this.totalItems.set(total);
+        this.currentPage.set(page);
+      });
   }
 
   canEditPost(post: Post): boolean {
@@ -57,11 +59,11 @@ export class ForumThreadComponent implements OnInit {
   submitPost(): void {
     if (!this.newPostContent.trim()) return;
     this.forumService
-      .createPost({ content: this.newPostContent, thread: `/api/threads/${this.threadId}` as any })
+      .createPost({ content: this.newPostContent, thread: `/api/threads/${this.threadId}` })
       .subscribe((post) => {
         this.posts.set([...this.posts(), post]);
         this.newPostContent = '';
-        this.totalItems.update(n => n + 1);
+        this.totalItems.update((n) => n + 1);
       });
   }
 
@@ -93,7 +95,7 @@ export class ForumThreadComponent implements OnInit {
     if (!confirm('Supprimer ce message ?')) return;
     this.forumService.deletePost(id).subscribe(() => {
       this.posts.set(this.posts().filter((p) => p.id !== id));
-      this.totalItems.update(n => n - 1);
+      this.totalItems.update((n) => n - 1);
     });
   }
 

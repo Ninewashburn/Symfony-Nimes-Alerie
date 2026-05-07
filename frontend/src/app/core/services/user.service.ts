@@ -10,9 +10,7 @@ export class UserService {
   private apiUrl = `${environment.apiUrl}/users`;
 
   getAll(): Observable<User[]> {
-    return this.http
-      .get<ApiCollection<User>>(this.apiUrl)
-      .pipe(map((res) => res['hydra:member']));
+    return this.http.get<ApiCollection<User>>(this.apiUrl).pipe(map((res) => res['hydra:member']));
   }
 
   getById(id: number): Observable<User> {

@@ -8,6 +8,73 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+interface Point {
+  x: number;
+  y: number;
+}
+
+interface Bounds extends Point {
+  w: number;
+  h: number;
+}
+
+type ClipRect = Bounds;
+
+interface SpriteEntity {
+  img: HTMLImageElement;
+  position: Point;
+  bounds: Bounds;
+  clipRect?: ClipRect;
+  scale?: Point;
+}
+
+interface Bullet extends SpriteEntity {
+  direction: number;
+  speed: number;
+  alive: boolean;
+}
+
+interface Player extends SpriteEntity {
+  clipRect: ClipRect;
+  scale: Point;
+  lives: number;
+  xVel: number;
+  bullets: Bullet[];
+  bulletDelayAccumulator: number;
+  score: number;
+}
+
+interface Alien extends SpriteEntity {
+  clipRects: ClipRect[];
+  clipRect: ClipRect;
+  scale: Point;
+  alive: boolean;
+  onFirstState: boolean;
+  stepDelay: number;
+  stepAccumulator: number;
+  doShoot: boolean;
+  bullet: Bullet | null;
+}
+
+interface Particle {
+  x: number;
+  y: number;
+  xunits: number;
+  yunits: number;
+  life: number;
+  maxLife: number;
+  color: string;
+  width: number;
+  height: number;
+  gravity: number;
+  moves: number;
+}
+
+interface ParticleManager {
+  particlePool: Particle[];
+  particles: Particle[];
+}
+
 @Component({
   selector: 'app-bonus',
   standalone: true,
@@ -24,9 +91,9 @@ export class BonusComponent implements AfterViewInit, OnDestroy {
   private keyStates: boolean[] = [];
   private prevKeyStates: boolean[] = [];
   private lastTime = 0;
-  private player: any = null;
-  private aliens: any[] = [];
-  private particleManager: any = null;
+  private player!: Player;
+  private aliens: Alien[] = [];
+  private particleManager!: ParticleManager;
   private updateAlienLogic = false;
   private alienDirection = -1;
   private alienYDown = 0;
@@ -42,7 +109,7 @@ export class BonusComponent implements AfterViewInit, OnDestroy {
   private readonly SPRITE_SHEET_SRC =
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAEACAYAAAADRnAGAAACGUlEQVR42u3aSQ7CMBAEQIsn8P+/hiviAAK8zFIt5QbELiTHmfEYE3L9mZE9AAAAqAVwBQ8AAAD6THY5CgAAAKbfbPX3AQAAYBEEAADAuZrC6UUyfMEEAIBiAN8OePXnAQAAsLcmmKFPAQAAgHMbm+gbr3Sdo/LtcAAAANR6GywPAgBAM4D2JXAAABoBzBjA7AmlOx8AAEAzAOcDAADovTc4vQim6wUCABAYQG8QAADd4dPd2fRVYQAAANQG0B4HAABAawDnAwAA6AXgfAAAALpA2uMAAABwPgAAgPoAM9Ci/R4AAAD2dmqcEQIAIC/AiQGuAAYAAECcRS/a/cJXkUf2AAAAoBaA3iAAALrD+gIAAADY9baX/nwAAADNADwFAADo9YK0e5FMX/UFACA5QPSNEAAAAHKtCekmDAAAAADvBljtfgAAAGgMMGOrunvCy2uCAAAACFU6BwAAwF6AGQPa/XsAAADYB+B8AAAAtU+ItD4OAwAAAFVhAACaA0T7B44/BQAAANALwGMQAAAAADYO8If2+P31AgAAQN0SWbhFDwCAZlXgaO1xAAAA1FngnA8AACAeQPSNEAAAAM4CnC64AAAA4GzN4N9NSfgKEAAAAACszO26X8/X6BYAAAD0Anid8KcLAAAAAAAAAJBnwNEvAAAA9Jns1ygAAAAAAAAAAAAAAAAAAABAQ4COCENERERERERERBrnAa1sJuUVr3rsAAAAAElFTkSuQmCC';
 
-  private readonly PLAYER_CLIP_RECT = { x: 0, y: 204, w: 62, h: 32 };
+  private readonly PLAYER_CLIP_RECT: ClipRect = { x: 0, y: 204, w: 62, h: 32 };
   private readonly ALIEN_BOTTOM_ROW = [
     { x: 0, y: 0, w: 51, h: 34 },
     { x: 0, y: 102, w: 51, h: 34 },
@@ -184,7 +251,7 @@ export class BonusComponent implements AfterViewInit, OnDestroy {
     this.setupAlienFormation();
   }
 
-  private createPlayer(): any {
+  private createPlayer(): Player {
     return {
       img: this.spriteSheetImg,
       clipRect: { ...this.PLAYER_CLIP_RECT },
@@ -193,13 +260,13 @@ export class BonusComponent implements AfterViewInit, OnDestroy {
       bounds: { x: 0, y: 0, w: 0, h: 0 },
       lives: 3,
       xVel: 0,
-      bullets: [] as any[],
+      bullets: [],
       bulletDelayAccumulator: 0,
       score: 0,
     };
   }
 
-  private createBullet(x: number, y: number, direction: number, speed: number): any {
+  private createBullet(x: number, y: number, direction: number, speed: number): Bullet {
     return {
       img: this.bulletImg,
       position: { x, y },
@@ -210,7 +277,7 @@ export class BonusComponent implements AfterViewInit, OnDestroy {
     };
   }
 
-  private createEnemy(clipRects: any[], x: number, y: number): any {
+  private createEnemy(clipRects: ClipRect[], x: number, y: number): Alien {
     return {
       img: this.spriteSheetImg,
       clipRects,
@@ -223,12 +290,12 @@ export class BonusComponent implements AfterViewInit, OnDestroy {
       stepDelay: 1,
       stepAccumulator: 0,
       doShoot: false,
-      bullet: null as any,
+      bullet: null,
     };
   }
 
-  private createParticleManager(): any {
-    return { particlePool: [] as any[], particles: [] as any[] };
+  private createParticleManager(): ParticleManager {
+    return { particlePool: [], particles: [] };
   }
 
   private setupAlienFormation(): void {
@@ -264,10 +331,11 @@ export class BonusComponent implements AfterViewInit, OnDestroy {
     this.player.bullets = [];
   }
 
-  private updateBounds(entity: any): void {
+  private updateBounds(entity: SpriteEntity): void {
     if (entity.clipRect) {
-      const w = ~~(0.5 + entity.clipRect.w * entity.scale.x);
-      const h = ~~(0.5 + entity.clipRect.h * entity.scale.y);
+      const scale = entity.scale ?? { x: 1, y: 1 };
+      const w = ~~(0.5 + entity.clipRect.w * scale.x);
+      const h = ~~(0.5 + entity.clipRect.h * scale.y);
       entity.bounds = { x: entity.position.x - w / 2, y: entity.position.y - h / 2, w, h };
     } else {
       entity.bounds = {
@@ -279,7 +347,7 @@ export class BonusComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  private checkCollision(a: any, b: any): boolean {
+  private checkCollision(a: Bounds, b: Bounds): boolean {
     const xOverlap = (a.x >= b.x && a.x <= b.x + b.w) || (b.x >= a.x && b.x <= a.x + a.w);
     const yOverlap = (a.y >= b.y && a.y <= b.y + b.h) || (b.y >= a.y && b.y <= a.y + a.h);
     return xOverlap && yOverlap;

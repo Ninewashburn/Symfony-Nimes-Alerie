@@ -39,9 +39,9 @@ export class AdminContactsComponent implements OnInit {
   loadPage(page: number): void {
     this.loading.set(true);
     this.http
-      .get<ApiCollection<ContactMessage>>(
-        `${environment.apiUrl}/contact_messages?page=${page}&itemsPerPage=${this.itemsPerPage}&order[createdAt]=desc`,
-      )
+      .get<
+        ApiCollection<ContactMessage>
+      >(`${environment.apiUrl}/contact_messages?page=${page}&itemsPerPage=${this.itemsPerPage}&order[createdAt]=desc`)
       .subscribe({
         next: (res) => {
           this.messages.set(res['hydra:member']);

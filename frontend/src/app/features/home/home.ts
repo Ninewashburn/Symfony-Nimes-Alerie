@@ -17,13 +17,13 @@ export class HomeComponent implements OnInit {
   private cartService = inject(CartService);
 
   featuredProducts = signal<Product[]>([]);
-  
+
   /* HUD Simulation Data */
   activeTransmissions = signal(42);
   deliveriesInOrbit = signal(12);
   systemStatus = signal('STABLE');
   currentTime = signal(new Date());
-  
+
   // Verification signal
   hudSync = signal(false);
 
@@ -35,10 +35,10 @@ export class HomeComponent implements OnInit {
 
     // Simulate HUD activity & Clock 1s
     setInterval(() => {
-      this.activeTransmissions.update(v => v + (Math.random() > 0.5 ? 1 : -1));
-      this.deliveriesInOrbit.update(v => v + (Math.random() > 0.8 ? 1 : -1));
+      this.activeTransmissions.update((v) => v + (Math.random() > 0.5 ? 1 : -1));
+      this.deliveriesInOrbit.update((v) => v + (Math.random() > 0.8 ? 1 : -1));
       this.currentTime.set(new Date());
-      this.hudSync.update(v => !v);
+      this.hudSync.update((v) => !v);
     }, 1000);
   }
 

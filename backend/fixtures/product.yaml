@@ -7,7 +7,7 @@ App\Entity\Product:
     quantity: 25
     brand: '@brand_provence'
     category: ['@cat_textile']
-    cover: 'assets/products/chale-soie.png'
+    cover: '/products/chale-soie.png'
 
   product_huile:
     title: Huile d'olive AOP Nîmes
@@ -17,7 +17,7 @@ App\Entity\Product:
     quantity: 50
     brand: '@brand_occitane'
     category: ['@cat_gastronomie']
-    cover: 'assets/products/huile-olive.png'
+    cover: '/products/huile-olive.png'
 
   product_savon:
     title: Savon de Marseille lavande
@@ -27,7 +27,7 @@ App\Entity\Product:
     quantity: 100
     brand: '@brand_provence'
     category: ['@cat_cosmetique']
-    cover: 'assets/products/savon-marseille.png'
+    cover: '/products/savon-marseille.png'
 
   product_taureau:
     title: Figurine taureau camarguais
@@ -37,7 +37,7 @@ App\Entity\Product:
     quantity: 15
     brand: '@brand_camargue'
     category: ['@cat_decoration', '@cat_souvenir']
-    cover: 'assets/products/chale-soie.png'
+    cover: '/products/taureau-camarguais.png'
 
   product_brandade:
     title: Brandade de Nîmes
@@ -47,7 +47,7 @@ App\Entity\Product:
     quantity: 40
     brand: '@brand_nimes'
     category: ['@cat_gastronomie']
-    cover: 'assets/products/huile-olive.png'
+    cover: '/products/brandade-nimes.png'
 
   product_miel:
     title: Miel des Cévennes
@@ -57,7 +57,7 @@ App\Entity\Product:
     quantity: 35
     brand: '@brand_cevenol'
     category: ['@cat_gastronomie']
-    cover: 'assets/products/huile-olive.png'
+    cover: '/products/miel-cevennes.png'
 
   product_tshirt:
     title: T-shirt Arènes de Nîmes
@@ -67,7 +67,7 @@ App\Entity\Product:
     quantity: 60
     brand: '@brand_nimes'
     category: ['@cat_textile', '@cat_souvenir']
-    cover: 'assets/products/chale-soie.png'
+    cover: '/products/tshirt-arenes.png'
 
   product_carnet:
     title: Carnet Pont du Gard
@@ -77,7 +77,7 @@ App\Entity\Product:
     quantity: 45
     brand: '@brand_gardoise'
     category: ['@cat_souvenir']
-    cover: 'assets/products/chale-soie.png'
+    cover: '/products/carnet-pont-gard.png'
 
   product_livre:
     title: Nîmes, 2000 ans d'histoire
@@ -87,7 +87,7 @@ App\Entity\Product:
     quantity: 20
     brand: '@brand_nimes'
     category: ['@cat_livre']
-    cover: 'assets/products/chale-soie.png'
+    cover: '/products/livre-nimes-histoire.png'
 
   product_vin:
     title: Costières de Nîmes rouge
@@ -97,7 +97,7 @@ App\Entity\Product:
     quantity: 30
     brand: '@brand_gardoise'
     category: ['@cat_gastronomie']
-    cover: 'assets/products/huile-olive.png'
+    cover: '/products/costieres-nimes-rouge.png'
 
   product_parfum:
     title: Eau de toilette Garrigue
@@ -107,7 +107,7 @@ App\Entity\Product:
     quantity: 18
     brand: '@brand_provence'
     category: ['@cat_cosmetique']
-    cover: 'assets/products/savon-marseille.png'
+    cover: '/products/parfum-garrigue.png'
 
   product_magnet:
     title: Lot magnets Nîmes
@@ -117,4 +117,4 @@ App\Entity\Product:
     quantity: 80
     brand: '@brand_nimes'
     category: ['@cat_souvenir']
-    cover: 'assets/products/chale-soie.png'
+    cover: '/products/magnets-nimes.png'

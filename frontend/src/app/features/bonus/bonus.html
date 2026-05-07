@@ -1,32 +1,56 @@
-<div class="fixed inset-0 z-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_center,_#1e293b_0%,_#020617_100%)]"></div>
+<div
+  class="fixed inset-0 z-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_center,_#1e293b_0%,_#020617_100%)]"
+></div>
 
 <main class="relative z-10 min-h-screen pt-20 pb-16 px-6 flex flex-col items-center justify-center">
   <!-- Tactical Header -->
-  <div class="w-full max-w-6xl mb-8 flex flex-col md:flex-row justify-between items-end border-b border-blue-500/20 pb-6">
+  <div
+    class="w-full max-w-6xl mb-8 flex flex-col md:flex-row justify-between items-end border-b border-blue-500/20 pb-6"
+  >
     <div>
       <div class="flex items-center gap-4 mb-2">
-        <a routerLink="/" class="text-blue-500 hover:text-fuchsia-500 transition-colors flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest">
+        <a
+          routerLink="/"
+          class="text-blue-500 hover:text-fuchsia-500 transition-colors flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest"
+        >
           <span class="material-symbols-outlined text-sm">arrow_back</span> Retour_Base
         </a>
         <div class="h-1 w-1 bg-blue-500 rounded-full"></div>
-        <span class="font-mono text-[10px] text-fuchsia-500 animate-pulse uppercase tracking-[0.2em]">Live_Training_Active</span>
+        <span
+          class="font-mono text-[10px] text-fuchsia-500 animate-pulse uppercase tracking-[0.2em]"
+          >Live_Training_Active</span
+        >
       </div>
-      <h1 class="text-3xl md:text-5xl font-black font-headline tracking-tighter text-slate-900 dark:text-white uppercase">
+      <h1
+        class="text-3xl md:text-5xl font-black font-headline tracking-tighter text-slate-900 dark:text-white uppercase"
+      >
         PROTOCOLE <span class="text-blue-600 dark:text-blue-400">X-INVADERS</span>_V4
       </h1>
-      <p class="font-mono text-[10px] text-slate-500 dark:text-blue-400/60 uppercase mt-2 tracking-[0.3em]">Module d'Entraînement Tactique // Pilot: Operator-01</p>
+      <p
+        class="font-mono text-[10px] text-slate-500 dark:text-blue-400/60 uppercase mt-2 tracking-[0.3em]"
+      >
+        Module d'Entraînement Tactique // Pilot: Operator-01
+      </p>
     </div>
-    
+
     <div class="hidden lg:flex gap-8 mt-4 md:mt-0">
       <div class="text-right">
-        <div class="text-[8px] font-mono text-fuchsia-500 font-black uppercase tracking-widest">System Integrity</div>
-        <div class="h-1.5 w-40 bg-slate-200 dark:bg-gray-800 rounded-full mt-2 overflow-hidden border border-slate-300 dark:border-white/5">
+        <div class="text-[8px] font-mono text-fuchsia-500 font-black uppercase tracking-widest">
+          System Integrity
+        </div>
+        <div
+          class="h-1.5 w-40 bg-slate-200 dark:bg-gray-800 rounded-full mt-2 overflow-hidden border border-slate-300 dark:border-white/5"
+        >
           <div class="h-full w-[88%] bg-fuchsia-500 shadow-[0_0_15px_rgba(217,70,239,0.6)]"></div>
         </div>
       </div>
       <div class="text-right">
-        <div class="text-[8px] font-mono text-blue-500 font-black uppercase tracking-widest">Comms Link</div>
-        <div class="h-1.5 w-40 bg-slate-200 dark:bg-gray-800 rounded-full mt-2 overflow-hidden border border-slate-300 dark:border-white/5">
+        <div class="text-[8px] font-mono text-blue-500 font-black uppercase tracking-widest">
+          Comms Link
+        </div>
+        <div
+          class="h-1.5 w-40 bg-slate-200 dark:bg-gray-800 rounded-full mt-2 overflow-hidden border border-slate-300 dark:border-white/5"
+        >
           <div class="h-full w-[94%] bg-blue-500 shadow-[0_0_15px_rgba(0,82,255,0.6)]"></div>
         </div>
       </div>
@@ -36,25 +60,53 @@
   <div class="grid grid-cols-12 gap-8 w-full max-w-6xl">
     <!-- Left Side Controls -->
     <div class="col-span-12 lg:col-span-3 space-y-6">
-      <div class="glass-panel dark:bg-blue-950/20 p-6 rounded-2xl border border-blue-500/30 backdrop-blur-xl">
-        <h3 class="font-mono text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase mb-6 tracking-widest border-b border-blue-500/10 pb-2">Simulator_Stats</h3>
+      <div
+        class="glass-panel dark:bg-blue-950/20 p-6 rounded-2xl border border-blue-500/30 backdrop-blur-xl"
+      >
+        <h3
+          class="font-mono text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase mb-6 tracking-widest border-b border-blue-500/10 pb-2"
+        >
+          Simulator_Stats
+        </h3>
         <div class="space-y-6">
           <div class="group">
-            <div class="text-[8px] text-slate-400 uppercase tracking-widest mb-1">Session_Score</div>
-            <div class="text-3xl font-mono font-black text-fuchsia-500 dark:text-fuchsia-400 tabular-nums">000000000</div>
+            <div class="text-[8px] text-slate-400 uppercase tracking-widest mb-1">
+              Session_Score
+            </div>
+            <div
+              class="text-3xl font-mono font-black text-fuchsia-500 dark:text-fuchsia-400 tabular-nums"
+            >
+              000000000
+            </div>
             <div class="text-[8px] text-fuchsia-500/50 font-mono mt-1">+0 PTS_GAIN</div>
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <div class="text-[8px] text-slate-400 uppercase tracking-widest mb-1">Target_Wave</div>
+              <div class="text-[8px] text-slate-400 uppercase tracking-widest mb-1">
+                Target_Wave
+              </div>
               <div class="text-xl font-mono font-black text-blue-600 dark:text-blue-400">01</div>
             </div>
             <div>
-              <div class="text-[8px] text-slate-400 uppercase tracking-widest mb-1">Defense_Units</div>
+              <div class="text-[8px] text-slate-400 uppercase tracking-widest mb-1">
+                Defense_Units
+              </div>
               <div class="flex gap-2 mt-1">
-                <span class="material-symbols-outlined text-fuchsia-500 text-lg" style="font-variation-settings: 'FILL' 1;">rocket</span>
-                <span class="material-symbols-outlined text-fuchsia-500 text-lg" style="font-variation-settings: 'FILL' 1;">rocket</span>
-                <span class="material-symbols-outlined text-fuchsia-500 text-lg" style="font-variation-settings: 'FILL' 1;">rocket</span>
+                <span
+                  class="material-symbols-outlined text-fuchsia-500 text-lg"
+                  style="font-variation-settings: 'FILL' 1"
+                  >rocket</span
+                >
+                <span
+                  class="material-symbols-outlined text-fuchsia-500 text-lg"
+                  style="font-variation-settings: 'FILL' 1"
+                  >rocket</span
+                >
+                <span
+                  class="material-symbols-outlined text-fuchsia-500 text-lg"
+                  style="font-variation-settings: 'FILL' 1"
+                  >rocket</span
+                >
               </div>
             </div>
           </div>
@@ -62,21 +114,49 @@
       </div>
 
       <div class="glass-panel dark:bg-slate-900/50 p-6 rounded-2xl border border-blue-500/10">
-        <h3 class="font-mono text-[10px] font-black text-slate-500 uppercase mb-4 tracking-widest">Operator-01_Mapping</h3>
+        <h3 class="font-mono text-[10px] font-black text-slate-500 uppercase mb-4 tracking-widest">
+          Operator-01_Mapping
+        </h3>
         <div class="space-y-4">
-          <div class="flex items-center justify-between p-3 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 group">
+          <div
+            class="flex items-center justify-between p-3 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 group"
+          >
             <div class="flex gap-1">
-              <div class="w-8 h-8 rounded border border-blue-500/30 dark:border-blue-500/50 flex items-center justify-center font-mono text-xs text-blue-600 dark:text-blue-400 shadow-inner group-hover:bg-blue-500 group-hover:text-white transition-all cursor-default">←</div>
-              <div class="w-8 h-8 rounded border border-blue-500/30 dark:border-blue-500/50 flex items-center justify-center font-mono text-xs text-blue-600 dark:text-blue-400 shadow-inner group-hover:bg-blue-500 group-hover:text-white transition-all cursor-default">→</div>
+              <div
+                class="w-8 h-8 rounded border border-blue-500/30 dark:border-blue-500/50 flex items-center justify-center font-mono text-xs text-blue-600 dark:text-blue-400 shadow-inner group-hover:bg-blue-500 group-hover:text-white transition-all cursor-default"
+              >
+                ←
+              </div>
+              <div
+                class="w-8 h-8 rounded border border-blue-500/30 dark:border-blue-500/50 flex items-center justify-center font-mono text-xs text-blue-600 dark:text-blue-400 shadow-inner group-hover:bg-blue-500 group-hover:text-white transition-all cursor-default"
+              >
+                →
+              </div>
             </div>
-            <span class="font-mono text-[8px] text-slate-400 uppercase tracking-tighter">Lat_Thrust</span>
+            <span class="font-mono text-[8px] text-slate-400 uppercase tracking-tighter"
+              >Lat_Thrust</span
+            >
           </div>
-          <div class="flex items-center justify-between p-3 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 group">
-            <div class="w-20 h-8 rounded border border-fuchsia-500/30 flex items-center justify-center font-mono text-[10px] text-fuchsia-600 dark:text-fuchsia-400 uppercase group-hover:bg-fuchsia-500 group-hover:text-white transition-all cursor-default">X_KEY</div>
-            <span class="font-mono text-[8px] text-slate-400 uppercase tracking-tighter">Plasma_Burst</span>
+          <div
+            class="flex items-center justify-between p-3 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 group"
+          >
+            <div
+              class="w-20 h-8 rounded border border-fuchsia-500/30 flex items-center justify-center font-mono text-[10px] text-fuchsia-600 dark:text-fuchsia-400 uppercase group-hover:bg-fuchsia-500 group-hover:text-white transition-all cursor-default"
+            >
+              X_KEY
+            </div>
+            <span class="font-mono text-[8px] text-slate-400 uppercase tracking-tighter"
+              >Plasma_Burst</span
+            >
           </div>
-          <div class="flex items-center justify-between p-3 bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-500/20 group">
-            <div class="w-20 h-8 rounded border border-white/30 flex items-center justify-center font-mono text-[10px] uppercase">ENTER</div>
+          <div
+            class="flex items-center justify-between p-3 bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-500/20 group"
+          >
+            <div
+              class="w-20 h-8 rounded border border-white/30 flex items-center justify-center font-mono text-[10px] uppercase"
+            >
+              ENTER
+            </div>
             <span class="font-mono text-[8px] uppercase tracking-tighter">Initiate</span>
           </div>
         </div>
@@ -87,23 +167,40 @@
     <div class="col-span-12 lg:col-span-6 flex flex-col items-center">
       <div class="relative w-full max-w-[640px] group">
         <!-- Cockpit Screen Frame -->
-        <div class="absolute -inset-6 bg-gradient-to-b from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-950 border-4 border-slate-300 dark:border-slate-800 rounded-[2.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] z-0"></div>
+        <div
+          class="absolute -inset-6 bg-gradient-to-b from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-950 border-4 border-slate-300 dark:border-slate-800 rounded-[2.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] z-0"
+        ></div>
         <div class="absolute -inset-2 bg-black rounded-3xl border-2 border-blue-500/20 z-0"></div>
-        
+
         <!-- CRT Monitor Effect Wrapper -->
-        <div class="relative z-10 aspect-square w-full rounded-2xl overflow-hidden border-4 border-blue-900 shadow-[inset_0_0_60px_rgba(0,0,0,1)] ring-1 ring-blue-500/50">
-          <canvas #gameCanvas 
-            class="w-full h-full block bg-black" 
-            width="640" height="640">
+        <div
+          class="relative z-10 aspect-square w-full rounded-2xl overflow-hidden border-4 border-blue-900 shadow-[inset_0_0_60px_rgba(0,0,0,1)] ring-1 ring-blue-500/50"
+        >
+          <canvas #gameCanvas class="w-full h-full block bg-black" width="640" height="640">
           </canvas>
-          
+
           <!-- SCANLINES & CRT OVERLAY -->
-          <div class="absolute inset-0 pointer-events-none opacity-20" 
-            style="background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 3px 100%;">
-          </div>
-          
+          <div
+            class="absolute inset-0 pointer-events-none opacity-20"
+            style="
+              background:
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(
+                  90deg,
+                  rgba(255, 0, 0, 0.06),
+                  rgba(0, 255, 0, 0.02),
+                  rgba(0, 0, 255, 0.06)
+                );
+              background-size:
+                100% 4px,
+                3px 100%;
+            "
+          ></div>
+
           <!-- HUD Overlays -->
-          <div class="absolute top-4 left-6 font-mono text-[9px] text-emerald-500 font-black tracking-widest opacity-80 animate-pulse">
+          <div
+            class="absolute top-4 left-6 font-mono text-[9px] text-emerald-500 font-black tracking-widest opacity-80 animate-pulse"
+          >
             REC [●] SIMULATION_IN_PROGRESS
           </div>
           <div class="absolute bottom-4 right-6 font-mono text-[9px] text-blue-500 opacity-60">
@@ -113,41 +210,69 @@
       </div>
 
       <!-- Physical Cockpit Controls Under Screen -->
-      <div class="mt-12 flex justify-center gap-16 z-20 relative opacity-80 grayscale hover:grayscale-0 transition-all">
+      <div
+        class="mt-12 flex justify-center gap-16 z-20 relative opacity-80 grayscale hover:grayscale-0 transition-all"
+      >
         <div class="flex gap-6">
-          <div class="w-12 h-12 rounded-full border-4 border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 flex items-center justify-center shadow-lg transform rotate-45">
+          <div
+            class="w-12 h-12 rounded-full border-4 border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 flex items-center justify-center shadow-lg transform rotate-45"
+          >
             <div class="w-8 h-1.5 bg-slate-400 dark:bg-slate-600 rounded-full"></div>
           </div>
-          <div class="w-12 h-12 rounded-full border-4 border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 flex items-center justify-center shadow-lg transform -rotate-12">
-            <div class="w-8 h-1.5 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+          <div
+            class="w-12 h-12 rounded-full border-4 border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 flex items-center justify-center shadow-lg transform -rotate-12"
+          >
+            <div
+              class="w-8 h-1.5 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+            ></div>
           </div>
         </div>
         <div class="flex gap-4">
-          <div class="w-8 h-8 rounded-lg bg-red-600 border-2 border-red-400/50 shadow-[0_0_15px_rgba(220,38,38,0.5)]"></div>
-          <div class="w-8 h-8 rounded-lg bg-blue-600 border-2 border-blue-400/50 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
-          <div class="w-8 h-8 rounded-lg bg-fuchsia-600 border-2 border-fuchsia-400/50 shadow-[0_0_15px_rgba(192,38,211,0.5)]"></div>
+          <div
+            class="w-8 h-8 rounded-lg bg-red-600 border-2 border-red-400/50 shadow-[0_0_15px_rgba(220,38,38,0.5)]"
+          ></div>
+          <div
+            class="w-8 h-8 rounded-lg bg-blue-600 border-2 border-blue-400/50 shadow-[0_0_15px_rgba(37,99,235,0.5)]"
+          ></div>
+          <div
+            class="w-8 h-8 rounded-lg bg-fuchsia-600 border-2 border-fuchsia-400/50 shadow-[0_0_15px_rgba(192,38,211,0.5)]"
+          ></div>
         </div>
       </div>
     </div>
 
     <!-- Right Side Archives & History -->
     <div class="col-span-12 lg:col-span-3 space-y-6">
-      <div class="glass-panel dark:bg-blue-950/20 p-6 rounded-2xl border border-blue-500/10 h-full flex flex-col">
-        <h3 class="font-mono text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase mb-4 tracking-widest border-b border-blue-500/10 pb-2 flex items-center gap-2">
+      <div
+        class="glass-panel dark:bg-blue-950/20 p-6 rounded-2xl border border-blue-500/10 h-full flex flex-col"
+      >
+        <h3
+          class="font-mono text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase mb-4 tracking-widest border-b border-blue-500/10 pb-2 flex items-center gap-2"
+        >
           <span class="material-symbols-outlined text-sm">history_edu</span> Archives_Module
         </h3>
-        
+
         <div class="flex-grow overflow-y-auto pr-2 custom-scrollbar">
           <div class="space-y-6">
             <div class="group/archive">
-              <h4 class="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2 group-hover/archive:text-blue-500 transition-colors">Le saviez-vous ?</h4>
-              <p class="text-[11px] leading-relaxed text-slate-500 dark:text-blue-100/60 font-medium">
-                <span class="text-blue-500 font-bold">Space Invaders</span> est un archetype du shoot'em up sorti en 1978. Il aurait entraîné une pénurie de pièces de 100 yens au Japon !
+              <h4
+                class="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider mb-2 group-hover/archive:text-blue-500 transition-colors"
+              >
+                Le saviez-vous ?
+              </h4>
+              <p
+                class="text-[11px] leading-relaxed text-slate-500 dark:text-blue-100/60 font-medium"
+              >
+                <span class="text-blue-500 font-bold">Space Invaders</span> est un archetype du
+                shoot'em up sorti en 1978. Il aurait entraîné une pénurie de pièces de 100 yens au
+                Japon !
               </p>
             </div>
-            
+
             <div class="p-4 bg-fuchsia-500/5 rounded-xl border border-fuchsia-500/10">
-              <h4 class="text-[10px] font-black text-fuchsia-500 uppercase tracking-wider mb-2">Tactical_Briefing</h4>
+              <h4 class="text-[10px] font-black text-fuchsia-500 uppercase tracking-wider mb-2">
+                Tactical_Briefing
+              </h4>
               <ul class="space-y-2 font-mono text-[9px] text-fuchsia-500/70">
                 <li class="flex items-start gap-2">
                   <span class="text-fuchsia-500">▶</span>
@@ -166,7 +291,9 @@
           <p class="text-[8px] font-mono text-slate-400 uppercase tracking-widest">
             Powered by <span class="text-blue-500 font-black">Renaud aka 'Washburn'</span>
           </p>
-          <p class="text-[7px] font-mono text-slate-500 uppercase mt-1">LA NÎMES'ALERIE TACTICAL SYSTEMS © 2124</p>
+          <p class="text-[7px] font-mono text-slate-500 uppercase mt-1">
+            LA NÎMES'ALERIE TACTICAL SYSTEMS © 2124
+          </p>
         </div>
       </div>
     </div>

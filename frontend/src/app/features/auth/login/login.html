@@ -1,11 +1,20 @@
 <div class="fixed inset-0 z-0 pointer-events-none">
-  <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950 z-10"></div>
-  <img alt="Galactic Vista" class="w-full h-full object-cover scale-110 opacity-60" 
-    src="assets/images/stitch/login-bg.jpg"/>
-  
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950 z-10"
+  ></div>
+  <img
+    alt="Galactic Vista"
+    class="w-full h-full object-cover scale-110 opacity-60"
+    src="/images/stitch/login-bg.jpg"
+  />
+
   <!-- Technical HUD Overlays -->
-  <div class="absolute inset-0 z-20 pointer-events-none flex flex-col justify-between p-6 opacity-40">
-    <div class="flex justify-between items-start font-mono text-[10px] tracking-widest text-[#0052FF]">
+  <div
+    class="absolute inset-0 z-20 pointer-events-none flex flex-col justify-between p-6 opacity-40"
+  >
+    <div
+      class="flex justify-between items-start font-mono text-[10px] tracking-widest text-[#0052FF]"
+    >
       <div class="space-y-1">
         <p>SECTOR_42_OMEGA</p>
         <p>COORD: 45.8912N / 6.1293E</p>
@@ -17,7 +26,9 @@
         <p>OXYGEN: 98%</p>
       </div>
     </div>
-    <div class="flex justify-between items-end font-mono text-[10px] tracking-widest text-[#0052FF]">
+    <div
+      class="flex justify-between items-end font-mono text-[10px] tracking-widest text-[#0052FF]"
+    >
       <div>SYNCING_WITH_MARS_RELAY...</div>
       <div>2124 © LA NÎMES'ALERIE GALACTIQUE</div>
     </div>
@@ -25,25 +36,40 @@
 </div>
 
 <main class="relative z-30 min-h-[80vh] w-full flex items-center justify-center p-6">
-  <div class="max-w-md w-full glass-panel dark:bg-slate-900/40 rounded-2xl overflow-hidden relative group border border-blue-500/30 shadow-[0_0_40px_rgba(0,82,255,0.15)] backdrop-blur-2xl">
-    
+  <div
+    class="max-w-md w-full glass-panel dark:bg-slate-900/40 rounded-2xl overflow-hidden relative group border border-blue-500/30 shadow-[0_0_40px_rgba(0,82,255,0.15)] backdrop-blur-2xl"
+  >
     <!-- Subtle scanning line effect -->
     <div class="absolute inset-x-0 top-0 h-0.5 bg-blue-500/20 pointer-events-none opacity-20"></div>
 
     <div class="p-8 space-y-8">
       <!-- Branding & Title -->
       <div class="text-center space-y-2">
-        <div class="inline-flex items-center justify-center p-4 rounded-full bg-blue-600/10 mb-2 border border-blue-500/20">
-          <span class="material-symbols-outlined text-blue-500 text-3xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+        <div
+          class="inline-flex items-center justify-center p-4 rounded-full bg-blue-600/10 mb-2 border border-blue-500/20"
+        >
+          <span
+            class="material-symbols-outlined text-blue-500 text-3xl"
+            style="font-variation-settings: 'FILL' 1"
+            >rocket_launch</span
+          >
         </div>
-        <h1 class="font-headline font-black text-2xl uppercase tracking-tighter text-slate-900 dark:text-white">Identification de l'Officier</h1>
-        <p class="font-mono text-[10px] text-blue-600 dark:text-blue-400 tracking-widest">CLEARANCE_LEVEL: DELTA_AUTHORIZED_ONLY</p>
+        <h1
+          class="font-headline font-black text-2xl uppercase tracking-tighter text-slate-900 dark:text-white"
+        >
+          Identification de l'Officier
+        </h1>
+        <p class="font-mono text-[10px] text-blue-600 dark:text-blue-400 tracking-widest">
+          CLEARANCE_LEVEL: DELTA_AUTHORIZED_ONLY
+        </p>
       </div>
 
       @if (error()) {
-        <div class="bg-red-500/10 border border-red-500/50 text-red-600 dark:text-red-400 p-4 rounded-xl text-[10px] font-mono tracking-wider animate-in fade-in slide-in-from-top-1 transition-all">
-          // ERROR: {{ error() }}
-        </div>
+      <div
+        class="bg-red-500/10 border border-red-500/50 text-red-600 dark:text-red-400 p-4 rounded-xl text-[10px] font-mono tracking-wider animate-in fade-in slide-in-from-top-1 transition-all"
+      >
+        // ERROR: {{ error() }}
+      </div>
       }
 
       <!-- Login Form -->
@@ -51,25 +77,46 @@
         <div class="space-y-4">
           <!-- Email Input -->
           <div class="space-y-1.5">
-            <label class="block font-mono text-[10px] font-bold text-blue-600 dark:text-blue-400 tracking-widest uppercase ml-1">ENTRY_IDENTIFIER</label>
+            <label
+              class="block font-mono text-[10px] font-bold text-blue-600 dark:text-blue-400 tracking-widest uppercase ml-1"
+              >ENTRY_IDENTIFIER</label
+            >
             <div class="relative">
-              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">alternate_email</span>
-              <input 
-                [(ngModel)]="email" name="email" required type="email"
-                class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/30 rounded-xl py-4 pl-12 pr-4 text-sm font-mono text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all outline-none" 
-                placeholder="officer@galactic.navy" />
+              <span
+                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"
+                >alternate_email</span
+              >
+              <input
+                [(ngModel)]="email"
+                name="email"
+                required
+                type="email"
+                class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/30 rounded-xl py-4 pl-12 pr-4 text-sm font-mono text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all outline-none"
+                placeholder="officer@galactic.navy"
+              />
             </div>
           </div>
-          
+
           <!-- Password Input -->
           <div class="space-y-1.5">
-            <label class="block font-mono text-[10px] font-bold text-blue-600 dark:text-blue-400 tracking-widest uppercase ml-1">SECURITY_KEY</label>
+            <label
+              class="block font-mono text-[10px] font-bold text-blue-600 dark:text-blue-400 tracking-widest uppercase ml-1"
+              >SECURITY_KEY</label
+            >
             <div class="relative">
-              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">lock</span>
-              <input 
-                [(ngModel)]="password" name="password" required type="password"
-                class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/30 rounded-xl py-4 pl-12 pr-4 text-sm font-mono text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all outline-none" 
-                placeholder="••••••••••••" />
+              <span
+                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"
+                >lock</span
+              >
+              <input
+                [(ngModel)]="password"
+                name="password"
+                required
+                type="password"
+                autocomplete="current-password"
+                class="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-blue-500/30 rounded-xl py-4 pl-12 pr-4 text-sm font-mono text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all outline-none"
+                placeholder="••••••••••••"
+              />
             </div>
           </div>
         </div>
@@ -77,7 +124,9 @@
         <!-- Security Metrics HUD -->
         <div class="grid grid-cols-2 gap-4 py-2">
           <div class="bg-blue-600/5 p-3 rounded-xl border border-blue-500/10 space-y-2">
-            <div class="flex justify-between items-center text-[8px] font-mono text-blue-600 dark:text-blue-400 font-black tracking-widest">
+            <div
+              class="flex justify-between items-center text-[8px] font-mono text-blue-600 dark:text-blue-400 font-black tracking-widest"
+            >
               <span>ENCRYPTION</span>
               <span>100%</span>
             </div>
@@ -86,7 +135,9 @@
             </div>
           </div>
           <div class="bg-blue-600/5 p-3 rounded-xl border border-blue-500/10 space-y-2">
-            <div class="flex justify-between items-center text-[8px] font-mono text-blue-600 dark:text-blue-400 font-black tracking-widest">
+            <div
+              class="flex justify-between items-center text-[8px] font-mono text-blue-600 dark:text-blue-400 font-black tracking-widest"
+            >
               <span>THREAT_LVL</span>
               <span>NULL</span>
             </div>
@@ -99,28 +150,41 @@
         <!-- Actions -->
         <div class="space-y-6">
           <div class="flex items-center gap-4">
-            <button 
-              type="submit" [disabled]="loading()"
-              class="flex-1 bg-slate-900 dark:bg-blue-600 text-white font-headline font-bold py-4 rounded-full uppercase tracking-[0.2em] text-xs transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-xl hover:shadow-blue-500/20 flex items-center justify-center gap-3 disabled:opacity-50">
+            <button
+              type="submit"
+              [disabled]="loading()"
+              class="flex-1 bg-slate-900 dark:bg-blue-600 text-white font-headline font-bold py-4 rounded-full uppercase tracking-[0.2em] text-xs transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-xl hover:shadow-blue-500/20 flex items-center justify-center gap-3 disabled:opacity-50"
+            >
               @if (loading()) {
-                <span class="material-symbols-outlined animate-spin">sync</span>
-                <span>INIT_SEQUENCE...</span>
+              <span class="material-symbols-outlined animate-spin">sync</span>
+              <span>INIT_SEQUENCE...</span>
               } @else {
-                <span>Initier la Session</span>
-                <span class="material-symbols-outlined text-sm">login</span>
+              <span>Initier la Session</span>
+              <span class="material-symbols-outlined text-sm">login</span>
               }
             </button>
             <!-- Fingerprint Scanner Visual -->
-            <div class="w-14 h-14 rounded-2xl border border-blue-500/30 flex items-center justify-center bg-blue-600/5 cursor-pointer hover:bg-blue-600/10 transition-colors group/finger">
-              <span class="material-symbols-outlined text-blue-500 text-2xl group-hover:scale-110 transition-transform">fingerprint</span>
+            <div
+              class="w-14 h-14 rounded-2xl border border-blue-500/30 flex items-center justify-center bg-blue-600/5 cursor-pointer hover:bg-blue-600/10 transition-colors group/finger"
+            >
+              <span
+                class="material-symbols-outlined text-blue-500 text-2xl group-hover:scale-110 transition-transform"
+                >fingerprint</span
+              >
             </div>
           </div>
-          
+
           <div class="flex flex-col gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
-            <a routerLink="/forgot-password" class="text-center font-mono text-[9px] uppercase tracking-tighter text-slate-400 hover:text-blue-600 transition-colors">
+            <a
+              routerLink="/forgot-password"
+              class="text-center font-mono text-[9px] uppercase tracking-tighter text-slate-400 hover:text-blue-600 transition-colors"
+            >
               // RÉCUPÉRER_CLÉ_DE_SÉCURITÉ_OUBLIÉE
             </a>
-            <a routerLink="/register" class="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-black hover:underline underline-offset-8 decoration-blue-500/50 transition-all">
+            <a
+              routerLink="/register"
+              class="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-black hover:underline underline-offset-8 decoration-blue-500/50 transition-all"
+            >
               &gt; CRÉER UNE NOUVELLE ACCRÉDITATION
             </a>
           </div>
@@ -129,12 +193,23 @@
     </div>
 
     <!-- Bottom system status bar -->
-    <div class="bg-blue-600/10 dark:bg-blue-900/40 px-8 py-3 border-t border-blue-500/20 flex justify-between items-center">
+    <div
+      class="bg-blue-600/10 dark:bg-blue-900/40 px-8 py-3 border-t border-blue-500/20 flex justify-between items-center"
+    >
       <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
-        <span class="font-mono text-[8px] text-emerald-600 dark:text-emerald-400 font-black uppercase tracking-widest">Systèmes Operationnels</span>
+        <span
+          class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"
+        ></span>
+        <span
+          class="font-mono text-[8px] text-emerald-600 dark:text-emerald-400 font-black uppercase tracking-widest"
+          >Systèmes Operationnels</span
+        >
       </div>
-      <div class="font-mono text-[8px] text-blue-600 dark:text-blue-400/60 uppercase tracking-tighter">Protocol: AES-1024-GCM</div>
+      <div
+        class="font-mono text-[8px] text-blue-600 dark:text-blue-400/60 uppercase tracking-tighter"
+      >
+        Protocol: AES-1024-GCM
+      </div>
     </div>
   </div>
 </main>
