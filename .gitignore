@@ -41,8 +41,5 @@ compose.override.yaml
 node_modules
 
 ###> Custom Tools & Temp ###
-.gemini/
 .claude/
-tmp/
-frontend/stitch_*.html
 ###< Custom Tools & Temp ###
